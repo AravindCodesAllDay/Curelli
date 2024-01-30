@@ -22,7 +22,7 @@ export default function Posters() {
                 taste buds but also nurture your well-being.
               </p>
             </div>
-            <div className="flex items-center justify-center gap-4 p-2 md:p-4 rounded-full border border-solid border-[#40773b]">
+            <div className="flex items-center justify-center gap-4 p-2 md:p-4 rounded border border-solid border-[#40773b]">
               <div className="text-[#40773b] text-lg font-normal">More</div>
             </div>
           </div>
