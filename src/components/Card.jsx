@@ -1,6 +1,40 @@
 import React from "react";
+import img from "../assets/plant.png";
 
 export default function Card() {
+  const Carddetails = [
+    {
+      photo: "",
+      name: "",
+      price: "",
+    },
+    {
+      photo: "",
+      name: "",
+      price: "",
+    },
+    {
+      photo: "",
+      name: "",
+      price: "",
+    },
+    {
+      photo: "",
+      name: "",
+      price: "",
+    },
+    {
+      photo: "",
+      name: "",
+      price: "",
+    },
+    {
+      photo: "",
+      name: "",
+      price: "",
+    },
+  ];
+
   return (
     <div className="inline-flex flex-col items-start gap-[10px] relative m-3">
       <div className="relative w-[260px] h-[260px] border border-solid border-black" />

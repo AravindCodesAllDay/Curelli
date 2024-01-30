@@ -1,58 +1,49 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import image1 from "../assets/carousel.png";
 
-const Carousels = () => {
-  const posters1 = 1;
-  const posters3 = 1;
-  const posters2 = 1;
-
-  const navigate = useNavigate();
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % posters1.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [posters1]);
+const Carousel = () => {
+  const posters = [{ photo: image1, id: 1, title: "High Quality Products" }];
 
   return (
-    <div className="flex sm:mt-2 sm:ml-4">
-      {/* Carousel on the left */}
-      <div className="sm:mt-2  sm:w-1/2 w-screen md:mt-10 lg:mt-2  lg:w-2/3 lg:overflow-hidden-carousel">
-        <img
-          className="lg:w-full w-full sm:w-20 h-64 sm:h-10 lg:h-[32rem]  transition-transform duration-300 transform hover:scale-105 rounded-md"
-          src={`http://localhost:4000/carousels/${posters1[currentIndex]?.photo}`}
-          alt={`Poster-1`}
-          onClick={() =>
-            navigate(`/Productpage/${posters1[currentIndex]?.pid}`)
-          }
-        />
+    <div className="flex flex-wrap h-[520px] items-center justify-around gap-[10px_10px] p-[10px] relative bg-white w-100% min-w-[1440px]">
+      <div className="absolute w-100% h-full">
+        <img src={image1} alt="" />
       </div>
-
-      {/* Posters on the right */}
-      <div className="sm:ml-4 hidden lg:block sm:mt-3 md:mt-0 lg:w-1/3 lg:p-4">
-        <div className="sm:w-16 sm:ml-2 md:ml-6 md:w-48 lg:w-full lg:mb-4">
-          <img
-            className="w-full mb-2 rounded-md"
-            src={`http://localhost:4000/carousels/${posters2.photo}`}
-            alt={`Poster 2`}
-            onClick={() => navigate(`/Productpage/${posters2.pid}`)}
-          />
-        </div>
-        <div className="sm:w-16 sm:ml-2 md:ml-6 md:w-48 lg:w-full lg:mb-4">
-          <img
-            className="lg:w-full sm:w-16  rounded-md"
-            src={`http://localhost:4000/carousels/${posters3.photo}`}
-            alt={`Poster 3`}
-            onClick={() => navigate(`/Productpage/${posters3.pid}`)}
-          />
+      <div className="flex flex-wrap h-[505px] items-center justify-center gap-[0px_0px] px-[10px] py-[168px] relative flex-1 grow mt-[-2.50px] mb-[-2.50px] bg-[url(/frame-82.svg)] bg-cover bg-[50%_50%]">
+        <div className="flex flex-wrap items-center justify-center gap-[10px_10px] relative flex-1 grow">
+          <div className="flex items-center gap-[10px] relative flex-1 grow">
+            <div className="relative w-[55px] h-[55px] bg-white rounded-[27.5px]" />
+            &lt;
+          </div>
+          <div className="flex flex-col w-[551px] items-end gap-[15px] relative">
+            <div className="relative w-[280px] h-[164px]">
+              <div className="flex flex-wrap w-[280px] items-start gap-[6px_6px] absolute top-0 left-0">
+                <div className="flex flex-col w-[284px] items-start gap-[8px]">
+                  <p className="relative self-stretch [font-family:'Poppins-Regular',Helvetica] font-normal text-[#277933] text-[45px] tracking-[0] leading-[normal]">
+                    <span className="[font-family:'Poppins-Regular',Helvetica] font-normal text-[#277933] text-[45px] tracking-[0]">
+                      High Quality <br />
+                    </span>
+                  </p>
+                  <p className="relative self-stretch [font-family:'Poppins-Regular',Helvetica] font-normal text-[#277933] text-[45px] tracking-[0] leading-[normal]">
+                    <span className="text-[32px]">Products</span>
+                  </p>
+                </div>
+              </div>
+              <div className="absolute w-[114px] h-[30px] top-[134px] left-0 bg-[#277933]">
+                <div className="absolute w-[53px] top-[5px] left-[30px] [font-family:'Poppins-Medium',Helvetica] font-medium text-white text-[12px] tracking-[0] leading-[normal]">
+                  Buy Now
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-[10px] relative flex-1 grow -rotate-180">
+            <div className="relative w-[55px] h-[55px] bg-white rounded-[27.5px]" />
+            &gt;
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Carousels;
+export default Carousel;
