@@ -18,12 +18,18 @@ export default function Card({ details }) {
         />
         <div
           className={`absolute top-4 right-4 flex flex-col gap-2 transition-all ${
-            isHovered ? "opacity-75" : "opacity-0"
+            isHovered ? "opacity-100" : "opacity-0"
           }`}
         >
-          <FaHeart className="text-black h-6 w-6" />
-          <FaEye className="text-black h-6 w-6" />
-          <FaShoppingCart className="text-black h-6 w-6" />
+          <div className="rounded-full bg-white p-3">
+            <FaHeart className="text-[#303030]" />
+          </div>
+          <div className="rounded-full bg-white p-3">
+            <FaEye className="text-[#303030]" />
+          </div>
+          <div className="rounded-full bg-white p-3">
+            <FaShoppingCart className="text-[#303030]" />
+          </div>
         </div>
       </div>
       <div className="p-4">
