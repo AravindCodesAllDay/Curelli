@@ -1,7 +1,8 @@
+// Card.js
 import React, { useState } from "react";
 import { FaHeart, FaEye, FaShoppingCart } from "react-icons/fa";
 
-export default function Card({ details }) {
+export default function Card({ children, details }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -11,6 +12,7 @@ export default function Card({ details }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative max-h-[250px] w-100% h-100%">
+        {children}
         <img
           src={details.photo}
           alt="plant"

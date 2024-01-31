@@ -1,10 +1,9 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AllProducts from "../components/AllProducts";
 import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
-import img1 from "../assets/1.png";
+import img1 from "../assets/plant.png";
 import img2 from "../assets/2.png";
 import img3 from "../assets/3.png";
 
@@ -68,7 +67,6 @@ export default function Shop() {
   return (
     <>
       <Navbar />
-      <AllProducts />
       <div className="flex flex-row">
         <div className="flex flex-col  max-w-[350px] min-w-[300px]">
           <Sidebar />

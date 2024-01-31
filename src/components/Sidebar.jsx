@@ -7,15 +7,6 @@ export default function Sidebar() {
         Home &gt; All products
       </div>
 
-      <div className="text-[#277933] text-base font-light tracking-[0] leading-[normal] border-b-[#277933] border-b-2 w-full m-3">
-        Browse by
-      </div>
-
-      {/* Category Links */}
-      <div className="text-[#277933] text-base font-light tracking-[0] leading-[normal] underline m-3">
-        All products
-      </div>
-
       <div className="text-[#277933] text-base font-light tracking-[0] leading-[normal] border-b-2 w-full m-3">
         Filter by
       </div>
@@ -35,19 +26,6 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
-
-      {/* Color and Size Filters */}
-      {["Color", "Size"].map((filter, index) => (
-        <div key={index} className="w-full h-[24px] relative m-3">
-          <div className="absolute w-10 h-10 top-10 left-[187px]">
-            {/* Color or Size Indicator */}
-            <div className="relative h-10"></div>
-          </div>
-          <div className="absolute top-0 left-0 text-[#277933] text-base font-light tracking-[0] leading-[normal] border-b-2 w-full">
-            {filter}
-          </div>
-        </div>
-      ))}
     </div>
   );
 }

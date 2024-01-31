@@ -42,7 +42,7 @@ const Carousel = () => {
           <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
             <div className="p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 text-center rounded-md">
               <span className="text-[#277933] text-4xl md:text-4xl lg:text-4xl block m-3 font-bold">
-                Healthy Snacks For Healthy Life
+                Find Your Taste
               </span>
               <button
                 onClick={updateContent}
