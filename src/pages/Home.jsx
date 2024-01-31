@@ -11,9 +11,9 @@ export default function Home() {
     <>
       <Navbar />
       <Carousels />
-      <Subscribe />
       <Posters />
       <Banner />
+      <Subscribe />
       <Footer />
     </>
   );

@@ -4,9 +4,6 @@ import img from "../assets/shopbanner.svg";
 export default function AllProducts() {
   return (
     <>
-      <div className="flex flex-col w-full h-[280px] items-start gap-4 relative">
-        <img className="w-full h-full object-cover" alt="Element" src={img} />
-      </div>
       <div className="flex flex-col items-start gap-4 relative p-12">
         <div className="font-light text-[#277933] text-2xl tracking-normal leading-normal">
           All Products
