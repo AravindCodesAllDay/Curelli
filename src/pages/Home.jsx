@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
@@ -19,6 +20,7 @@ export default function Home() {
       <Posters />
       <Banner />
       <Footer />
+      <Outlet />
     </>
   );
 }

@@ -1,9 +1,10 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
-import img1 from "../assets/plant.png";
+import img1 from "../assets/1.png";
 import img2 from "../assets/2.png";
 import img3 from "../assets/3.png";
 
@@ -78,6 +79,7 @@ export default function Shop() {
         </div>
       </div>
       <Footer />
+      <Outlet />
     </>
   );
 }

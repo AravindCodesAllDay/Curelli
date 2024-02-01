@@ -1,9 +1,15 @@
 // Card.js
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaHeart, FaEye, FaShoppingCart } from "react-icons/fa";
 
 export default function Card({ children, details }) {
+  const nav = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+
+  const openPopup = () => {
+    nav("preview");
+  };
 
   return (
     <div
@@ -26,7 +32,10 @@ export default function Card({ children, details }) {
           <div className="rounded-full bg-white p-3">
             <FaHeart className="text-[#303030]" />
           </div>
-          <div className="rounded-full bg-white p-3">
+          <div
+            className="rounded-full bg-white p-3"
+            onClick={() => openPopup()}
+          >
             <FaEye className="text-[#303030]" />
           </div>
           <div className="rounded-full bg-white p-3">
