@@ -28,6 +28,13 @@ export default function PopularProducts() {
       amount: "₹40/-",
       status: "Best Seller",
     },
+    {
+      photo: img3,
+      header: "Product-1",
+      detail: "Something based on product",
+      amount: "₹40/-",
+      status: "Best Seller",
+    },
   ];
 
   return (
