@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import bcrypt from "bcryptjs"; // Import bcryptjs library
+import bcrypt from "bcryptjs";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [mail, setMail] = useState("");
   const [passWord, setPassword] = useState("");
-  const navigate = useNavigate();
 
   const handleSubmission = async (e) => {
     e.preventDefault();
@@ -17,11 +17,8 @@ const Login = () => {
       }
 
       const user = await response.json();
-
-      // Assuming your backend sends hashedPassword as 'pswd'
       const tablePassword = user.pswd;
 
-      // Now you need to compare the hashed password with the entered password
       const passwordsMatch = await comparePasswords(passWord, tablePassword);
 
       if (passwordsMatch) {
@@ -41,7 +38,6 @@ const Login = () => {
   // Function to compare hashed passwords using bcryptjs
   const comparePasswords = async (enteredPassword, hashedPassword) => {
     try {
-      // Use bcryptjs to compare passwords
       const result = await bcrypt.compare(enteredPassword, hashedPassword);
       return result;
     } catch (error) {
