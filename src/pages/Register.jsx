@@ -13,7 +13,7 @@ function Register() {
 
     if (pswd === confirmPswd) {
       try {
-        const res = await fetch("http://localhost:5000/users", {
+        const res = await fetch("http://localhost:3001/register", {
           method: "POST",
           headers: {
             "Content-type": "application/json",

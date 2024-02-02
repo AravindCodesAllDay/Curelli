@@ -26,6 +26,14 @@ export default function Dropdown() {
       title: "My Account",
       to: "/myaccount",
     },
+    {
+      title: "Register",
+      to: "/register",
+    },
+    {
+      title: "Login",
+      to: "/login",
+    },
   ];
 
   return (

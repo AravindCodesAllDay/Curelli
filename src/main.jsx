@@ -10,6 +10,7 @@ import NoPage from "./pages/NoPage.jsx";
 import PopupCard from "./components/PopupCard.jsx";
 import Register from "./pages/Register.jsx";
 import Cart from "./pages/Cart.jsx";
+import Login from "./pages/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
   {
     path: "*",
