@@ -5,6 +5,6 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   define: {
-    "process.env": process.env, // Pass environment variables to the client-side code
+    "process.env": process.env,
   },
 });

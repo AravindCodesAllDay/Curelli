@@ -8,6 +8,7 @@ import Subscribe from "../components/Subscribe";
 import Carousels from "../components/Carousel";
 import Tagline from "../components/Tagline";
 import PopularProducts from "../components/PopularProducts";
+import Whatsapp from "../components/Whatsapp";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Banner />
       <Footer />
       <Outlet />
+      <Whatsapp />
     </>
   );
 }

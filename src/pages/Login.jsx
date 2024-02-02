@@ -1,17 +1,23 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import bcrypt from "bcryptjs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import img1 from "../assets/curelli_logo.webp";
+import google from "../assets/google.svg";
 
 const Login = () => {
-  const navigate = useNavigate();
+  const nav = useNavigate();
   const [mail, setMail] = useState("");
-  const [passWord, setPassword] = useState("");
+  const [pswd, setPswd] = useState("");
 
   const handleSubmission = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`https://sreearanguabi.vercel.app/${mail}`);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_USERS_VIEW}/${mail}`
+      );
       if (!response.ok) {
         throw new Error("User not found");
       }
@@ -19,19 +25,20 @@ const Login = () => {
       const user = await response.json();
       const tablePassword = user.pswd;
 
-      const passwordsMatch = await comparePasswords(passWord, tablePassword);
+      const passwordsMatch = await comparePasswords(pswd, tablePassword);
 
       if (passwordsMatch) {
         console.log("Login successful...");
+        toast("Login Successful");
         // Perform actions like storing tokens in sessionStorage, redirecting, etc.
-        navigate("/");
+        nav("/home");
       } else {
         console.log("Login failed: Incorrect password");
-        alert("Login failed: Incorrect password");
+        toast("Login failed: Incorrect password");
       }
     } catch (error) {
       console.error("Error during login:", error.message);
-      alert("User not found");
+      toast("Error during registration, try again later");
     }
   };
 
@@ -48,35 +55,57 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex mt-60 justify-center">
-        <form onSubmit={handleSubmission}>
-          <div className="w-full p-8 shadow-xl max-w-prose ">
-            <div className=" p-8">
-              <label>Mail Id</label>
+      <div className="bg-gray-100 h-screen">
+        <ToastContainer />
+        <div className="flex flex-row bg-gray-100 justify-center">
+          <Link to="/home">
+            <img
+              className="relative h-[100px] object-cover"
+              alt="Image"
+              src={img1}
+            />
+          </Link>
+        </div>
+        <div className="h-100% flex justify-center items-center bg-gray-100 p-12">
+          <div className="bg-white p-8 px-16 rounded-md shadow-lg w-[440px]">
+            <h2 className="text-[#277933] text-2xl mb-6 text-center font-semibold">
+              Login
+            </h2>
+            <form onSubmit={handleSubmission} className="flex flex-col gap-6">
               <input
-                type="text"
-                className="w-full shadow-md rounded py-2 px-3 mt-1 mb-4 bg-gray-50 font-admin  focus:outline-none"
+                type="email"
                 value={mail}
                 onChange={(e) => setMail(e.target.value)}
+                placeholder="Email"
+                className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
               />
-              <label>Password</label>
               <input
                 type="password"
-                className="w-full shadow-md rounded py-2 px-3 mt-1 mb-4 bg-gray-50 font-admin  focus:outline-none"
-                value={passWord}
-                onChange={(e) => setPassword(e.target.value)}
+                value={pswd}
+                onChange={(e) => setPswd(e.target.value)}
+                placeholder="Password"
+                className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
               />
-              <div className="flex justify-center">
-                <button
-                  type="submit"
-                  className="w-1/2 shadow-md rounded py-2 px-3 mt-1 bg-gray-50 font-admin  focus:outline-none"
-                >
-                  Submit
-                </button>
-              </div>
+              <button
+                type="submit"
+                className="submit-button bg-[#277933] text-white h-10 p-2 rounded"
+              >
+                Submit
+              </button>
+              <p className="mt-4 text-gray-600 text-center">
+                New here?
+                <Link to="/register" className="text-[#277933] cursor-pointer">
+                  Register
+                </Link>
+              </p>
+            </form>
+            <hr className="my-3" />
+            <div className="mt-3 border-2 rounded-full flex items-center justify-center">
+              <img src={google} alt="google logo" className="w-6 h-8 mr-2" />
+              <p className="text-gray-700">Sign up using Google</p>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </>
   );

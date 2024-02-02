@@ -2,7 +2,7 @@ import React from "react";
 
 export default function AboutContact() {
   return (
-    <div className="flex flex-col items-center justify-center px-4 md:px-8 lg:px-16 py-6 md:py-8 relative bg-white mt-2">
+    <div className="flex flex-col items-center justify-center p-6 mt-6 relative bg-white">
       <div className="flex-col">
         <div className="font-bold text-[#40773b] text-2xl md:text-3xl lg:text-4xl tracking-wide leading-normal m-4">
           Contact

@@ -8,16 +8,18 @@ export default function Navbar() {
   return (
     <div className="flex flex-col items-center justify-center gap-[2px] relative bg-white">
       <div className="flex flex-col items-center justify-center gap-[10px] relative w-full max-w-[1440px]">
-        <img
-          className="relative h-[100px] object-cover"
-          alt="Image"
-          src={img1}
-        />
+        <Link to="/home">
+          <img
+            className="relative h-[100px] object-cover"
+            alt="Image"
+            src={img1}
+          />
+        </Link>
       </div>
       <div className="flex items-center justify-between px-4 lg:px-10 py-4 lg:py-13 relative w-full bg-[#40773b]">
         <div className="flex items-center gap-[16px] relative">
           <div className="text-white text-[16px]">
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </div>
           <div className="text-white text-[16px]">
             <Link to="/aboutus">About Us</Link>

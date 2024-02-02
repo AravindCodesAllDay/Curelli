@@ -1,19 +1,24 @@
 import React from "react";
-import img from "../assets/plant.png";
+import img1 from "../assets/plant.png";
 
 export default function Banner() {
   return (
-    <div className="flex flex-wrap mx-auto items-center justify-center gap-8 p-10 relative bg-white">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 relative flex-1">
-        <div className="relative w-full md:w-[50%] h-[412px] lg:ml-20 lg:mr-20">
+    <div className="flex flex-wrap items-center justify-center p-8 relative bg-white">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-2/3 mx-auto relative">
+        {/* Image Container */}
+        <div className="flex-1 max-w-[33.333333%] relative">
           <div className="absolute w-full h-full max-w-[480px] max-h-[420px] bottom-5 right-5 bg-[#40773b] rounded-md" />
-          <img
-            className="absolute w-full h-full max-w-[480px] max-h-[420px] bottom-0 right-0 object-cover rounded-md"
-            alt="Rectangle"
-            src={img}
-          />
+          <div className="z-20">
+            <img
+              className="inset-0 w-full h-full object-cover rounded-md"
+              alt="Rectangle"
+              src={img1}
+            />
+          </div>
         </div>
-        <div className="flex flex-col w-full md:w-[50%] items-center gap-8 relative">
+
+        {/* Content Container */}
+        <div className="flex flex-col w-full md:w-[66.666667%] items-center gap-8 relative">
           <p className="text-[#40773b] text-4xl font-semibold text-center mb-4">
             Unmatched Quality at Affordable Price
           </p>

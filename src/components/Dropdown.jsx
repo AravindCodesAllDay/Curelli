@@ -11,19 +11,11 @@ function classNames(...classes) {
 export default function Dropdown() {
   const profile = [
     {
-      title: "My Order",
-      to: "/myorder",
-    },
-    {
-      title: "My Address",
-      to: "/myaddress",
-    },
-    {
       title: "Wishlist",
       to: "/wishlist",
     },
     {
-      title: "My Account",
+      title: "Profile",
       to: "/myaccount",
     },
     {
@@ -32,7 +24,11 @@ export default function Dropdown() {
     },
     {
       title: "Login",
-      to: "/login",
+      to: "/",
+    },
+    {
+      title: "Logout",
+      to: "/",
     },
   ];
 
