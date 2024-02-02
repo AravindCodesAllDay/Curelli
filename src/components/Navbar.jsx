@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import img1 from "../assets/curelli_logo.webp";
 import img2 from "../assets/cart.svg";
-import img3 from "../assets/profile.svg";
+import Dropdown from "./Dropdown";
 
 export default function Navbar() {
   return (
@@ -29,9 +29,11 @@ export default function Navbar() {
             <Link to="/contact">Contact</Link>
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <img className="w-[30px] h-[30px]" alt="Shopping cart" src={img2} />
-          <img className="w-[30px] h-[30px]" alt="Male user" src={img3} />
+        <div className="flex items-center gap-2 justify-center">
+          <Link to="/cart">
+            <img className="w-[30px] h-[30px]" alt="Shopping cart" src={img2} />
+          </Link>
+          <Dropdown />
         </div>
       </div>
     </div>

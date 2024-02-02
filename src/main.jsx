@@ -8,7 +8,8 @@ import Contact from "./pages/Contact.jsx";
 import Shop from "./pages/Shop.jsx";
 import NoPage from "./pages/NoPage.jsx";
 import PopupCard from "./components/PopupCard.jsx";
-import Register from "./components/Register.jsx";
+import Register from "./pages/Register.jsx";
+import Cart from "./pages/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         element: <PopupCard />,
       },
     ],
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
   },
   {
     path: "/register",

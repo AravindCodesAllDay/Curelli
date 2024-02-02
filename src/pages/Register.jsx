@@ -1,4 +1,5 @@
 import { useState } from "react";
+import google from "../assets/google.svg";
 
 function Register() {
   const [name, setName] = useState("");
@@ -37,9 +38,9 @@ function Register() {
 
   return (
     <div className="h-screen flex justify-center items-center bg-gray-100">
-      <div className="bg-white p-12 rounded-md shadow-lg">
-        <h2 className="text-[#277933] text-2xl mb-6">Register</h2>
-        <form onSubmit={handleSubmission} className="flex flex-col gap-3">
+      <div className="bg-white p-8 rounded-md shadow-lg w-96">
+        <h2 className="text-[#277933] text-2xl mb-6 text-center">Register</h2>
+        <form onSubmit={handleSubmission} className="flex flex-col gap-6">
           <input
             type="text"
             value={name}
@@ -75,16 +76,21 @@ function Register() {
             placeholder="Confirm Password"
             className="input-field border-b-2"
           />
-          <button type="submit" className="submit-button border-2">
+          <button
+            type="submit"
+            className="submit-button bg-[#277933] text-white h-8"
+          >
             Submit
           </button>
-          <p className="mt-4 text-gray-600">
+          <p className="mt-4 text-gray-600 text-center">
             Already have an account?{" "}
             <span className="text-[#277933] cursor-pointer">Login</span>
           </p>
         </form>
-        <div className="mt-6">
-          <p className="text-gray-600">Sign up using Google</p>
+        <hr className="my-3" />
+        <div className="mt-3 border-2 rounded-full flex items-center justify-center">
+          <img src={google} alt="google logo" className="w-6 h-8 mr-2" />
+          <p className="text-gray-700">Sign up using Google</p>
         </div>
       </div>
     </div>
