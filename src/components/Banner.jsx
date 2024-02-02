@@ -3,7 +3,7 @@ import img1 from "../assets/plant.png";
 
 export default function Banner() {
   return (
-    <div className="flex flex-wrap items-center justify-center p-8 relative bg-white">
+    <div className="flex flex-wrap items-center justify-center py-14 relative bg-white">
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-2/3 mx-auto relative">
         {/* Image Container */}
         <div className="flex-1 max-w-[33.333333%] relative">
@@ -18,11 +18,11 @@ export default function Banner() {
         </div>
 
         {/* Content Container */}
-        <div className="flex flex-col w-full md:w-[66.666667%] items-center gap-8 relative">
-          <p className="text-[#40773b] text-4xl font-semibold text-center mb-4">
+        <div className="flex flex-col w-full md:w-[66.666667%] items-center gap-4 relative">
+          <p className="text-[#40773b] text-4xl font-semibold text-center">
             Unmatched Quality at Affordable Price
           </p>
-          <div className="text-[#40773b] text-xl font-medium text-center mb-4">
+          <div className="text-[#40773b] text-xl font-medium text-center mb-2">
             Only the Best
           </div>
           <p className="text-[#40773b] text-lg text-center">
