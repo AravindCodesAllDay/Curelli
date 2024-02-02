@@ -11,7 +11,9 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:3001/${mail}`);
+      const response = await fetch(
+        `https://aravindsiva1509.vercel.app/${mail}`
+      );
       if (!response.ok) {
         throw new Error("User not found");
       }

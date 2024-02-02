@@ -13,7 +13,7 @@ function Register() {
 
     if (pswd === confirmPswd) {
       try {
-        const res = await fetch("http://localhost:3001/register", {
+        const res = await fetch("https://aravindsiva1509.vercel.app/register", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
