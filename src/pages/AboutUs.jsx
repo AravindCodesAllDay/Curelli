@@ -4,6 +4,7 @@ import AboutDetails from "../components/AboutDetails";
 import AboutContact from "../components/AboutContact";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Whatsapp from "../components/Whatsapp";
 
 export default function AboutUs() {
   return (
@@ -15,6 +16,7 @@ export default function AboutUs() {
         <AboutContact />
       </div>
       <Footer />
+      <Whatsapp />
     </>
   );
 }
