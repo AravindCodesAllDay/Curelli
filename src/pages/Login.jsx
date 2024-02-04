@@ -28,16 +28,16 @@ const Login = () => {
 
       if (passwordsMatch) {
         console.log("Login successful...");
-        toast("Login Successful");
+        toast.success("Login Successful");
         // Perform actions like storing tokens in sessionStorage, redirecting, etc.
         nav(`/home/${displayUrl}`);
       } else {
         console.log("Login failed: Incorrect password");
-        toast("Login failed: Incorrect password");
+        toast.error("Login failed: Incorrect password");
       }
     } catch (error) {
       console.error("Error during login:", error.message);
-      toast("Error during login, try again later");
+      toast.error("Error during login, try again later");
     }
   };
 

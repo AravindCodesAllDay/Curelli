@@ -11,6 +11,7 @@ import PopupCard from "./components/PopupCard.jsx";
 import Register from "./pages/Register.jsx";
 import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
+import AddProduct from "./components/AddProduct.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <NoPage />,
+  },
+  {
+    path: "/addprds",
+    element: <AddProduct />,
   },
 ]);
 

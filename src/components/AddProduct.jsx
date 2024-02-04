@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./AddProduct.css"; // Import your Tailwind CSS file
 
 const AddProduct = () => {
   const [name, setName] = useState("");
@@ -23,7 +22,7 @@ const AddProduct = () => {
     formData.append("image", image);
 
     try {
-      const res = await fetch("http://localhost:3001/products", {
+      const res = await fetch(`${import.meta.env.VITE_API}/products`, {
         method: "POST",
         body: formData,
       });

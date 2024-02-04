@@ -21,7 +21,7 @@ function Register() {
       try {
         setLoading(true);
         const existsResponse = await fetch(
-          `${process.env.VITE_API}/users/${mail}`
+          `${import.meta.env.VITE_API}/users/${mail}`
         );
 
         console.log("existsResponse status:", existsResponse.status);
