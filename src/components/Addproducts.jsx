@@ -1,93 +1,105 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./AddProduct.css"; // Import your Tailwind CSS file
 
-function AddProduct() {
+const AddProduct = () => {
   const [name, setName] = useState("");
-  const [rating, setRating] = useState("");
-  const [price, setPrice] = useState("");
+  const [rating, setRating] = useState(0);
+  const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
-  const [stock, setStock] = useState("");
-  const [image, setImage] = useState();
+  const [stock, setStock] = useState(0);
+  const [image, setImage] = useState(null);
 
-  const handleSubmission = (e) => {
+  const handleSubmission = async (e) => {
     e.preventDefault();
-    console.log(image);
-    const addReq = async (data) => {
-      const formData = new FormData();
-      console.log(data);
-      try {
-        formData.append("name", data.name);
-        formData.append("price", data.price);
-        formData.append("rating", data.rating);
-        formData.append("description", data.description);
-        formData.append("stock", data.stock);
-        formData.append("image", data.image);
-        const res = await fetch("http://localhost:3001/products", {
-          method: "POST",
-          body: formData,
-        });
-        const resp = await res.json();
-        console.log(resp);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-    addReq({ name, price, description, stock, image });
 
+    const formData = new FormData();
+    formData.append("ProductName", name);
+    formData.append("price", price);
+    formData.append("rating", rating);
+    formData.append("description", description);
+    formData.append("stock", stock);
+    formData.append("image", image);
+
+    try {
+      const res = await fetch("http://localhost:3001/products", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to add product");
+      }
+
+      const resp = await res.json();
+      console.log(resp);
+      toast.success("Product added successfully");
+    } catch (error) {
+      console.error(error.message);
+      toast.error("Error adding product");
+    }
+
+    // Reset form fields
     setName("");
-    setPrice("");
+    setRating(0);
+    setPrice(0);
     setDescription("");
+    setStock(0);
     setImage(null);
-    setStock("");
   };
 
   return (
-    <>
+    <div className="max-w-md mx-auto my-8 p-6 bg-white rounded-md shadow-md">
       <ToastContainer />
-      <form onSubmit={handleSubmission}>
+      <form onSubmit={handleSubmission} className="space-y-4">
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Username"
+          placeholder="Product Name"
+          className="w-full p-2 border border-gray-300 rounded-md"
         />
-        <br />
 
         <input
-          type="text"
+          type="number"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           placeholder="Price"
+          className="w-full p-2 border border-gray-300 rounded-md"
         />
-        <br />
-        <input
-          type="text"
+
+        <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Description"
+          className="w-full p-2 border border-gray-300 rounded-md"
         />
-        <br />
+
         <input
-          type="text"
+          type="number"
           value={stock}
           onChange={(e) => setStock(e.target.value)}
           placeholder="Stock"
+          className="w-full p-2 border border-gray-300 rounded-md"
         />
-        <br />
+
         <input
           type="file"
-          onChange={(e) => {
-            console.log(e.target.files);
-            setImage(e.target.files[0]);
-          }}
+          onChange={(e) => setImage(e.target.files[0])}
           required
+          className="w-full p-2 border border-gray-300 rounded-md"
         />
-        <br />
-        <input type="submit" value="Submit" />
+
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700"
+        >
+          Submit
+        </button>
       </form>
-    </>
+    </div>
   );
-}
+};
 
 export default AddProduct;
