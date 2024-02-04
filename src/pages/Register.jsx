@@ -14,6 +14,7 @@ function Register() {
   const [pswd, setPswd] = useState("");
   const [confirmPswd, setConfirmPswd] = useState("");
   const [loading, setLoading] = useState(false);
+
   const handleSubmission = async (e) => {
     e.preventDefault();
 
@@ -23,10 +24,6 @@ function Register() {
         const existsResponse = await fetch(
           `${import.meta.env.VITE_API}/users/${mail}`
         );
-
-        console.log("existsResponse status:", existsResponse.status);
-        const existsData = await existsResponse.json();
-        console.log("existsResponse data:", existsData);
 
         if (existsResponse.status === 200) {
           toast.error("User already exists");
@@ -43,7 +40,7 @@ function Register() {
           );
 
           if (!registerResponse.ok) {
-            toast.error("Registration failed. Please try again later.");
+            toast.error(`Registration failed: ${registerResponse.statusText}`);
             console.error(
               `Registration failed: ${registerResponse.statusText}`
             );
@@ -68,7 +65,7 @@ function Register() {
         setLoading(false);
       }
     } else {
-      toast.error("Password doesn't match");
+      toast.error("Passwords don't match");
     }
   };
 
@@ -85,7 +82,7 @@ function Register() {
             />
           </Link>
         </div>
-        <div className="h-screen flex justify-center items-center bg-gray-100 p-12">
+        <div className="h-100% flex justify-center items-center bg-gray-100 p-12">
           <div className="bg-white p-8 px-16 rounded-md shadow-lg w-[440px]">
             <h2 className="text-[#277933] text-2xl mb-6 text-center font-semibold">
               Register
