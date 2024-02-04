@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API}/users/${mail}`);
+      const response = await fetch(`${import.meta.env.VITE_API}users/${mail}`);
       if (!response.ok) {
         throw new Error("User not found");
       }

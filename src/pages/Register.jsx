@@ -22,14 +22,14 @@ function Register() {
       try {
         setLoading(true);
         const existsResponse = await fetch(
-          `${import.meta.env.VITE_API}/users/${mail}`
+          `${import.meta.env.VITE_API}users/${mail}`
         );
 
         if (existsResponse.status === 200) {
           toast.error("User already exists");
         } else {
           const registerResponse = await fetch(
-            `${import.meta.env.VITE_API}/register`,
+            `${import.meta.env.VITE_API}register`,
             {
               method: "POST",
               headers: {

@@ -11,7 +11,7 @@ export default function Shop() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API}/products`, {
+        const response = await fetch(`${import.meta.env.VITE_API}products`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

@@ -11,7 +11,7 @@ const CartItems = () => {
   const fetchProductDetails = async (productId) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API}/products/${productId}`
+        `${import.meta.env.VITE_API}products/${productId}`
       );
       return await response.json();
     } catch (error) {
@@ -23,7 +23,7 @@ const CartItems = () => {
   const fetchCartDetails = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API}/users/${userId}`
+        `${import.meta.env.VITE_API}users/${userId}`
       );
       const user = await response.json();
 
