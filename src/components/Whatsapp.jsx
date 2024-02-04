@@ -7,7 +7,6 @@ function Whatsapp() {
     // Access environment variables using import.meta.env.VARIABLE_NAME
     const whatsappChatURL =
       "https://wa.me/" + import.meta.env.VITE_WHATSAPPNUMBER;
-    console.log(whatsappChatURL);
 
     // Open the WhatsApp chat link in a new tab
     window.open(whatsappChatURL, "_blank");

@@ -13,20 +13,26 @@ function Register() {
   const [phone, setPhone] = useState("");
   const [pswd, setPswd] = useState("");
   const [confirmPswd, setConfirmPswd] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const handleSubmission = async (e) => {
     e.preventDefault();
 
     if (pswd === confirmPswd) {
       try {
+        setLoading(true);
         const existsResponse = await fetch(
-          `${process.env.VITE_API_USERS_VIEW}/${mail}`
+          `${process.env.VITE_API}/users/${mail}`
         );
+
+        console.log("existsResponse status:", existsResponse.status);
+        const existsData = await existsResponse.json();
+        console.log("existsResponse data:", existsData);
+
         if (existsResponse.status === 200) {
-          toast("User already exists");
+          toast.error("User already exists");
         } else {
           const registerResponse = await fetch(
-            `${import.meta.env.VITE_API_USERS_VIEW}/register`,
+            `${import.meta.env.VITE_API}/register`,
             {
               method: "POST",
               headers: {
@@ -37,14 +43,14 @@ function Register() {
           );
 
           if (!registerResponse.ok) {
-            toast("Oops error coouerd, try again later");
+            toast.error("Registration failed. Please try again later.");
             console.error(
               `Registration failed: ${registerResponse.statusText}`
             );
             return;
           }
 
-          toast("Login Successful");
+          toast.success("Registration Successful");
           const resp = await registerResponse.json();
           console.log(resp);
           // Reset form fields
@@ -57,10 +63,12 @@ function Register() {
         }
       } catch (error) {
         console.error("Error during registration:", error.message);
-        toast("Error during registration, try again later");
+        toast.error("Error during registration. Please try again later.");
+      } finally {
+        setLoading(false);
       }
     } else {
-      toast("Password doesn't match");
+      toast.error("Password doesn't match");
     }
   };
 
@@ -77,7 +85,7 @@ function Register() {
             />
           </Link>
         </div>
-        <div className="h-100% flex justify-center items-center bg-gray-100 p-12">
+        <div className="h-screen flex justify-center items-center bg-gray-100 p-12">
           <div className="bg-white p-8 px-16 rounded-md shadow-lg w-[440px]">
             <h2 className="text-[#277933] text-2xl mb-6 text-center font-semibold">
               Register
@@ -118,14 +126,15 @@ function Register() {
                 placeholder="Confirm Password"
                 className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
               />
-              {pswd !== confirmPswd && (
-                <p className="text-red-500">Password doesn't match</p>
-              )}
+              {loading && <p className="text-gray-600">Submitting...</p>}
               <button
                 type="submit"
-                className="submit-button bg-[#277933] text-white h-10 p-2 rounded"
+                disabled={loading}
+                className={`submit-button bg-[#277933] text-white h-10 p-2 rounded ${
+                  loading && "cursor-not-allowed opacity-50"
+                }`}
               >
-                Submit
+                {loading ? "Submitting..." : "Submit"}
               </button>
               <p className="mt-4 text-gray-600 text-center">
                 Already have an account?

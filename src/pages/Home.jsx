@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
@@ -11,6 +11,8 @@ import PopularProducts from "../components/PopularProducts";
 import Whatsapp from "../components/Whatsapp";
 
 export default function Home() {
+  const { _id } = useParams();
+  sessionStorage.setItem("id", _id);
   return (
     <>
       <Navbar />

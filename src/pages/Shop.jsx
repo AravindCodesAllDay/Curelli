@@ -1,81 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
-import img1 from "../assets/1.png";
-import img2 from "../assets/2.png";
-import img3 from "../assets/3.png";
 
 export default function Shop() {
-  const cardDetails = [
-    {
-      photo: img1,
-      header: "Product-1",
-      detail: "Something based on product",
-      amount: "₹40/-",
-    },
-    {
-      photo: img2,
-      header: "Product-2",
-      detail: "Something based on product",
-      amount: "₹60/-",
-    },
-    {
-      photo: img3,
-      header: "Product-3",
-      detail: "Something based on product",
-      amount: "₹50/-",
-    },
-    {
-      photo: img1,
-      header: "Product-1",
-      detail: "Something based on product",
-      amount: "₹40/-",
-    },
-    {
-      photo: img2,
-      header: "Product-2",
-      detail: "Something based on product",
-      amount: "₹60/-",
-    },
-    {
-      photo: img3,
-      header: "Product-3",
-      detail: "Something based on product",
-      amount: "₹50/-",
-    },
-    {
-      photo: img1,
-      header: "Product-1",
-      detail: "Something based on product",
-      amount: "₹40/-",
-    },
-    {
-      photo: img2,
-      header: "Product-2",
-      detail: "Something based on product",
-      amount: "₹60/-",
-    },
-    {
-      photo: img3,
-      header: "Product-3",
-      detail: "Something based on product",
-      amount: "₹50/-",
-    },
-  ];
+  const [cardDetails, setCardDetails] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API}/products`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            // Add any additional headers if needed
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const products = await response.json();
+        setCardDetails(products);
+      } catch (error) {
+        console.error("Fetch error:", error);
+        // Handle errors here
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures it only runs once on mount
+
   return (
     <>
       <Navbar />
       <div className="flex flex-row">
-        <div className="flex flex-col  max-w-[350px] min-w-[300px]">
+        <div className="flex flex-col max-w-[350px] min-w-[300px]">
           <Sidebar />
         </div>
         <div className="p-12 lg:flex lg:flex-wrap">
-          {cardDetails.map((details) => {
-            return <Card details={details} />;
-          })}
+          {cardDetails.map((details) => (
+            <Card key={details.id} details={details} />
+          ))}
         </div>
       </div>
       <Footer />

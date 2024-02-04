@@ -1,111 +1,78 @@
-import React, { useState } from "react";
-import img1 from "../assets/1.png";
-import img2 from "../assets/2.png";
+// CartItems.js
+import React, { useState, useEffect } from "react";
+import CartItem from "./CartItem";
 
 const CartItems = () => {
-  const [selectedItems, setSelectedItems] = useState([]);
+  const userId = sessionStorage.getItem("id");
+  const [cartItems, setCartItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const cartItems = [
-    {
-      name: "Product 1",
-      price: 40,
-      detail: "detail related to product",
-      image: img1,
-      status: 1,
-    },
-    {
-      name: "Product 2",
-      price: 30,
-      detail: "detail related to product",
-      image: img2,
-      status: 2,
-    },
-  ];
-
-  const handleIncreaseQuantity = (index) => {};
-
-  const handleDecreaseQuantity = (index) => {};
-
-  const handleDeleteItem = (index) => {};
-
-  const handleCheckboxChange = (index) => {
-    const updatedSelectedItems = [...selectedItems];
-    updatedSelectedItems[index] = !updatedSelectedItems[index];
-    setSelectedItems(updatedSelectedItems);
+  const fetchProductDetails = async (productId) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API}/products/${productId}`
+      );
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching product details:", error);
+      return null;
+    }
   };
 
-  const handleProceedToBuy = () => {};
+  const fetchCartDetails = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API}/users/${userId}`
+      );
+      const user = await response.json();
+
+      const updatedCartItems = await Promise.all(
+        user.cart.map(async (cartItem) => {
+          const productDetails = await fetchProductDetails(cartItem.product);
+          productDetails.quantity = cartItem.quantity;
+          productDetails.id = cartItem.product;
+          return productDetails;
+        })
+      );
+
+      setCartItems(updatedCartItems);
+    } catch (error) {
+      console.error("Error fetching user cart:", error);
+      setError("Error fetching cart. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCartDetails();
+  }, []);
+
+  const handleAction = (index, action) => {
+    // Handle common actions here
+    // Example: handleDecreaseQuantity, handleIncreaseQuantity, handleDeleteItem
+  };
+
+  const handleProceedToBuy = () => {
+    // Add logic for proceeding to buy
+  };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
-    <div className="max-w-4xl mx-auto mt-4">
+    <div className="max-w-6xl mx-auto mt-4">
       {cartItems.length === 0 ? (
         <p className="text-gray-500">Your Cart is empty.</p>
       ) : (
-        <div>
-          <table className="w-full">
-            <thead>
-              <tr className="border-b-2">
-                <th className="p-4"></th>
-                <th className="p-4">Image</th>
-                <th className="p-4">Details</th>
-                <th className="p-4">Price</th>
-                <th className="p-4">Quantity</th>
-                <th className="p-4">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartItems.map((item, index) => (
-                <tr className="border-b-2" key={index}>
-                  <td className="p-4">
-                    <input
-                      type="checkbox"
-                      checked={selectedItems[index] || false}
-                      onChange={() => handleCheckboxChange(index)}
-                    />
-                  </td>
-                  <td className="p-4">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="rounded-full w-16 h-16 object-cover"
-                    />
-                  </td>
-                  <td className="p-4">
-                    <h3 className="text-lg font-semibold">{item.name}</h3>
-                    <p>{item.detail}</p>
-                  </td>
-                  <td className="p-4">
-                    <p className="text-gray-600">₹{item.price}</p>
-                  </td>
-                  <td className="p-4">
-                    <div className="flex items-center">
-                      <button
-                        onClick={() => handleDecreaseQuantity(index)}
-                        className="text-sm text-gray-500 mr-2"
-                      >
-                        -
-                      </button>
-                      <p className="text-gray-600">{item.status}</p>
-                      <button
-                        onClick={() => handleIncreaseQuantity(index)}
-                        className="text-sm text-gray-500 ml-2"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </td>
-                  <td className="p-4">
-                    <button
-                      onClick={() => handleDeleteItem(index)}
-                      className="text-sm text-red-500"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <>
+          <CartItem data={cartItems} />
           <div className="mt-4">
             <button
               onClick={handleProceedToBuy}
@@ -114,7 +81,7 @@ const CartItems = () => {
               Proceed to Buy
             </button>
           </div>
-        </div>
+        </>
       )}
     </div>
   );

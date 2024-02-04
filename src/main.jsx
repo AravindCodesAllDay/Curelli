@@ -1,7 +1,7 @@
+import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import "./index.css";
 import Home from "./pages/Home.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -14,7 +14,7 @@ import Login from "./pages/Login.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/home",
+    path: "/home/:_id",
     element: <Home />,
     children: [
       {

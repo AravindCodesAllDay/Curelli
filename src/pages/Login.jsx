@@ -15,15 +15,14 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_USERS_VIEW}/${mail}`
-      );
+      const response = await fetch(`${import.meta.env.VITE_API}/users/${mail}`);
       if (!response.ok) {
         throw new Error("User not found");
       }
 
       const user = await response.json();
       const tablePassword = user.pswd;
+      const displayUrl = user._id;
 
       const passwordsMatch = await comparePasswords(pswd, tablePassword);
 
@@ -31,14 +30,14 @@ const Login = () => {
         console.log("Login successful...");
         toast("Login Successful");
         // Perform actions like storing tokens in sessionStorage, redirecting, etc.
-        nav("/home");
+        nav(`/home/${displayUrl}`);
       } else {
         console.log("Login failed: Incorrect password");
         toast("Login failed: Incorrect password");
       }
     } catch (error) {
       console.error("Error during login:", error.message);
-      toast("Error during registration, try again later");
+      toast("Error during login, try again later");
     }
   };
 
