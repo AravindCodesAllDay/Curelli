@@ -29,7 +29,7 @@ function Register() {
           toast.error("User already exists");
         } else {
           const registerResponse = await fetch(
-            `${import.meta.env.VITE_API}register`,
+            `${import.meta.env.VITE_API}users`,
             {
               method: "POST",
               headers: {
@@ -38,6 +38,8 @@ function Register() {
               body: JSON.stringify({ name, mail, phone, pswd }),
             }
           );
+
+          console.log("Response from server:", registerResponse);
 
           if (!registerResponse.ok) {
             toast.error(`Registration failed: ${registerResponse.statusText}`);

@@ -7,7 +7,6 @@ import Posters from "../components/Posters";
 import Subscribe from "../components/Subscribe";
 import Carousels from "../components/Carousel";
 import Tagline from "../components/Tagline";
-import PopularProducts from "../components/PopularProducts";
 import Whatsapp from "../components/Whatsapp";
 
 export default function Home() {
@@ -18,7 +17,6 @@ export default function Home() {
       <Navbar />
       <Carousels />
       <Tagline />
-      <PopularProducts />
       <Subscribe />
       <Posters />
       <Banner />

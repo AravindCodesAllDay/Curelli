@@ -22,7 +22,7 @@ const AddProduct = () => {
     formData.append("image", image);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API}/products`, {
+      const res = await fetch(`${import.meta.env.VITE_API}products`, {
         method: "POST",
         body: formData,
       });
