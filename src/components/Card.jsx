@@ -14,14 +14,14 @@ export default function Card({ children, details }) {
   const add2Cart = async (productId, userId) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API}/users/${userId}`
+        `${import.meta.env.VITE_API}users/${userId}`
       );
       const result = await response.json();
 
       if (result.cart.some((item) => item.product === productId)) {
         console.log("Item is already in the cart");
       } else {
-        const response = await fetch(`${import.meta.env.VITE_API}/users/cart`, {
+        const response = await fetch(`${import.meta.env.VITE_API}users/cart`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

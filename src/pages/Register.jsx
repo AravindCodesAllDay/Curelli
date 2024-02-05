@@ -137,7 +137,7 @@ function Register() {
               </button>
               <p className="mt-4 text-gray-600 text-center">
                 Already have an account?
-                <Link to="/" className="text-[#277933] cursor-pointer">
+                <Link to="/login" className="text-[#277933] cursor-pointer">
                   Login
                 </Link>
               </p>
