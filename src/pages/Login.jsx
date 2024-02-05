@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -41,7 +41,6 @@ const Login = () => {
     }
   };
 
-  // Function to compare hashed passwords using bcryptjs
   const comparePasswords = async (enteredPassword, hashedPassword) => {
     try {
       const result = await bcrypt.compare(enteredPassword, hashedPassword);
@@ -57,7 +56,7 @@ const Login = () => {
       <div className="bg-gray-100 h-screen">
         <ToastContainer />
         <div className="flex flex-row bg-gray-100 justify-center">
-          <Link to="/home">
+          <Link to="/">
             <img
               className="relative h-[100px] object-cover"
               alt="Image"

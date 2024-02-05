@@ -15,7 +15,7 @@ import AddProduct from "./components/AddProduct.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/home/:_id",
+    path: "/:_id",
     element: <Home />,
     children: [
       {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/",
+    path: "/login",
     element: <Login />,
   },
   {
