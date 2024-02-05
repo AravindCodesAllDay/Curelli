@@ -4,7 +4,6 @@ import img1 from "../assets/WhatsApp.png";
 
 function Whatsapp() {
   const openWhatsApp = () => {
-    // Access environment variables using import.meta.env.VARIABLE_NAME
     const whatsappChatURL =
       "https://wa.me/" + import.meta.env.VITE_WHATSAPPNUMBER;
 
@@ -16,7 +15,7 @@ function Whatsapp() {
     <div className="App">
       <div id="whatsapp-chat" className="fixed bottom-4 right-4">
         <button
-          className="bg-green-500 text-white px-4 py-2 rounded-full"
+          className="bg-green-500 text-white p-[10px] rounded-full"
           onClick={openWhatsApp}
         >
           <img src={img1} alt="whatsapp logo" className="w-6 hover:scale-125" />

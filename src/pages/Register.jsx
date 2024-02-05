@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img1 from "../assets/curelli_logo.webp";
 import google from "../assets/google.svg";
-import { useNavigate } from "react-router-dom";
-
 function Register() {
   const nav = useNavigate();
   const [name, setName] = useState("");
@@ -58,7 +56,7 @@ function Register() {
           setPhone("");
           setPswd("");
           setConfirmPswd("");
-          nav("/");
+          nav("/login");
         }
       } catch (error) {
         console.error("Error during registration:", error.message);

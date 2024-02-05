@@ -42,8 +42,8 @@ export default function Navbar() {
           <div
             className={`text-white text-[16px] ${
               location.pathname === "/"
-                ? "underline decoration-4"
-                : "hover:underline hover:decoration-2"
+                ? "text-green-400"
+                : "hover:text-green-400"
             }`}
           >
             <Link to={`/`}>Home</Link>
@@ -51,8 +51,8 @@ export default function Navbar() {
           <div
             className={`text-white text-[16px] ${
               location.pathname === "/aboutus"
-                ? "underline decoration-4"
-                : "hover:underline hover:decoration-2"
+                ? "text-green-400"
+                : "hover:text-green-400"
             }`}
           >
             <Link to={`/aboutus`}>About Us</Link>
@@ -60,8 +60,8 @@ export default function Navbar() {
           <div
             className={`text-white text-[16px] ${
               location.pathname === "/shop"
-                ? "underline decoration-4"
-                : "hover:underline hover:decoration-2"
+                ? "text-green-400"
+                : "hover:text-green-400"
             }`}
           >
             <Link to={`/shop`}>Shop</Link>
@@ -69,8 +69,8 @@ export default function Navbar() {
           <div
             className={`text-white text-[16px] ${
               location.pathname === "/contact"
-                ? "underline decoration-4"
-                : "hover:underline hover:decoration-2"
+                ? "text-green-400"
+                : "hover:text-green-400"
             }`}
           >
             <Link to={`/contact`}>Contact</Link>
