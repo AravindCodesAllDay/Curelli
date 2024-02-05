@@ -19,7 +19,7 @@ function Whatsapp() {
           className="bg-green-500 text-white px-4 py-2 rounded-full"
           onClick={openWhatsApp}
         >
-          <img src={img1} alt="whatsapp logo" className="w-6" />
+          <img src={img1} alt="whatsapp logo" className="w-6 hover:scale-125" />
         </button>
       </div>
     </div>

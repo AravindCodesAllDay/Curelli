@@ -7,10 +7,9 @@ export default function Banner() {
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-2/3 mx-auto relative">
         {/* Image Container */}
         <div className="flex-1 max-w-[33.333333%] relative">
-          <div className="absolute w-full h-full max-w-[480px] max-h-[420px] bottom-5 right-5 bg-[#40773b] rounded-md" />
           <div className="z-20">
             <img
-              className="inset-0 w-full h-full object-cover rounded-md"
+              className="w-full h-full rounded-md shadow border-t-8 border-l-8 border-[#277933] hover:scale-105 hover:border-none"
               alt="Rectangle"
               src={img1}
             />
