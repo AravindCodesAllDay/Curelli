@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <Home />,
     children: [
       {
-        path: "preview",
+        path: ":_pid",
         element: <PopupCard />,
       },
     ],
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
     element: <Shop />,
     children: [
       {
-        path: "preview",
+        path: ":_pid",
         element: <PopupCard />,
       },
     ],

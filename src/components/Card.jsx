@@ -10,14 +10,7 @@ export default function Card({ children, details }) {
   const nav = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const openPopup = (details) => {
-    nav(
-      <PopupCard
-        details={details}
-        onClosePreview={() => {
-          nav(-1);
-        }}
-      />
-    );
+    nav(`${details._id}`);
   };
 
   const add2Cart = async (productId, userId) => {
@@ -98,8 +91,7 @@ export default function Card({ children, details }) {
         </div>
         <div className="p-4">
           <h2 className="text-xl font-bold mb-2">{details.name}</h2>
-          <p className="text-gray-600">{details.description}</p>
-          <p className="text-green-600 font-bold">Amount - {details.price}</p>
+          <p className="text-green-600 font-bold">Rs: {details.price}</p>
         </div>
       </div>
     </>
