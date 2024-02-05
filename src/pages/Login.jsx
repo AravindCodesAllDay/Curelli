@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link, useParams } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -30,7 +30,7 @@ const Login = () => {
         console.log("Login successful...");
         toast.success("Login Successful");
         // Perform actions like storing tokens in sessionStorage, redirecting, etc.
-        nav(`/home/${displayUrl}`);
+        nav(`/${displayUrl}`);
       } else {
         console.log("Login failed: Incorrect password");
         toast.error("Login failed: Incorrect password");

@@ -19,14 +19,6 @@ export default function Dropdown() {
       to: "/myaccount",
     },
     {
-      title: "Register",
-      to: "/register",
-    },
-    {
-      title: "Login",
-      to: "/",
-    },
-    {
       title: "Logout",
       to: "/",
     },

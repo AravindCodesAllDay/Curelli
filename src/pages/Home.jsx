@@ -8,6 +8,7 @@ import Subscribe from "../components/Subscribe";
 import Carousels from "../components/Carousel";
 import Tagline from "../components/Tagline";
 import Whatsapp from "../components/Whatsapp";
+import PopularProducts from "../components/PopularProducts";
 
 export default function Home() {
   const { _id } = useParams();
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <Carousels />
       <Tagline />
+      <PopularProducts />
       <Subscribe />
       <Posters />
       <Banner />
