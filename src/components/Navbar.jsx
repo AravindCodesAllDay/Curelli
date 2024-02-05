@@ -1,14 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import img1 from "../assets/curelli_logo.webp";
 import img2 from "../assets/cart.svg";
 import Dropdown from "./Dropdown";
 
 export default function Navbar() {
   const userId = sessionStorage.getItem("id");
-  const location = useLocation();
 
-  const isIdPresent = location.pathname.includes("/:_id");
+  const [isUserIdPresent, setIsUserIdPresent] = useState(false);
+
+  useEffect(() => {
+    const handleSubmission = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API}users/${userId}`
+        );
+        setIsUserIdPresent(response.ok);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    handleSubmission();
+  }, [userId]);
 
   return (
     <div className="flex flex-col items-center justify-center gap-[2px] relative bg-white">
@@ -24,23 +39,23 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-4 lg:px-10 py-4 lg:py-13 relative w-full bg-[#40773b]">
         <div className="flex items-center gap-[16px] relative">
           <div className="text-white text-[16px]">
-            <Link to={`/home/${userId}`}>Home</Link>
+            <Link to={`/`}>Home</Link>
           </div>
           <div className="text-white text-[16px]">
-            <Link to="/aboutus">About Us</Link>
+            <Link to={`/aboutus`}>About Us</Link>
           </div>
           <div className="text-white text-[16px]">
-            <Link to="/shop">Shop</Link>
+            <Link to={`/shop`}>Shop</Link>
           </div>
           <div className="text-white text-[16px]">
-            <Link to="/contact">Contact</Link>
+            <Link to={`/contact`}>Contact</Link>
           </div>
         </div>
         <div className="flex items-center gap-2 justify-center">
           <Link to="/cart">
             <img className="w-[30px] h-[30px]" alt="Shopping cart" src={img2} />
           </Link>
-          {isIdPresent ? (
+          {isUserIdPresent ? (
             <Dropdown />
           ) : (
             <div className="text-white text-[16px]">

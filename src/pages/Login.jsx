@@ -22,7 +22,6 @@ const Login = () => {
 
       const user = await response.json();
       const tablePassword = user.pswd;
-      const displayUrl = user._id;
 
       const passwordsMatch = await comparePasswords(pswd, tablePassword);
 
@@ -30,7 +29,9 @@ const Login = () => {
         console.log("Login successful...");
         toast.success("Login Successful");
         // Perform actions like storing tokens in sessionStorage, redirecting, etc.
-        nav(`/${displayUrl}`);
+
+        sessionStorage.setItem("id", user._id);
+        nav("/");
       } else {
         console.log("Login failed: Incorrect password");
         toast.error("Login failed: Incorrect password");

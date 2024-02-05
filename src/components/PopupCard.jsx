@@ -1,14 +1,9 @@
 import React from "react";
-// import img1 from "../assets/1.png";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const PopupCard = () => {
+const PopupCard = ({ details, onClosePreview }) => {
   const nav = useNavigate();
-  const { id } = useParams();
-
-  const onClosePreview = () => {
-    nav(-1);
-  };
+  const { name, description, price, photo } = details;
 
   return (
     <div
@@ -16,13 +11,17 @@ const PopupCard = () => {
       onClick={onClosePreview}
     >
       <div className="bg-white p-8 rounded-lg w-full max-w-2xl flex flex-row">
-        {/* <div className="w-1/2 flex items-center justify-center">
-          <img src={img1} alt="orange" className="max-w-full h-auto" />
-        </div> */}
+        <div className="w-1/2 flex items-center justify-center">
+          <img
+            src={`${import.meta.env.VITE_API}uploads/${photo}`}
+            alt="orange"
+            className="max-w-full h-auto"
+          />
+        </div>
         <div className="w-1/2 flex flex-col justify-center pl-8">
-          <h2 className="text-2xl font-semibold mb-2">Product-1</h2>
-          <p className="text-gray-600 mb-4">Something based on product</p>
-          <p className="text-green-600 font-semibold mb-4">Amount-₹40</p>
+          <h2 className="text-2xl font-semibold mb-2">{name}</h2>
+          <p className="text-gray-600 mb-4">{description}</p>
+          <p className="text-green-600 font-semibold mb-4">Amount-₹{price}</p>
           <div className="flex space-x-4">
             <button
               onClick={onClosePreview}

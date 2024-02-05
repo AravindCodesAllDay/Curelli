@@ -15,16 +15,6 @@ import AddProduct from "./components/AddProduct.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/:_id",
-    element: <Home />,
-    children: [
-      {
-        path: "preview",
-        element: <PopupCard />,
-      },
-    ],
-  },
-  {
     path: "/",
     element: <Home />,
     children: [

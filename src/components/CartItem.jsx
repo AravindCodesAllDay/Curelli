@@ -10,7 +10,7 @@ const CartItem = ({ data }) => {
       headerName: "Select",
       headerClassName: "super-app-theme--header",
       headerAlign: "center",
-      width: 120,
+      width: 80,
       editable: false,
     },
     {
@@ -18,7 +18,7 @@ const CartItem = ({ data }) => {
       headerName: "Image",
       headerClassName: "super-app-theme--header",
       headerAlign: "center",
-      width: 120,
+      width: 100,
       renderCell: (params) => {
         const rowData = params.row;
         return (
@@ -53,7 +53,7 @@ const CartItem = ({ data }) => {
       headerName: "Price",
       headerClassName: "super-app-theme--header",
       headerAlign: "center",
-      width: 150,
+      width: 80,
       editable: false,
     },
     {
@@ -61,7 +61,7 @@ const CartItem = ({ data }) => {
       headerName: "Quantity",
       headerAlign: "center",
       headerClassName: "super-app-theme--header",
-      width: 150,
+      width: 80,
       editable: true,
     },
     {
@@ -69,7 +69,7 @@ const CartItem = ({ data }) => {
       headerName: "Remove",
       headerAlign: "center",
       headerClassName: "super-app-theme--header",
-      width: 150,
+      width: 80,
       editable: false,
     },
   ];

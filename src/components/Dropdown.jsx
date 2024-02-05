@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -9,6 +9,13 @@ function classNames(...classes) {
 }
 
 export default function Dropdown() {
+  const nav = useNavigate();
+
+  const exit = () => {
+    sessionStorage.clear();
+    nav("/");
+  };
+
   const profile = [
     {
       title: "Wishlist",
@@ -20,7 +27,7 @@ export default function Dropdown() {
     },
     {
       title: "Logout",
-      to: "/",
+      onclick: exit,
     },
   ];
 
@@ -53,6 +60,7 @@ export default function Dropdown() {
                 {({ active }) => (
                   <Link
                     to={item.to}
+                    onClick={() => item.onclick && item.onclick()}
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       "block px-4 py-2 text-sm"
