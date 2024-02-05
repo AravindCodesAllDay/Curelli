@@ -80,19 +80,19 @@ export default function Card({ children, details }) {
             }`}
           >
             <div className="rounded-full bg-white p-3">
-              <FaHeart className="text-[#303030]" />
+              <FaHeart className="text-[#303030] hover:scale-150" />
             </div>
             <div
               className="rounded-full bg-white p-3"
               onClick={() => openPopup(details)}
             >
-              <FaEye className="text-[#303030]" />
+              <FaEye className="text-[#303030] hover:scale-150" />
             </div>
             <div
               className="rounded-full bg-white p-3"
               onClick={() => add2Cart(details._id, userId)}
             >
-              <FaShoppingCart className="text-[#303030]" />
+              <FaShoppingCart className="text-[#303030] hover:scale-150" />
             </div>
           </div>
         </div>

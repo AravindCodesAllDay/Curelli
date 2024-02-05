@@ -17,7 +17,7 @@ export default function Posters() {
           meticulously crafted into delectable Vathals that not only tantalize
           your taste buds but also nurture your well-being.
         </p>
-        <button className="text-[#40773b] py-2 px-4 rounded-md border-2 border-[#40773b] w-[100px]">
+        <button className="text-[#40773b] py-2 px-4 rounded-md border-2 border-[#40773b] w-[100px] hover:text-white hover:bg-[#277933]">
           More
         </button>
       </div>
