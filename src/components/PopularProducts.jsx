@@ -1,41 +1,45 @@
 // PopularProducts.js
 import React from "react";
-import img1 from "../assets/1.png";
-import img2 from "../assets/2.png";
-import img3 from "../assets/3.png";
-import img4 from "../assets/4.png";
+import img1 from "../assets/P1.jpg";
+import img2 from "../assets/P4.jpg";
+import img3 from "../assets/P2.jpg";
+import img4 from "../assets/P3.jpg";
 import Card2 from "./Card2";
 
 export default function PopularProducts() {
   const cardDetails = [
     {
       _id: "1",
-      name: "Product 1",
-      description: "Description for Product 1",
+      name: "PirandaiPapad",
+      description:
+        " Home made organic ingredients. Boosts Immunity Rich in antioxidants Can be air fired ",
       price: 20.0,
       photo: img1,
       status: "New",
     },
     {
       _id: "2",
-      name: "Product 2",
-      description: "Description for Product 2",
+      name: "VallaraiPapad",
+      description:
+        "Healthy snack for children Highly nutritious enhancing brain activity. Well sundried and packaged.",
       price: 25.0,
       photo: img2,
       status: "Sale",
     },
     {
       _id: "3",
-      name: "Product 1",
-      description: "Description for Product 1",
+      name: "AavarampooPapad",
+      description:
+        "First of its kind Unadulterated pure ingredients Healthy snack with no preservatives",
       price: 20.0,
       photo: img3,
       status: "Popular",
     },
     {
       _id: "4",
-      name: "Product 2",
-      description: "Description for Product 2",
+      name: "Sangupoo Papad",
+      description:
+        " First of its kind Unadulterated pure ingredients Healthy snack with no preservatives",
       price: 25.0,
       photo: img4,
       status: "Popular",
