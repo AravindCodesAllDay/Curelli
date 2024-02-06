@@ -103,7 +103,7 @@ export default function Card({ children, details }) {
             &nbsp;
             <p className="text-gray-600 -mt-1">({details.numOfRating})</p>
           </div>
-          <p className="text-green-600 font-bold">Rs. {details.price}</p>
+          <p className="text-green-600 font-bold">Rs: {details.price}</p>
         </div>
       </div>
     </>
