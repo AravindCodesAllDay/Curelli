@@ -13,7 +13,7 @@ export default function PopularProducts() {
       name: "PirandaiPapad",
       description:
         " Home made organic ingredients. Boosts Immunity Rich in antioxidants Can be air fired ",
-      price: 20.0,
+      price: 69,
       photo: img1,
       status: "New",
     },
@@ -22,7 +22,7 @@ export default function PopularProducts() {
       name: "VallaraiPapad",
       description:
         "Healthy snack for children Highly nutritious enhancing brain activity. Well sundried and packaged.",
-      price: 25.0,
+      price: 69,
       photo: img2,
       status: "Sale",
     },
@@ -31,7 +31,7 @@ export default function PopularProducts() {
       name: "AavarampooPapad",
       description:
         "First of its kind Unadulterated pure ingredients Healthy snack with no preservatives",
-      price: 20.0,
+      price: 69,
       photo: img3,
       status: "Popular",
     },
@@ -40,7 +40,7 @@ export default function PopularProducts() {
       name: "Sangupoo Papad",
       description:
         " First of its kind Unadulterated pure ingredients Healthy snack with no preservatives",
-      price: 25.0,
+      price: 69,
       photo: img4,
       status: "Popular",
     },
