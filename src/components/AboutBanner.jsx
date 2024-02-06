@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../assets/pancakes.svg";
+import img from "../assets/AboutUs.jpg";
 import img1 from "../assets/facebook.svg";
 import img2 from "../assets/instagram.png";
 import img3 from "../assets/x.svg";
@@ -10,7 +10,7 @@ export default function AboutBanner() {
     <div className="flex flex-col items-center gap-10 px-8 md:px-16 py-12 relative bg-white">
       <div className="flex items-center  gap-4 md:gap-12 relative">
         <img
-          className="w-full md:w-[510px] h-auto rounded-md"
+          className="w-full md:w-[510px] h-auto rounded-md hover:scale-105"
           alt="Pancakes"
           src={img}
         />

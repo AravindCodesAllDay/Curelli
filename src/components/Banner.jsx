@@ -1,5 +1,5 @@
 import React from "react";
-import img1 from "../assets/plant.png";
+import img1 from "../assets/UnmatchedQuality@AffordablePrice.jpg";
 
 export default function Banner() {
   return (
@@ -9,7 +9,7 @@ export default function Banner() {
         <div className="flex-1 max-w-[33.333333%] relative">
           <div className="z-20">
             <img
-              className="w-full h-full rounded-md shadow border-t-8 border-l-8 border-[#277933] hover:scale-105 hover:border-none"
+              className="w-full h-full rounded-md shadow border-b-8 border-r-8 border-[#277933] hover:scale-105 hover:border-none"
               alt="Rectangle"
               src={img1}
             />

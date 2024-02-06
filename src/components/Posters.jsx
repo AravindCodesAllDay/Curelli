@@ -1,5 +1,5 @@
 import React from "react";
-import img1 from "../assets/f1.jpg";
+import img1 from "../assets/Get2KnowUs.jpg";
 
 export default function Posters() {
   return (

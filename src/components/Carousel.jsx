@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import image1 from "../assets/img1.png";
-import image2 from "../assets/img2.png";
-import image3 from "../assets/img3.png";
+import image1 from "../assets/Banner_01.jpg";
+import image2 from "../assets/Banner_02.jpg";
+import image3 from "../assets/Banner_03.jpg";
+import image4 from "../assets/Banner_04.jpg";
 
 const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const images = [image1, image2, image3];
+  const images = [image1, image2, image3, image4];
 
   const updateContent = () => {
     setCurrentImageIndex((prevIndex) =>
