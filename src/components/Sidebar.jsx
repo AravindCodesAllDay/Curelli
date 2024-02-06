@@ -24,7 +24,7 @@ const Sidebar = () => {
         <div className="absolute w-full h-[32px] top-[37px] left-0">
           <div className="w-full h-2 top-[4px] left-0 bg-green-700 rounded-[5px]" />
           <div className="absolute left-0 top-[15px] text-green-700 text-sm md:text-base tracking-[0] leading-[normal]">
-            ₹ 7.50 - ₹ 130.00
+            Rs. 7.50 - Rs. 130.00
           </div>
         </div>
       </div>

@@ -27,7 +27,9 @@ const Login = () => {
 
       if (passwordsMatch) {
         console.log("Login successful...");
-        toast.success("Login Successful");
+        toast.success("Login Successful", {
+          position: "top-center",
+        });
         // Perform actions like storing tokens in sessionStorage, redirecting, etc.
 
         sessionStorage.setItem("id", user._id);
@@ -38,7 +40,9 @@ const Login = () => {
       }
     } catch (error) {
       console.error("Error during login:", error.message);
-      toast.error("Error during login, try again later");
+      toast.error("Error during login, try again later", {
+        position: "top-center",
+      });
     }
   };
 

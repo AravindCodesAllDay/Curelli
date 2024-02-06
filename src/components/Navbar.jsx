@@ -42,8 +42,8 @@ export default function Navbar() {
           <div
             className={`text-[16px] ${
               location.pathname === "/"
-                ? "text-green-400"
-                : "hover:text-green-400 text-white"
+                ? "text-[#6b986a]"
+                : "hover:text-[#6b986a] text-white"
             }`}
           >
             <Link to={`/`}>Home</Link>
@@ -51,8 +51,8 @@ export default function Navbar() {
           <div
             className={` text-[16px] ${
               location.pathname === "/aboutus"
-                ? "text-green-400"
-                : "hover:text-green-400 text-white"
+                ? "text-[#6b986a]"
+                : "hover:text-[#6b986a] text-white"
             }`}
           >
             <Link to={`/aboutus`}>About Us</Link>
@@ -60,8 +60,8 @@ export default function Navbar() {
           <div
             className={` text-[16px] ${
               location.pathname === "/shop"
-                ? "text-green-400"
-                : "hover:text-green-400 text-white"
+                ? "text-[#6b986a]"
+                : "hover:text-[#6b986a] text-white"
             }`}
           >
             <Link to={`/shop`}>Shop</Link>
@@ -69,8 +69,8 @@ export default function Navbar() {
           <div
             className={`text-[16px] ${
               location.pathname === "/contact"
-                ? "text-green-400"
-                : "hover:text-green-400 text-white"
+                ? "text-[#6b986a]"
+                : "hover:text-[#6b986a] text-white"
             }`}
           >
             <Link to={`/contact`}>Contact</Link>
