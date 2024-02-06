@@ -39,7 +39,7 @@ export default function Card({ children, details }) {
         if (response.ok) {
           const result = await response.json();
           console.log(result.message);
-          nav(`/cart/${userId}`);
+          nav(`/cart`);
         } else {
           const errorResult = await response.json();
           console.error(
@@ -57,7 +57,7 @@ export default function Card({ children, details }) {
     <>
       <ToastContainer />
       <div
-        className="relative max-w-[280px] min-w-[250px] border-2 max-h-[400px] min-h-[380px] size-100% w-100% h-100% hover:shadow-2xl flex flex-col justify-between m-2"
+        className="relative max-w-[275px] min-w-[250px] border-2 max-h-[400px] min-h-[380px] size-100% w-100% h-100% hover:shadow-2xl flex flex-col justify-between m-2"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
