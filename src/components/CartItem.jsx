@@ -41,14 +41,6 @@ const CartItem = ({ data }) => {
       editable: false,
     },
     {
-      field: "description",
-      headerName: "Detail",
-      headerClassName: "super-app-theme--header",
-      headerAlign: "center",
-      width: 300,
-      editable: false,
-    },
-    {
       field: "price",
       headerName: "Price",
       headerClassName: "super-app-theme--header",
@@ -73,6 +65,7 @@ const CartItem = ({ data }) => {
       editable: false,
     },
   ];
+  console.log(data);
   return (
     <Box sx={{ width: "100%" }}>
       <div>

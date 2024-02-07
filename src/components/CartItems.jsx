@@ -30,9 +30,11 @@ const CartItems = () => {
       const updatedCartItems = await Promise.all(
         user.cart.map(async (cartItem) => {
           const productDetails = await fetchProductDetails(cartItem.product);
-          productDetails.quantity = cartItem.quantity;
-          productDetails.id = cartItem.product;
-          return productDetails;
+          return {
+            ...productDetails,
+            quantity: cartItem.quantity,
+            id: cartItem.product,
+          };
         })
       );
 
