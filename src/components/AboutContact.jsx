@@ -9,9 +9,10 @@ export default function AboutContact() {
         </div>
         <div className="flex flex-col sm:flex-row m-4">
           <p className="font-normal text-[#40773b] text-base md:text-lg lg:text-xl tracking-normal leading-normal">
-            705/3B-2, Layam Road, Sagayam Nagar,
+            No.705/3B of Chenbagaramanputhoor Road, Sahayanagar, Thovalai
+            Village,
             <br />
-            Thovalai, Kanyakumari.
+            Shanmugapuram, kanyakumari district, Tamil Nadu - 629302
           </p>
           <div className="flex-col sm:ml-10">
             <a
