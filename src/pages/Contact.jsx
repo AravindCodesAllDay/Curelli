@@ -9,7 +9,7 @@ export default function Contact() {
     <>
       <Navbar />
       <Contactdetails />
-      <Map zoomLevel={17} />
+      {/* <Map zoomLevel={17} /> */}
       <Footer />
       <Whatsapp />
     </>

@@ -50,7 +50,7 @@ export default function Card2({ children, details }) {
 
   return (
     <div
-      className="relative max-w-[280px] min-w-[250px] border-2 max-h-[400px] min-h-[380px] size-100% w-100% h-100% hover:shadow-2xl flex flex-col justify-between m-2"
+      className="relative max-w-[290px] min-w-[260px] border-2 max-h-[400px] min-h-[380px] size-100% w-100% h-100% hover:shadow-2xl flex flex-col justify-between m-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
