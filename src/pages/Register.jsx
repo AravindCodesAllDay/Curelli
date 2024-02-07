@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
-import img1 from "../assets/curelli_logo.webp";
+import img1 from "../assets/Logo_01.png";
 import google from "../assets/google.svg";
 function Register() {
   const nav = useNavigate();
@@ -73,10 +73,10 @@ function Register() {
     <>
       <div className="bg-gray-100 h-screen">
         <ToastContainer />
-        <div className="flex flex-row bg-gray-100 justify-center">
-          <Link to="/home">
+        <div className="flex flex-row bg-gray-100 justify-center p-3">
+          <Link to="/">
             <img
-              className="relative h-[100px] object-cover"
+              className="relative h-[150px] object-cover"
               alt="Image"
               src={img1}
             />

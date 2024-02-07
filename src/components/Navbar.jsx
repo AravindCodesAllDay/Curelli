@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import img1 from "../assets/curelli_logo.webp";
+import img1 from "../assets/Logo_02.png";
 import img2 from "../assets/cart.svg";
 import Dropdown from "./Dropdown";
 
@@ -41,10 +41,10 @@ export default function Navbar() {
     <>
       <ToastContainer />
       <div className="flex flex-col items-center justify-center gap-[2px] relative bg-white">
-        <div className="flex flex-col items-center justify-center gap-[10px] relative w-full max-w-[1440px]">
+        <div className="flex flex-col items-center justify-center gap-[10px] relative w-full max-w-[1440px] p-2">
           <Link to={`/${userId}`}>
             <img
-              className="relative h-[100px] object-cover"
+              className="relative h-[70px] object-cover"
               alt="Image"
               src={img1}
             />
@@ -68,7 +68,7 @@ export default function Navbar() {
                   : "hover:text-[#6b986a] text-white"
               }`}
             >
-              <Link to={`/aboutus`}>About Us</Link>
+              <Link to={`/aboutus`}>Our Story</Link>
             </div>
             <div
               className={` text-[16px] ${
@@ -77,7 +77,7 @@ export default function Navbar() {
                   : "hover:text-[#6b986a] text-white"
               }`}
             >
-              <Link to={`/shop`}>Shop</Link>
+              <Link to={`/shop`}>Our Products</Link>
             </div>
             <div
               className={`text-[16px] ${

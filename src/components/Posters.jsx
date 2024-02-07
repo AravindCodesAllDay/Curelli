@@ -1,5 +1,5 @@
 import React from "react";
-import img1 from "../assets/Get2KnowUs.jpg";
+import img1 from "../assets/Web_Image_03.jpg";
 
 export default function Posters() {
   return (
@@ -23,7 +23,11 @@ export default function Posters() {
       </div>
 
       <div className="lg:w-1/2 flex flex-col ml-5 max-h-[600px]">
-        <img className="w-full h-full object-cover" src={img1} alt="flowers" />
+        <img
+          className="w-full h-full object-cover shadow-lg"
+          src={img1}
+          alt="flowers"
+        />
       </div>
     </div>
   );

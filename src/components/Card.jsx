@@ -57,7 +57,7 @@ export default function Card({ children, details }) {
     <>
       <ToastContainer />
       <div
-        className="relative max-w-[275px] min-w-[250px] border-2 max-h-[400px] min-h-[380px] size-100% w-100% h-100% hover:shadow-2xl flex flex-col justify-between m-2"
+        className="relative max-w-[289px] min-w-[260px] border-2 max-h-[400px] min-h-[380px] size-100% w-100% h-100% hover:shadow-2xl flex flex-col justify-between m-2"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -73,17 +73,17 @@ export default function Card({ children, details }) {
               isHovered ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="rounded-full bg-white p-3">
+            <div className="rounded-full bg-white p-3 shadow">
               <FaHeart className="text-[#303030] hover:scale-150" />
             </div>
             <div
-              className="rounded-full bg-white p-3"
+              className="rounded-full bg-white p-3 shadow"
               onClick={() => openPopup(details)}
             >
               <FaEye className="text-[#303030] hover:scale-150" />
             </div>
             <div
-              className="rounded-full bg-white p-3"
+              className="rounded-full bg-white p-3 shadow"
               onClick={() => add2Cart(details._id, userId)}
             >
               <FaShoppingCart className="text-[#303030] hover:scale-150" />

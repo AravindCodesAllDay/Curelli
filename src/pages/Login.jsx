@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import img1 from "../assets/curelli_logo.webp";
+import img1 from "../assets/Logo_01.png";
 import google from "../assets/google.svg";
 
 const Login = () => {
@@ -60,10 +60,10 @@ const Login = () => {
     <>
       <div className="bg-gray-100 h-screen">
         <ToastContainer />
-        <div className="flex flex-row bg-gray-100 justify-center">
+        <div className="flex flex-row bg-gray-100 justify-center p-3">
           <Link to="/">
             <img
-              className="relative h-[100px] object-cover"
+              className="relative h-[150px] object-cover"
               alt="Image"
               src={img1}
             />

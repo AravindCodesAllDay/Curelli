@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import image1 from "../assets/Banner_01.jpg";
-import image2 from "../assets/Banner_02.jpg";
-import image3 from "../assets/Banner_03.jpg";
-import image4 from "../assets/Banner_04.jpg";
+import image1 from "../assets/Curelli_Food_Banner_01.jpg";
+import image2 from "../assets/Curelli_Food_Banner_02.jpg";
+import image3 from "../assets/Curelli_Food_Banner_03.jpg";
+import image4 from "../assets/Curelli_Food_Banner_04.jpg";
 
 const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
 
 export default function Shop() {
@@ -38,10 +37,7 @@ export default function Shop() {
     <>
       <Navbar />
       <div className="flex flex-row">
-        <div className="flex flex-col max-w-[350px] min-w-[300px]">
-          <Sidebar />
-        </div>
-        <div className="p-12 lg:flex lg:flex-wrap">
+        <div className="p-12 lg:flex lg:flex-wrap justify-center">
           {cardDetails.map((details) => (
             <Card key={details.id} details={details} />
           ))}

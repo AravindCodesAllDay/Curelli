@@ -4,15 +4,18 @@ import img from "../assets/parcel.jpg";
 export default function Contactdetails() {
   return (
     <>
-      <div className="container p-4">
-        <p className="text-[#277933] text-center text-3xl mb-4">CONTACT US</p>
+      <div className="container p-8">
+        <p className="text-[#277933] text-center text-3xl">CONTACT US</p>
+        <p className="text-[#277933] text-center font-light text-xl mt-8">
+          No.705/3B of Chenbagaramanputhoor Road, Sahayanagar, Thovalai Village,
+        </p>
         <p className="text-[#277933] text-center font-light text-xl">
-          705/3B2, Layam Main Road, hagayan Nagar, Shanmugapuram, Thovalai
-          <br />
-          <br />
+          Shanmugapuram, kanyakumari district, Tamil Nadu - 629302
+        </p>
+        <p className="text-[#277933] text-center font-light text-xl mt-3">
           contact@curellifoods.com
-          <br />
-          <br />
+        </p>
+        <p className="text-[#277933] text-center font-light text-xl mt-3">
           +91 8668157699
         </p>
       </div>
