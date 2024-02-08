@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaEye, FaShoppingCart } from "react-icons/fa";
+import Rating from "@mui/material/Rating";
 
 export default function Card2({ children, details }) {
   const userId = sessionStorage.getItem("id");
@@ -85,6 +86,17 @@ export default function Card2({ children, details }) {
       </div>
       <div className="p-4">
         <h2 className="text-xl font-bold mb-2">{details.name}</h2>
+        <div className="flex flex-row -ml-0.5">
+          <Rating
+            name="size-small"
+            readOnly
+            defaultValue={details.rating}
+            precision={0.5}
+            size="small"
+          />
+          &nbsp;
+          <p className="text-gray-600 -mt-1">({details.numOfRating})</p>
+        </div>
         <p className="text-green-600 font-bold">Rs: {details.price}</p>
       </div>
     </div>

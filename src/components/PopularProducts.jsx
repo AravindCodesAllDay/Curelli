@@ -16,6 +16,8 @@ export default function PopularProducts() {
       price: 69,
       photo: img1,
       status: "New",
+      rating: 4,
+      numOfRating: 44,
     },
     {
       _id: "2",
@@ -25,6 +27,8 @@ export default function PopularProducts() {
       price: 69,
       photo: img2,
       status: "Sale",
+      rating: 4,
+      numOfRating: 40,
     },
     {
       _id: "3",
@@ -34,6 +38,8 @@ export default function PopularProducts() {
       price: 69,
       photo: img3,
       status: "Popular",
+      rating: 4,
+      numOfRating: 14,
     },
     {
       _id: "4",
@@ -43,6 +49,8 @@ export default function PopularProducts() {
       price: 69,
       photo: img4,
       status: "Popular",
+      rating: 4.5,
+      numOfRating: 9,
     },
   ];
   return (
