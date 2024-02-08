@@ -2,6 +2,7 @@ import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Navbar from "./components/Navbar.jsx"; // Import the layout component
 import Home from "./pages/Home.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -15,25 +16,35 @@ import Login from "./pages/Login.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-    children: [
-      {
-        path: ":_pid",
-        element: <PopupCard />,
-      },
-    ],
+    element: (
+      <Navbar>
+        <Home />
+      </Navbar>
+    ),
   },
   {
     path: "/aboutus",
-    element: <AboutUs />,
+    element: (
+      <Navbar>
+        <AboutUs />
+      </Navbar>
+    ),
   },
   {
     path: "/contact",
-    element: <Contact />,
+    element: (
+      <Navbar>
+        <Contact />
+      </Navbar>
+    ),
   },
   {
     path: "/shop",
-    element: <Shop />,
+    element: (
+      <Navbar>
+        <Shop />
+      </Navbar>
+    ),
     children: [
       {
         path: ":_pid",
@@ -43,19 +54,35 @@ const router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <Cart />,
+    element: (
+      <Navbar>
+        <Cart />
+      </Navbar>
+    ),
   },
   {
     path: "/register",
-    element: <Register />,
+    element: (
+      <Navbar>
+        <Register />
+      </Navbar>
+    ),
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <Navbar>
+        <Login />
+      </Navbar>
+    ),
   },
   {
     path: "*",
-    element: <NoPage />,
+    element: (
+      <Navbar>
+        <NoPage />
+      </Navbar>
+    ),
   },
 ]);
 

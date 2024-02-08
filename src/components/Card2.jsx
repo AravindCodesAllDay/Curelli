@@ -8,7 +8,7 @@ export default function Card2({ children, details }) {
   const nav = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const openPopup = () => {
-    nav("preview");
+    nav("/shop/65c26bea167ec3c69e917c08");
   };
 
   const add2Cart = async (productId, userId) => {

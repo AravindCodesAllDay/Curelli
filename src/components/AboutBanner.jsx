@@ -19,12 +19,36 @@ export default function AboutBanner() {
             Reviving Tradition: A Modern Twist to Forgotten Organic Foods
           </p>
           <p className="font-normal text-[#40773b] text-base md:text-lg tracking-normal leading-normal m-8">
-            Inspired by my mother’s legacy of crafting exquisite Pirandai
-            Vatthal, &#34;Curelli Foods,&#34; in the heart of Aralvaimozhi. We
-            believe in preserving tradition while infusing it with a touch of
-            modernity. With a small team of dedicated homemakers in and around
-            the location, we set out on a mission to take the family’s heritage
-            to the world.
+            A Mother's Legacy: From Family Favorite to Empowering Mission Deep
+            in the heart of Kanyakumari, a coastal town at the southernmost tip
+            of India, a mother's love sparked a journey of tradition,
+            empowerment, and wellbeing. In 1996, she crafted a unique vathal,
+            bursting with flavor and health benefits, originally intended for
+            her family's table. The taste, however, transcended its intended
+            audience, captivating neighbors and relatives alike. This was the
+            seed of Curelli Foods, a company founded by her son, carrying his
+            mother's legacy forward. Curelli Foods is more than just a food
+            products company; it's a celebration of women's power. From
+            cultivating crops to processing and packaging, every step is guided
+            by skilled female hands. This embodies the founder's mother's dream
+            - to create a safe and supportive environment where women can
+            thrive. But the mission doesn't stop there. Curelli Foods fights to
+            preserve ancient wisdom, recognizing the fading knowledge of
+            traditional herbal remedies used by their ancestors. Many of these
+            ingredients are endangered, forgotten by younger generations and
+            neglected by farmers. To combat this, Curelli Foods partners with
+            farmers, helping them cultivate and harvest these precious
+            ingredients. They also offer training programs, empowering farmers
+            with the knowledge to grow and market these valuable herbs, ensuring
+            their sustainability for future generations. The company's
+            commitment extends to promoting healthy living. In today's world of
+            processed foods, Curelli Foods offers a beacon of hope. Their
+            organic vathals and other products are free from harmful chemicals
+            and preservatives, providing a delicious and accessible option for
+            health-conscious individuals on any budget. Curelli Foods, though
+            young, is already making waves. Reviving forgotten traditions,
+            empowering women, and offering healthy alternatives to a world often
+            saturated with unhealthy choices.
           </p>
           <div className="flex items-center gap-4 m-8">
             <img className="w-6 h-6" alt="Facebook" src={img1} />

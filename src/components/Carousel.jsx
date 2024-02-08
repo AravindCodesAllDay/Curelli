@@ -30,20 +30,24 @@ const Carousel = () => {
   }, [currentImageIndex]);
 
   return (
-    <div className="relative w-full">
-      <div onClick={updateContent}>
-        <div className="aspect-w-3 aspect-h-2">
+    <div className="relative w-screen overflow-hidden">
+      <div
+        onClick={updateContent}
+        className="transition-transform duration-500"
+        style={{
+          transform: `translateX(-${currentImageIndex * 100}%)`,
+          transition: "transform 0.5s ease",
+          display: "flex",
+        }}
+      >
+        {images.map((image, index) => (
           <img
-            src={images[currentImageIndex]}
-            alt={`Image ${currentImageIndex + 1}`}
-            className="object-cover w-full h-full absolute cursor-pointer"
+            key={index}
+            src={image}
+            alt={`Image ${index + 1}`}
+            className="object-cover w-full h-full"
           />
-        </div>
-        <div className="relative w-full h-[520px] flex items-center justify-center">
-          <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
-            <div className="p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 text-center rounded-md"></div>
-          </div>
-        </div>
+        ))}
       </div>
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {images.map((_, index) => (

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
+import Whatsapp from "../components/Whatsapp";
 
 export default function Shop() {
   const [cardDetails, setCardDetails] = useState([]);
@@ -35,7 +35,6 @@ export default function Shop() {
 
   return (
     <>
-      <Navbar />
       <div className="flex flex-row">
         <div className="p-12 lg:flex lg:flex-wrap justify-center">
           {cardDetails.map((details) => (
@@ -44,6 +43,7 @@ export default function Shop() {
         </div>
       </div>
       <Footer />
+      <Whatsapp />
       <Outlet />
     </>
   );

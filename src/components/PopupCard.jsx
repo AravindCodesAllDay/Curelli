@@ -68,7 +68,7 @@ const PopupCard = () => {
   return (
     <div
       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
-      onClick={() => nav(-1)}
+      onClick={() => nav("/shop")}
     >
       <div className="bg-white p-8 rounded-lg w-full max-w-2xl flex flex-row">
         <div className="w-1/2 flex items-center justify-center">
@@ -86,7 +86,7 @@ const PopupCard = () => {
           </p>
           <div className="flex space-x-4">
             <button
-              onClick={() => nav(-1)}
+              onClick={() => nav("/shop")}
               className="bg-blue-500 text-white px-4 py-2 rounded-md max-w-[100px]"
             >
               Close

@@ -7,7 +7,7 @@ import img1 from "../assets/Logo_02.png";
 import img2 from "../assets/cart.svg";
 import Dropdown from "./Dropdown";
 
-export default function Navbar() {
+export default function Navbar({ children }) {
   const nav = useNavigate();
   const userId = sessionStorage.getItem("id");
   const location = useLocation();
@@ -42,7 +42,7 @@ export default function Navbar() {
       <ToastContainer />
       <div className="flex flex-col items-center justify-center gap-[2px] relative bg-white">
         <div className="flex flex-col items-center justify-center gap-[10px] relative w-full max-w-[1440px] p-2">
-          <Link to={`/${userId}`}>
+          <Link to={`/`}>
             <img
               className="relative h-[70px] object-cover"
               alt="Image"
@@ -108,6 +108,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+      {children}
     </>
   );
 }

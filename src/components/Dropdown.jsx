@@ -18,12 +18,16 @@ export default function Dropdown() {
 
   const profile = [
     {
+      title: "My Orders",
+      to: "#",
+    },
+    {
       title: "Wishlist",
-      to: "/wishlist",
+      to: "#",
     },
     {
       title: "Profile",
-      to: "/myaccount",
+      to: "#",
     },
     {
       title: "Logout",

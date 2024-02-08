@@ -2,8 +2,8 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
-import img1 from "../assets/Logo_01.png";
 import google from "../assets/google.svg";
+
 function Register() {
   const nav = useNavigate();
   const [name, setName] = useState("");
@@ -73,15 +73,6 @@ function Register() {
     <>
       <div className="bg-gray-100 h-screen">
         <ToastContainer />
-        <div className="flex flex-row bg-gray-100 justify-center p-3">
-          <Link to="/">
-            <img
-              className="relative h-[150px] object-cover"
-              alt="Image"
-              src={img1}
-            />
-          </Link>
-        </div>
         <div className="h-100% flex justify-center items-center bg-gray-100 p-12">
           <div className="bg-white p-8 px-16 rounded-md shadow-lg w-[440px]">
             <h2 className="text-[#277933] text-2xl mb-6 text-center font-semibold">
