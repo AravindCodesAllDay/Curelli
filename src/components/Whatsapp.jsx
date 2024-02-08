@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import img1 from "../assets/uparrow.png";
+import { FaArrowUp } from "react-icons/fa";
 import img2 from "../assets/WhatsApp.png";
 
 function Whatsapp() {
@@ -48,11 +48,7 @@ function Whatsapp() {
             className="bg-green-500 p-[10px] rounded-full"
             onClick={scrollToTop}
           >
-            <img
-              src={img1}
-              alt="whatsapp logo"
-              className="w-6 hover:scale-125"
-            />
+            <FaArrowUp className="h-6 w-6 text-white hover:scale-125" />
           </button>
         </div>
       </div>

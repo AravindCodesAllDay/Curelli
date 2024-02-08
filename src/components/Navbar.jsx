@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img1 from "../assets/Logo_02.png";
-import img2 from "../assets/cart.svg";
+import { FaSearch, FaShoppingBag } from "react-icons/fa";
 import Dropdown from "./Dropdown";
 
 export default function Navbar({ children }) {
   const nav = useNavigate();
   const userId = sessionStorage.getItem("id");
   const location = useLocation();
-
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isUserIdPresent, setIsUserIdPresent] = useState(false);
+
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
 
   useEffect(() => {
     const handleSubmission = async () => {
@@ -89,11 +92,30 @@ export default function Navbar({ children }) {
               <Link to={`/contact`}>Contact</Link>
             </div>
           </div>
-          <div className="flex items-center gap-2 justify-center">
-            <img
-              className="w-[30px] h-[30px]"
-              alt="Shopping cart"
-              src={img2}
+          <div className="flex items-center gap-5 justify-center">
+            <div className="relative">
+              {isSearchOpen ? (
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Search products..."
+                    className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 w-96
+                    "
+                  />
+                  <FaSearch
+                    className="text-black cursor-pointer absolute right-0 top-1 mr-2 w-[25px] h-[25px]"
+                    onClick={toggleSearch}
+                  />
+                </div>
+              ) : (
+                <FaSearch
+                  className="text-white cursor-pointer w-[25px] h-[25px]"
+                  onClick={toggleSearch}
+                />
+              )}
+            </div>
+            <FaShoppingBag
+              className="w-[27px] h-[27px] text-white"
               onClick={() => {
                 accessCart();
               }}

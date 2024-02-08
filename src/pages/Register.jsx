@@ -2,7 +2,8 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
-import google from "../assets/google.svg";
+import google from "../assets/google.png";
+import facebook from "../assets/facebook.png";
 
 function Register() {
   const nav = useNavigate();
@@ -125,16 +126,19 @@ function Register() {
                 {loading ? "Submitting..." : "Submit"}
               </button>
               <p className="mt-4 text-gray-600 text-center">
-                Already have an account?
+                Already a Member?
                 <Link to="/login" className="text-[#277933] cursor-pointer">
                   Login
                 </Link>
               </p>
             </form>
             <hr className="my-3" />
-            <div className="mt-3 border-2 rounded-full flex items-center justify-center">
-              <img src={google} alt="google logo" className="w-6 h-8 mr-2" />
-              <p className="text-gray-700">Sign up using Google</p>
+            <p className="text-gray-700 flex justify-center">
+              Sign up using Google
+            </p>
+            <div className="mt-3 flex items-center justify-center">
+              <img src={google} alt="google logo" className="h-8 mr-2" />
+              <img src={facebook} alt="facebook logo" className=" h-8 mr-2" />
             </div>
           </div>
         </div>

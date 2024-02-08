@@ -1,8 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import profileImage from "../assets/profile.svg";
+import { FaUser } from "react-icons/fa";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -39,12 +38,7 @@ export default function Dropdown() {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full justify-center text-sm font-semibold text-gray-900 shadow-sm rounded-full mt-1">
-          <img
-            className="w-[30px] h-[30px]"
-            alt="Male user"
-            src={profileImage}
-          />
-          <ChevronDownIcon className=" h-6 w-6 text-white" aria-hidden="true" />
+          <FaUser className="w-[27px] h-[27px] text-white" />
         </Menu.Button>
       </div>
 
