@@ -1,4 +1,3 @@
-// CartItems.js
 import React, { useState, useEffect } from "react";
 import CartItem from "./CartItem";
 
@@ -61,24 +60,24 @@ const CartItems = () => {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="text-center mt-4">Loading...</p>;
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="text-center mt-4">{error}</p>;
   }
 
   return (
-    <div className="max-w-4xl mx-auto mt-4">
+    <div className="max-w-4xl mx-auto mt-4 flex flex-col items-center">
       {cartItems.length === 0 ? (
-        <p className="text-gray-500">Your Cart is empty.</p>
+        <p className="text-gray-500 text-center m-3">Your Cart is empty.</p>
       ) : (
         <>
           <CartItem data={cartItems} />
           <div className="mt-4">
             <button
               onClick={handleProceedToBuy}
-              className="bg-blue-500 text-white px-4 py-2 rounded-md"
+              className="m-3 bg-blue-500 text-white px-4 py-2 rounded-md"
             >
               Proceed to Buy
             </button>
