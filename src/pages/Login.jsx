@@ -80,6 +80,14 @@ const Login = () => {
                 placeholder="Password"
                 className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
               />
+              <p className="text-end">
+                <Link
+                  to="/forgotpswd"
+                  className="text-[#277933] cursor-pointer"
+                >
+                  Forgot Password?
+                </Link>
+              </p>
               <button
                 type="submit"
                 className="submit-button bg-[#277933] text-white h-10 p-2 rounded"

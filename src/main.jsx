@@ -12,6 +12,7 @@ import PopupCard from "./components/PopupCard.jsx";
 import Register from "./pages/Register.jsx";
 import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
+import ForgotPswd from "./pages/ForgotPswd.jsx";
 
 const router = createBrowserRouter([
   {
@@ -77,12 +78,12 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/forgotpswd",
+    element: <ForgotPswd />,
+  },
+  {
     path: "*",
-    element: (
-      <Navbar>
-        <NoPage />
-      </Navbar>
-    ),
+    element: <NoPage />,
   },
 ]);
 
