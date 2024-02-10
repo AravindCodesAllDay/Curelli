@@ -1,9 +1,8 @@
-// CartItem.js
 import React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 
-const CartItem = ({ data }) => {
+const CartItem = ({ data, onDelete }) => {
   const columns = [
     {
       field: "select",
@@ -63,9 +62,16 @@ const CartItem = ({ data }) => {
       headerClassName: "super-app-theme--header",
       width: 80,
       editable: false,
+      renderCell: (params) => (
+        <button
+          onClick={() => onDelete(params.row.id)} // Assuming there's an id field in your data
+        >
+          Delete
+        </button>
+      ),
     },
   ];
-  console.log(data);
+
   return (
     <Box sx={{ width: "100%" }}>
       <div>

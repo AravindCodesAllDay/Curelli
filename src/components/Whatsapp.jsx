@@ -7,9 +7,7 @@ function Whatsapp() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check the scroll position
       if (window.scrollY > 100) {
-        // Adjust the scroll threshold as needed
         setIsVisible(true);
       } else {
         setIsVisible(false);

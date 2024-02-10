@@ -12,15 +12,17 @@ import PopularProducts from "../components/PopularProducts";
 export default function Home() {
   return (
     <>
-      <Carousels />
-      <Tagline />
-      <PopularProducts />
-      <Subscribe />
-      <Posters />
-      <Banner />
-      <Footer />
-      <Outlet />
-      <Whatsapp />
+      <div className="w-screen">
+        <Carousels />
+        <Tagline />
+        <PopularProducts />
+        <Subscribe />
+        <Posters />
+        <Banner />
+        <Footer />
+        <Outlet />
+        <Whatsapp />
+      </div>
     </>
   );
 }

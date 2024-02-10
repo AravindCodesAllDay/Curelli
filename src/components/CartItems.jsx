@@ -50,9 +50,25 @@ const CartItems = () => {
     fetchCartDetails();
   }, []);
 
-  const handleAction = (index, action) => {
-    // Handle common actions here
-    // Example: handleDecreaseQuantity, handleIncreaseQuantity, handleDeleteItem
+  const handleDelete = async (productId) => {
+    try {
+      // Delete the item from the cart on the server
+      await fetch(`${import.meta.env.VITE_API}users/cart`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId, product: productId }),
+      });
+
+      // Update the local state to reflect the deletion
+      setCartItems((prevCartItems) =>
+        prevCartItems.filter((item) => item.id !== productId)
+      );
+    } catch (error) {
+      console.error("Error deleting item from cart:", error);
+      setError("Error deleting item from cart. Please try again later.");
+    }
   };
 
   const handleProceedToBuy = () => {
@@ -73,7 +89,7 @@ const CartItems = () => {
         <p className="text-gray-500 text-center m-3">Your Cart is empty.</p>
       ) : (
         <>
-          <CartItem data={cartItems} />
+          <CartItem data={cartItems} onDelete={handleDelete} />
           <div className="mt-4">
             <button
               onClick={handleProceedToBuy}
