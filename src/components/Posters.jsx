@@ -22,12 +22,8 @@ export default function Posters() {
         </button>
       </div>
 
-      <div className="lg:w-1/2 flex flex-col ml-5 max-h-[600px]">
-        <img
-          className="w-full h-full object-cover shadow-lg"
-          src={img1}
-          alt="flowers"
-        />
+      <div className="lg:w-1/2 w-full flex flex-col p-8 h-[600px] justify-center items-center text-center">
+        <img className="object-cover shadow-lg" src={img1} alt="flowers" />
       </div>
     </div>
   );

@@ -88,6 +88,11 @@ const Login = () => {
                   Forgot Password?
                 </Link>
               </p>
+              <p className="text-start">
+                <Link to="/policy" className="text-[#277933] cursor-pointer">
+                  Curelli Privacy Policy
+                </Link>
+              </p>
               <button
                 type="submit"
                 className="submit-button bg-[#277933] text-white h-10 p-2 rounded"

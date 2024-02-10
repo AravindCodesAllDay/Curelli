@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Subscribe() {
   return (
-    <div className="flex flex-col items-center justify-center gap-8 relative bg-gray-100 p-8 rounded-md shadow-md my-8">
+    <div className="flex flex-col items-center justify-center gap-8 relative bg-gray-100 p-8 rounded-md shadow-md my-12 ">
       <div className="text-[#40773b] text-4xl">Subscribe to Our Newsletter</div>
       <div className="w-full max-w-[553px] h-[50px] rounded-md overflow-hidden border border-solid border-[#4e4e4e] relative">
         <div className="w-[85px] h-[50px] absolute top-0 right-0">

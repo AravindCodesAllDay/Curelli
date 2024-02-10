@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img1 from "../assets/Logo_02.png";
 import { FaSearch, FaShoppingBag } from "react-icons/fa";
@@ -36,13 +34,12 @@ export default function Navbar({ children }) {
     if (isUserIdPresent) {
       nav("/cart");
     } else {
-      toast.error("Login to View Cart");
+      nav("/login");
     }
   };
 
   return (
     <>
-      <ToastContainer />
       <div className="flex flex-col items-center justify-center gap-[2px] relative bg-white">
         <div className="flex flex-col items-center justify-center gap-[10px] relative w-full max-w-[1440px] p-2">
           <Link to={`/`}>

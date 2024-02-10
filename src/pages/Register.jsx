@@ -116,6 +116,12 @@ function Register() {
                 className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
               />
               {loading && <p className="text-gray-600">Submitting...</p>}
+
+              <p className="text-start">
+                <Link to="/policy" className="text-[#277933] cursor-pointer">
+                  Curelli Privacy Policy
+                </Link>
+              </p>
               <button
                 type="submit"
                 disabled={loading}

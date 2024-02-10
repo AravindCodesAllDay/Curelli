@@ -13,6 +13,7 @@ import Register from "./pages/Register.jsx";
 import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import ForgotPswd from "./pages/ForgotPswd.jsx";
+import Terms from "./components/Terms.jsx";
 
 const router = createBrowserRouter([
   {
@@ -62,18 +63,26 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/register",
-    element: (
-      <Navbar>
-        <Register />
-      </Navbar>
-    ),
+    path: "/forgotpswd",
+    element: <ForgotPswd />,
+  },
+  {
+    path: "/policy",
+    element: <Terms />,
   },
   {
     path: "/login",
     element: (
       <Navbar>
         <Login />
+      </Navbar>
+    ),
+  },
+  {
+    path: "/register",
+    element: (
+      <Navbar>
+        <Register />
       </Navbar>
     ),
   },
