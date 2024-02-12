@@ -126,16 +126,16 @@ function Register() {
               >
                 {loading ? "Submitting..." : "Submit"}
               </button>
-              <p className="mt-4 text-gray-600 text-center">
-                Already a Member?
-                <Link
-                  to="/login"
-                  className="hover:text-[#b65c21] text-[#2a64ba] cursor-pointer"
-                >
-                  Login
-                </Link>
-              </p>
             </form>
+            <p className="text-start mt-4">
+              By creating an account or logging in, you agree to Curelli Foods{" "}
+              <Link
+                to="/policy"
+                className=" font-semibold cursor-pointer hover:text-[#2a64ba] text-[#277933]"
+              >
+                Privacy Policy.
+              </Link>
+            </p>
             <hr className="my-3" />
             <p className="text-gray-700 flex justify-center">
               Sign up using Google
@@ -144,22 +144,15 @@ function Register() {
               <img src={google} alt="google logo" className="h-8 mr-2" />
               <img src={facebook} alt="facebook logo" className=" h-8 mr-2" />
             </div>
-          </div>
-        </div>
-        <div className="bottom-0 left-0 w-full bg-white border-t-2 border-[#277933] ">
-          <div className="flex items-center justify-center relative min-w-[320px] min-h-[200px]">
-            <p className="text-[#277933] text-[35px] text-center font-extralight tracking-[0] leading-[normal]">
-              <p className="text-start">
-                <Link
-                  to="/policy"
-                  className="text-[#2a64ba] font-semibold hover:text-[#b65c21] cursor-pointer"
-                >
-                  Curelli Privacy Policy
-                </Link>
-              </p>
-              <span className="text-[14px] font-semibold">
-                © Curelli Foods 2023
-              </span>
+            <hr className="my-3" />
+            <p className="mt-4 text-gray-600 text-center">
+              Already a Member?
+              <Link
+                to="/login"
+                className="hover:text-[#2a64ba] text-[#277933] font-semibold cursor-pointer"
+              >
+                Login
+              </Link>
             </p>
           </div>
         </div>

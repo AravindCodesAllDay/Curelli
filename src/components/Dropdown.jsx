@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { FaUser } from "react-icons/fa";
 
@@ -9,7 +9,6 @@ function classNames(...classes) {
 
 export default function Dropdown() {
   const nav = useNavigate();
-  const userName = sessionStorage.getItem("name");
 
   const exit = () => {
     sessionStorage.clear();
@@ -39,8 +38,15 @@ export default function Dropdown() {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full justify-center text-sm font-semibold text-gray-900 shadow-sm rounded-full mt-1">
-          <FaUser className="w-[27px] h-[27px] text-white" />
-          {userName}
+          {sessionStorage.getItem("name") != null ? (
+            <p className=" text-white rounded-full p-1 w-8 bg-[#964B00] border-2">
+              {sessionStorage.getItem("name").charAt(0)}
+            </p>
+          ) : (
+            <Link to="/login">
+              <FaUser className="w-[27px] h-[27px] text-white" />
+            </Link>
+          )}
         </Menu.Button>
       </div>
 

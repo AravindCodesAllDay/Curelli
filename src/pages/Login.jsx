@@ -59,7 +59,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="bg-gray-100 h-10/12">
+      <div className="bg-gray-100 h-screen">
         <ToastContainer />
         <div className="h-100% flex justify-center items-center bg-gray-100 p-12">
           <div className="bg-white p-8 px-16 rounded-md shadow-lg w-[440px]">
@@ -96,16 +96,16 @@ const Login = () => {
               >
                 Submit
               </button>
-              <p className="mt-4 text-gray-600 text-center">
-                New to Curelli Foods?
-                <Link
-                  to="/register"
-                  className=" cursor-pointer hover:text-[#b65c21] text-[#2a64ba]"
-                >
-                  Register
-                </Link>
-              </p>
             </form>
+            <p className="text-start mt-4">
+              By continuing, you agree to Curelli Foods{" "}
+              <Link
+                to="/policy"
+                className=" font-semibold cursor-pointer hover:text-[#2a64ba] text-[#277933]"
+              >
+                Privacy Policy.
+              </Link>
+            </p>
             <hr className="my-3" />
             <p className="text-gray-700 flex justify-center">
               Sign up using Google
@@ -114,22 +114,15 @@ const Login = () => {
               <img src={google} alt="google logo" className="h-8 mr-2" />
               <img src={facebook} alt="facebook logo" className="h-8 mr-2" />
             </div>
-          </div>
-        </div>
-        <div className="bottom-0 left-0 w-full bg-white border-t-2 border-[#277933] ">
-          <div className="flex items-center justify-center relative min-w-[320px] min-h-[200px]">
-            <p className="text-[#277933] text-[35px] text-center font-extralight tracking-[0] leading-[normal]">
-              <p className="text-start">
-                <Link
-                  to="/policy"
-                  className="text-[#2a64ba] font-semibold hover:text-[#b65c21] cursor-pointer"
-                >
-                  Curelli Privacy Policy
-                </Link>
-              </p>
-              <span className="text-[14px] font-semibold">
-                © Curelli Foods 2023
-              </span>
+            <hr className="my-3" />
+            <p className="mt-4 text-gray-600 text-center">
+              New to Curelli Foods?
+              <Link
+                to="/register"
+                className=" cursor-pointer hover:text-[#2a64ba] text-[#277933] font-semibold"
+              >
+                Register
+              </Link>
             </p>
           </div>
         </div>
