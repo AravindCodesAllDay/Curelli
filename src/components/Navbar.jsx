@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img1 from "../assets/Logo_02.png";
-import { FaSearch, FaShoppingBag } from "react-icons/fa";
+import { FaSearch, FaShoppingBag, FaUser } from "react-icons/fa";
 import Dropdown from "./Dropdown";
 
 export default function Navbar({ children }) {
@@ -120,9 +120,9 @@ export default function Navbar({ children }) {
             {isUserIdPresent ? (
               <Dropdown />
             ) : (
-              <div className="text-white text-[14px] border-white border-2 p-1 rounded hover:bg-white hover:text-black">
-                <Link to="/login">Login</Link>
-              </div>
+              <Link to="/login">
+                <FaUser className="w-[27px] h-[27px] text-white" />
+              </Link>
             )}
           </div>
         </div>

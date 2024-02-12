@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import image1 from "../assets/Curelli_Food_Banner_01.jpg";
 import image2 from "../assets/Curelli_Food_Banner_02.jpg";
-import image4 from "../assets/Curelli_Food_Banner_03.jpg";
-import image3 from "../assets/Curelli_Food_Banner_04.jpg";
+import image3 from "../assets/Curelli_Food_Banner_03.jpg";
+import image4 from "../assets/Curelli_Food_Banner_04.jpg";
 
 const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -30,24 +30,25 @@ const Carousel = () => {
   }, [currentImageIndex]);
 
   return (
-    <div className="relative w-screen overflow-hidden">
-      <div
-        onClick={updateContent}
-        className="transition-transform duration-500"
-        style={{
-          transform: `translateX(-${currentImageIndex * 100}%)`,
-          transition: "transform 0.5s ease",
-          display: "flex",
-        }}
-      >
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Image ${index + 1}`}
-            className="object-cover w-full h-full"
-          />
-        ))}
+    <div className="relative w-screen">
+      <div onClick={updateContent}>
+        <div className="aspect-w-3 aspect-h-2">
+          {images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Image ${index + 1}`}
+              className={`object-cover w-full h-full absolute transition-opacity duration-500 ${
+                index === currentImageIndex ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
+        </div>
+        <div className="relative w-full h-[520px] flex items-center justify-center">
+          <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+            <div className="p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 text-center rounded-md"></div>
+          </div>
+        </div>
       </div>
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {images.map((_, index) => (

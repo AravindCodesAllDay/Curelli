@@ -1,43 +1,42 @@
 // PrivacyPolicy.jsx
-import img1 from "../assets/Logo_02.png";
+import "./terms.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import Navbar from "./Navbar";
 
 const Terms = () => {
   const nav = useNavigate();
   return (
     <>
-      <div className="flex justify-center p-8">
-        <img src={img1} alt="logo" className="h-[100px]" />
-      </div>
+      <Navbar />
       <div className="container mx-auto px-8 py-12">
-        <h1 className="text-3xl font-bold mb-4">
+        <h1 className="text-2xl font-bold mb-4">
           Curellifoods.com Privacy Policy
         </h1>
         <span className="text-gray-600">Last updated: February 10, 2024</span>
-        <p className="mt-4 text-lg leading-relaxed">
+        <p className="mt-4 leading-relaxed">
           This Privacy Policy describes Our policies and procedures on the
           collection, use and disclosure of Your information when You use the
           Service and tells You about Your privacy rights and how the law
           protects You.
         </p>
-        <p className="mt-4 text-lg leading-relaxed">
+        <p className="mt-4 leading-relaxed">
           We use Your Personal data to provide and improve the Service. By using
           the Service, You agree to the collection and use of information in
           accordance with this Privacy Policy.
         </p>
-        <h2 className="text-2xl font-bold mt-8">
+        <h2 className="text-xl font-bold mt-8">
           Interpretation and Definitions
         </h2>
         <h3 className="text-xl font-bold mt-4">Interpretation</h3>
-        <p className="mt-4 text-lg leading-relaxed">
+        <p className="mt-4  leading-relaxed">
           The words of which the initial letter is capitalized have meanings
           defined under the following conditions. The following definitions
           shall have the same meaning regardless of whether they appear in
           singular or in plural.
         </p>
         <h3 className="text-xl font-bold mt-4">Definitions</h3>
-        <p className="mt-4 text-lg leading-relaxed">
+        <p className="mt-4 leading-relaxed">
           For the purposes of this Privacy Policy:
         </p>
         <div className="mt-4 rounded-md p-4">

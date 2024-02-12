@@ -9,6 +9,7 @@ function classNames(...classes) {
 
 export default function Dropdown() {
   const nav = useNavigate();
+  const userName = sessionStorage.getItem("name");
 
   const exit = () => {
     sessionStorage.clear();
@@ -39,6 +40,7 @@ export default function Dropdown() {
       <div>
         <Menu.Button className="inline-flex w-full justify-center text-sm font-semibold text-gray-900 shadow-sm rounded-full mt-1">
           <FaUser className="w-[27px] h-[27px] text-white" />
+          {userName}
         </Menu.Button>
       </div>
 

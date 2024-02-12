@@ -117,11 +117,6 @@ function Register() {
               />
               {loading && <p className="text-gray-600">Submitting...</p>}
 
-              <p className="text-start">
-                <Link to="/policy" className="text-[#277933] cursor-pointer">
-                  Curelli Privacy Policy
-                </Link>
-              </p>
               <button
                 type="submit"
                 disabled={loading}
@@ -133,7 +128,10 @@ function Register() {
               </button>
               <p className="mt-4 text-gray-600 text-center">
                 Already a Member?
-                <Link to="/login" className="text-[#277933] cursor-pointer">
+                <Link
+                  to="/login"
+                  className="hover:text-[#b65c21] text-[#2a64ba] cursor-pointer"
+                >
                   Login
                 </Link>
               </p>
@@ -146,6 +144,23 @@ function Register() {
               <img src={google} alt="google logo" className="h-8 mr-2" />
               <img src={facebook} alt="facebook logo" className=" h-8 mr-2" />
             </div>
+          </div>
+        </div>
+        <div className="bottom-0 left-0 w-full bg-white border-t-2 border-[#277933] ">
+          <div className="flex items-center justify-center relative min-w-[320px] min-h-[200px]">
+            <p className="text-[#277933] text-[35px] text-center font-extralight tracking-[0] leading-[normal]">
+              <p className="text-start">
+                <Link
+                  to="/policy"
+                  className="text-[#2a64ba] font-semibold hover:text-[#b65c21] cursor-pointer"
+                >
+                  Curelli Privacy Policy
+                </Link>
+              </p>
+              <span className="text-[14px] font-semibold">
+                © Curelli Foods 2023
+              </span>
+            </p>
           </div>
         </div>
       </div>
