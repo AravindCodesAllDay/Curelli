@@ -3,9 +3,9 @@ import img1 from "../assets/Web_Image_03.jpg";
 
 export default function Posters() {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center w-full max-h-[600px]">
-      <div className="bg-[#cddccb] lg:w-1/2 w-full flex flex-col p-8 h-[600px] justify-center items-center text-center">
-        <h2 className="text-3xl font-bold mb-4 text-[#40773b]">
+    <div className="flex flex-col lg:flex-row items-center justify-center w-full">
+      <div className="bg-[#cddccb] lg:w-1/2 w-full flex flex-col p-8 lg:h-[600px] h-auto justify-center items-center text-center">
+        <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-[#40773b]">
           GET TO KNOW US
         </h2>
         <p className="text-[#40773b] mb-4">
@@ -22,8 +22,12 @@ export default function Posters() {
         </button>
       </div>
 
-      <div className="lg:w-1/2 w-full flex flex-col p-8 h-[600px] justify-center items-center text-center">
-        <img className="object-cover shadow-lg" src={img1} alt="flowers" />
+      <div className="lg:w-1/2 w-full flex flex-col p-8 lg:h-[600px] h-auto justify-center items-center text-center">
+        <img
+          className="object-cover shadow-lg lg:h-full w-full"
+          src={img1}
+          alt="flowers"
+        />
       </div>
     </div>
   );
