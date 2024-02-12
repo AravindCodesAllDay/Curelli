@@ -1,7 +1,9 @@
 import React from "react";
 import img1 from "../assets/Web_Image_03.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function Posters() {
+  const nav = useNavigate();
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center w-full">
       <div className="bg-[#cddccb] lg:w-1/2 w-full flex flex-col p-8 lg:h-[600px] h-auto justify-center items-center text-center">
@@ -17,12 +19,15 @@ export default function Posters() {
           meticulously crafted into delectable Vathals that not only tantalize
           your taste buds but also nurture your well-being.
         </p>
-        <button className="text-[#40773b] py-2 px-4 rounded-md border-2 border-[#40773b] w-[100px] hover:text-white hover:bg-[#277933]">
+        <button
+          className="text-[#40773b] py-2 px-4 rounded-md border-2 border-[#40773b] w-[100px] hover:text-white hover:bg-[#277933] "
+          onClick={() => nav("/aboutus")}
+        >
           More
         </button>
       </div>
 
-      <div className="lg:w-1/2 w-full flex flex-col p-8 lg:h-[600px] h-auto justify-center items-center text-center">
+      <div className="w-1/2 flex flex-col lg:h-[600px] h-auto justify-center items-center text-center">
         <img
           className="object-cover shadow-lg lg:h-full w-full"
           src={img1}

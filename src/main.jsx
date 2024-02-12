@@ -2,7 +2,7 @@ import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Navbar from "./components/Navbar.jsx"; // Import the layout component
+import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -13,7 +13,7 @@ import Register from "./pages/Register.jsx";
 import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import ForgotPswd from "./pages/ForgotPswd.jsx";
-import Terms from "./components/Terms.jsx";
+import Terms from "./pages/Terms.jsx";
 
 const router = createBrowserRouter([
   {

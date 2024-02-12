@@ -1,8 +1,9 @@
 // PrivacyPolicy.jsx
-import "./terms.css";
+import "../components/terms.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
+import Whatsapp from "../components/Whatsapp";
 
 const Terms = () => {
   const nav = useNavigate();
@@ -538,6 +539,7 @@ const Terms = () => {
           Back
         </button>
       </div>
+      <Whatsapp />
     </>
   );
 };
