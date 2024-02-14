@@ -29,10 +29,7 @@ export default function Contactdetails() {
           <div className="relative self-stretch text-[#277933] text-3xl md:text-4xl tracking-normal leading-normal">
             OPENING HOURS
           </div>
-          <div className="relative self-stretch font-extralight text-[#277933] text-2xl tracking-normal leading-normal">
-            Visit us
-          </div>
-          <p className="relative self-stretch font-extralight text-[#277933] text-base tracking-normal leading-normal">
+          <p className="relative self-stretch text-[#277933] text-base tracking-normal leading-normal">
             Monday - Friday
             <br />
             9:00am - 8:00pm

@@ -30,15 +30,17 @@ const Carousel = () => {
   }, [currentImageIndex]);
 
   return (
-    <div className="relative w-screen">
+    <div className="relative w-screen h-[600px]">
       <div onClick={updateContent}>
         <div className="aspect-w-3 aspect-h-2">
+          {" "}
+          {/* Increased height here */}
           {images.map((image, index) => (
             <img
               key={index}
               src={image}
               alt={`Image ${index + 1}`}
-              className={`object-cover w-full h-full absolute transition-opacity duration-500 ${
+              className={`object-cover w-full h-[600px] absolute transition-opacity duration-500 ${
                 index === currentImageIndex ? "opacity-100" : "opacity-0"
               }`}
             />

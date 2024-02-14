@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img1 from "../assets/Logo_02.png";
-import { FaSearch, FaShoppingBag, FaUser } from "react-icons/fa";
+import { FaShoppingBag, FaUser } from "react-icons/fa";
 import Dropdown from "./Dropdown";
+import Search from "./Search";
 
 export default function Navbar({ children }) {
   const nav = useNavigate();
   const userId = sessionStorage.getItem("id");
   const location = useLocation();
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isUserIdPresent, setIsUserIdPresent] = useState(false);
-
-  const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen);
-  };
 
   useEffect(() => {
     const handleSubmission = async () => {
@@ -91,25 +87,7 @@ export default function Navbar({ children }) {
           </div>
           <div className="flex items-center gap-5 justify-center">
             <div className="relative">
-              {isSearchOpen ? (
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search products..."
-                    className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 w-96
-                    "
-                  />
-                  <FaSearch
-                    className="text-black cursor-pointer absolute right-0 top-1 mr-2 w-[25px] h-[25px]"
-                    onClick={toggleSearch}
-                  />
-                </div>
-              ) : (
-                <FaSearch
-                  className="text-white cursor-pointer w-[25px] h-[25px]"
-                  onClick={toggleSearch}
-                />
-              )}
+              <Search />
             </div>
             <FaShoppingBag
               className="w-[27px] h-[27px] text-white"

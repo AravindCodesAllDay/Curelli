@@ -6,14 +6,13 @@ export default function Banner() {
     <div className="flex flex-wrap items-center justify-center py-14 my-12 relative bg-white">
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-2/3 mx-auto relative">
         {/* Image Container */}
-        <div className="flex-1 max-w-[33.333333%] relative">
-          <div className="z-20">
-            <img
-              className="w-full h-full rounded-md shadow border-b-8 border-r-8 border-[#277933] hover:scale-105 hover:border-none"
-              alt="Rectangle"
-              src={img1}
-            />
-          </div>
+        <div className="flex-1 relative ">
+          <img
+            className="w-full h-full rounded-md shadow border-b-8 border-r-8 border-[#277933] hover:scale-105 hover:border-none"
+            alt="Rectangle"
+            src={img1}
+          />
+          s
         </div>
 
         {/* Content Container */}
