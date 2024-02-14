@@ -14,6 +14,7 @@ import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import ForgotPswd from "./pages/ForgotPswd.jsx";
 import Terms from "./pages/Terms.jsx";
+import Wishlist from "./pages/Wishlist.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,14 @@ const router = createBrowserRouter([
     element: (
       <Navbar>
         <Home />
+      </Navbar>
+    ),
+  },
+  {
+    path: "/wishlist",
+    element: (
+      <Navbar>
+        <Wishlist />
       </Navbar>
     ),
   },

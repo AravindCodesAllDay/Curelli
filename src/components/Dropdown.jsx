@@ -22,7 +22,7 @@ export default function Dropdown() {
     },
     {
       title: "Wishlist",
-      to: "#",
+      to: "/wishlist",
     },
     {
       title: "Profile",

@@ -12,7 +12,6 @@ export default function Banner() {
             alt="Rectangle"
             src={img1}
           />
-          s
         </div>
 
         {/* Content Container */}

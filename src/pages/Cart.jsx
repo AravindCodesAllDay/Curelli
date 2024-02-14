@@ -50,7 +50,7 @@ const Cart = () => {
     fetchCartDetails();
   }, []);
 
-  const handleDelete = async (productId) => {
+  const handleDelete = async (productId, userId) => {
     try {
       // Delete the item from the cart on the server
       await fetch(`${import.meta.env.VITE_API}users/cart`, {
@@ -95,7 +95,7 @@ const Cart = () => {
           </thead>
           <tbody>
             {cartItems.map((item) => (
-              <tr key={item.id}>
+              <tr key={item.id} className="border-2 m-1">
                 <td>
                   <img
                     src={`${import.meta.env.VITE_API}uploads/${item.photo}`}
@@ -110,7 +110,7 @@ const Cart = () => {
                   <div className="flex justify-center">
                     <FaTrash
                       className="w-5 h-5 text-red-800 mr-4 cursor-pointer"
-                      onClick={() => handleDelete(item._id)}
+                      onClick={() => handleDelete(item._id, userId)}
                     />
                     <FaShareAlt className="w-5 h-5 text-black cursor-pointer" />
                   </div>
@@ -119,11 +119,19 @@ const Cart = () => {
             ))}
           </tbody>
         </table>
-        <div className="border p-4 mt-4">
-          <h2 className="text-lg font-bold">Cart Summary</h2>
+        <div className="border p-4 mt-4 flex-wrap">
+          <h2 className="text-lg font-bold flex flex-row justify-center">
+            Cart Summary
+          </h2>
           <hr className="my-2" />
-          <p className="font-semibold">Total Items: {totalItems}</p>
-          <p className="font-semibold">Total Price: Rs{totalPrice}</p>
+          <div className="flex-row flex justify-center gap-28">
+            <p className="font-semibold flex flex-col">
+              Total Items: {totalItems}
+            </p>
+            <p className="font-semibold flex flex-col">
+              Total Price: Rs{totalPrice}
+            </p>
+          </div>
         </div>
         <div className="text-center mt-4">
           <button className="bg-[#40773b] text-white px-4 py-2 rounded-md">

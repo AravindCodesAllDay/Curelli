@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Rating from "@mui/material/Rating";
 
 const PopupCard = () => {
   const userId = sessionStorage.getItem("id");
@@ -81,6 +82,13 @@ const PopupCard = () => {
         <div className="w-1/2 flex flex-col justify-center pl-8">
           <h2 className="text-2xl font-semibold mb-2">{details.name}</h2>
           <p className="text-gray-600 mb-4">{details.description}</p>
+          <Rating
+            name="size-small"
+            readOnly
+            defaultValue={details.rating}
+            precision={0.5}
+            size="small"
+          />
           <p className="text-green-600 font-semibold mb-4">
             Rs: {details.price}
           </p>

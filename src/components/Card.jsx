@@ -1,4 +1,3 @@
-// Card.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaEye, FaShoppingCart } from "react-icons/fa";
@@ -10,38 +9,48 @@ export default function Card({ children, details }) {
   const userId = sessionStorage.getItem("id");
   const nav = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+
   const openPopup = (details) => {
     nav(`${details._id}`);
   };
 
   const add2Cart = async (productId, userId) => {
+    if (!userId) {
+      console.error("User ID is not available.");
+      return;
+    }
+
     try {
-      const response = await fetch(
+      const userResponse = await fetch(
         `${import.meta.env.VITE_API}users/${userId}`
       );
-      const result = await response.json();
+      const userResult = await userResponse.json();
 
-      if (result.cart.some((item) => item.product === productId)) {
+      if (userResult.cart.some((item) => item.product === productId)) {
         console.log("Item is already in the cart");
-        toast.success("Added item to Cart");
+        toast.success("Item already in Cart");
       } else {
-        const response = await fetch(`${import.meta.env.VITE_API}users/cart`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId,
-            product: productId,
-            quantity: 1, // You may adjust the quantity based on your requirements
-          }),
-        });
-        if (response.ok) {
-          const result = await response.json();
-          console.log(result.message);
+        const cartResponse = await fetch(
+          `${import.meta.env.VITE_API}users/cart`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userId,
+              product: productId,
+              quantity: 1, // You may adjust the quantity based on your requirements
+            }),
+          }
+        );
+
+        if (cartResponse.ok) {
+          const cartResult = await cartResponse.json();
+          console.log(cartResult.message);
           nav(`/cart`);
         } else {
-          const errorResult = await response.json();
+          const errorResult = await cartResponse.json();
           console.error(
             "Error adding item to cart:",
             errorResult.error || "Unknown error"
@@ -50,6 +59,59 @@ export default function Card({ children, details }) {
       }
     } catch (error) {
       console.error("Error adding item to cart:", error);
+    }
+  };
+  const add2Wishlist = async (productId, userId) => {
+    if (!userId) {
+      console.error("User ID is not available.");
+      return;
+    }
+
+    try {
+      const userResponse = await fetch(
+        `${import.meta.env.VITE_API}users/${userId}`
+      );
+      const userResult = await userResponse.json();
+
+      if (userResponse.ok) {
+        if (userResult.wishlist.some((item) => item.product === productId)) {
+          console.log("Item is already in the wishlist");
+          toast.success("Item already in wishlist");
+        } else {
+          const wishlistResponse = await fetch(
+            `${import.meta.env.VITE_API}users/wishlist`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                userId,
+                product: productId,
+              }),
+            }
+          );
+
+          if (wishlistResponse.ok) {
+            const wishlistResult = await wishlistResponse.json();
+            console.log(wishlistResult.message);
+            nav(`/wishlist`);
+          } else {
+            const errorResult = await wishlistResponse.json();
+            console.error(
+              "Error adding item to wishlist:",
+              errorResult.error || "Unknown error"
+            );
+          }
+        }
+      } else {
+        console.error(
+          "Error fetching user data:",
+          userResult.error || "Unknown error"
+        );
+      }
+    } catch (error) {
+      console.error("Error adding item to wishlist:", error);
     }
   };
 
@@ -73,7 +135,10 @@ export default function Card({ children, details }) {
               isHovered ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="rounded-full bg-white p-3 shadow">
+            <div
+              className="rounded-full bg-white p-3 shadow"
+              onClick={() => add2Wishlist(details._id, userId)}
+            >
               <FaHeart className="text-[#303030] hover:scale-150" />
             </div>
             <div
