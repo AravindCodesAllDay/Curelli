@@ -82,13 +82,17 @@ const PopupCard = () => {
         <div className="w-1/2 flex flex-col justify-center pl-8">
           <h2 className="text-2xl font-semibold mb-2">{details.name}</h2>
           <p className="text-gray-600 mb-4">{details.description}</p>
-          <Rating
-            name="size-small"
-            readOnly
-            defaultValue={details.rating}
-            precision={0.5}
-            size="small"
-          />
+          <div className="flex flex-row -ml-0.5">
+            <Rating
+              name="size-small"
+              readOnly
+              defaultValue={details.rating}
+              precision={0.5}
+              size="small"
+            />
+            &nbsp;
+            <p className="text-gray-600 -mt-1">({details.numOfRating})</p>
+          </div>
           <p className="text-green-600 font-semibold mb-4">
             Rs: {details.price}
           </p>

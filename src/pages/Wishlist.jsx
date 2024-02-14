@@ -42,9 +42,7 @@ const Wishlist = () => {
       setWishlistItems(updatedWishItems);
     } catch (error) {
       console.error("Error fetching user wishlist:", error);
-      setError("Error fetching wishlist. Please try again later.");
-    } finally {
-      setLoading(false);
+      toast.error("Error fetching wishlist. Please try again later.");
     }
   };
 
@@ -54,8 +52,7 @@ const Wishlist = () => {
 
   const handleDelete = async (productId, userId) => {
     try {
-      // Delete the item from the cart on the server
-      await fetch(`${import.meta.env.VITE_API}users/cart`, {
+      await fetch(`${import.meta.env.VITE_API}users/wishlist`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -63,14 +60,13 @@ const Wishlist = () => {
         body: JSON.stringify({ userId, product: productId }),
       });
 
-      // Update the local state to reflect the deletion
-      setCartItems((prevCartItems) =>
-        prevCartItems.filter((item) => item.id !== productId)
+      setWishlistItems((prevItems) =>
+        prevItems.filter((item) => item.id !== productId)
       );
-      toast("An item removed");
+      toast.success("Item removed from wishlist.");
     } catch (error) {
-      console.error("Error deleting item from cart:", error);
-      setError("Error deleting item from cart. Please try again later.");
+      console.error("Error deleting item from wishlist:", error);
+      toast.error("Error deleting item from wishlist. Please try again later.");
     }
   };
 
@@ -81,44 +77,33 @@ const Wishlist = () => {
     }
 
     try {
-      const userResponse = await fetch(
-        `${import.meta.env.VITE_API}users/${userId}`
-      );
-      const userResult = await userResponse.json();
+      const response = await fetch(`${import.meta.env.VITE_API}users/cart`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+          product: productId,
+          quantity: 1,
+        }),
+      });
 
-      if (userResult.cart.some((item) => item.product === productId)) {
-        console.log("Item is already in the cart");
-        toast.success("Item already in Cart");
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.message);
+        nav(`/cart`);
       } else {
-        const cartResponse = await fetch(
-          `${import.meta.env.VITE_API}users/cart`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              userId,
-              product: productId,
-              quantity: 1, // You may adjust the quantity based on your requirements
-            }),
-          }
+        const errorData = await response.json();
+        console.error(
+          "Error adding item to cart:",
+          errorData.error || "Unknown error"
         );
-
-        if (cartResponse.ok) {
-          const cartResult = await cartResponse.json();
-          console.log(cartResult.message);
-          nav(`/cart`);
-        } else {
-          const errorResult = await cartResponse.json();
-          console.error(
-            "Error adding item to cart:",
-            errorResult.error || "Unknown error"
-          );
-        }
+        toast.error("Failed to add item to cart.");
       }
     } catch (error) {
       console.error("Error adding item to cart:", error);
+      toast.error("Failed to add item to cart. Please try again later.");
     }
   };
 

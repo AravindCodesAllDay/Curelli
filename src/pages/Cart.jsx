@@ -121,22 +121,14 @@ const Cart = () => {
         </table>
         <div className="border p-4 mt-4 flex-wrap">
           <h2 className="text-lg font-bold flex flex-row justify-center">
-            Cart Summary
+            Subtotal({totalItems} Item) : ₹{totalPrice}
           </h2>
           <hr className="my-2" />
-          <div className="flex-row flex justify-center gap-28">
-            <p className="font-semibold flex flex-col">
-              Total Items: {totalItems}
-            </p>
-            <p className="font-semibold flex flex-col">
-              Total Price: Rs{totalPrice}
-            </p>
+          <div className="text-center mt-4">
+            <button className="bg-[#40773b] text-white px-4 py-2 rounded-md">
+              Proceed to Checkout
+            </button>
           </div>
-        </div>
-        <div className="text-center mt-4">
-          <button className="bg-[#40773b] text-white px-4 py-2 rounded-md">
-            Proceed to Checkout
-          </button>
         </div>
       </div>
     </>
