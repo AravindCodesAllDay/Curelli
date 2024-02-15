@@ -71,7 +71,7 @@ const PopupCard = () => {
       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
       onClick={() => nav("/shop")}
     >
-      <div className="bg-white p-8 rounded-lg w-full max-w-2xl flex flex-row">
+      <div className="bg-white p-8 rounded-lg w-full max-w-4xl flex flex-row">
         <div className="w-1/2 flex items-center justify-center">
           <img
             src={`${import.meta.env.VITE_API}uploads/${details.photo}`}
