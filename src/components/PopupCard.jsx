@@ -5,6 +5,7 @@ import Rating from "@mui/material/Rating";
 const PopupCard = () => {
   const userId = sessionStorage.getItem("id");
   const [details, setDetails] = useState({});
+  const [loading, setLoading] = useState(true); // Add loading state
   const { _pid } = useParams();
   const nav = useNavigate();
 
@@ -19,6 +20,7 @@ const PopupCard = () => {
         }
         const productData = await response.json();
         setDetails(productData);
+        setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
         console.error(error.message);
       }
@@ -26,7 +28,6 @@ const PopupCard = () => {
 
     fetchProductData();
   }, [_pid]);
-
   const add2Cart = async (productId, userId) => {
     try {
       const response = await fetch(
@@ -68,7 +69,7 @@ const PopupCard = () => {
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+      className="fixed inset-0 flex items-center justify-center bg-opacity-20 bg-black "
       onClick={() => nav("/shop")}
     >
       <div className="bg-white p-8 rounded-lg w-full max-w-4xl flex flex-row">
@@ -82,17 +83,20 @@ const PopupCard = () => {
         <div className="w-1/2 flex flex-col justify-center pl-8">
           <h2 className="text-2xl font-semibold mb-2">{details.name}</h2>
           <p className="text-gray-600 mb-4">{details.description}</p>
-          <div className="flex flex-row -ml-0.5">
-            <Rating
-              name="size-small"
-              readOnly
-              defaultValue={details.rating}
-              precision={0.5}
-              size="small"
-            />
-            &nbsp;
-            <p className="text-gray-600 -mt-1">({details.numOfRating})</p>
-          </div>
+          {!loading &&
+            details.rating !== undefined && ( // Conditionally render the Rating component
+              <div className="flex flex-row -ml-0.5">
+                <Rating
+                  name="size-small"
+                  readOnly
+                  defaultValue={details.rating}
+                  precision={0.5}
+                  size="medium"
+                />
+                &nbsp;
+                <p className="text-gray-600 -mt-1">({details.numOfRating})</p>
+              </div>
+            )}
           <p className="text-green-600 font-semibold mb-4">
             Rs: {details.price}
           </p>
