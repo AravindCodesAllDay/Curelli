@@ -63,7 +63,7 @@ export default function Search() {
       <input
         type="text"
         placeholder="Search products..."
-        className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 w-96"
+        className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 "
         value={searchQuery}
         onChange={handleSearchInputChange}
         onClick={() => setIsSearchOpen(true)} // Open dropdown when input is clicked
@@ -74,17 +74,21 @@ export default function Search() {
       />
       {isSearchOpen && searchQuery && (
         <div className="absolute z-50 mt-2 bg-white border border-gray-300 rounded-md shadow-md w-96">
-          <ul className="py-1">
-            {filteredProducts.map((product) => (
-              <li
-                key={product.id}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                onClick={() => clicked(product._id)}
-              >
-                {product.name}
-              </li>
-            ))}
-          </ul>
+          {filteredProducts.length === 0 ? (
+            <p className="py-2 px-4">No items found</p>
+          ) : (
+            <ul className="py-1">
+              {filteredProducts.map((product) => (
+                <li
+                  key={product.id}
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => clicked(product._id)}
+                >
+                  {product.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       )}
     </div>

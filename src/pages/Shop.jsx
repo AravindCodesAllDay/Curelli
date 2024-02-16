@@ -36,7 +36,7 @@ export default function Shop() {
   return (
     <>
       <div className="flex flex-row">
-        <div className="p-12 lg:flex lg:flex-wrap justify-center">
+        <div className="p-8 flex flex-wrap justify-center">
           {cardDetails.map((details) => (
             <Card key={details.id} details={details} />
           ))}

@@ -1,4 +1,3 @@
-// PopularProducts.js
 import React from "react";
 import img1 from "../assets/P1.jpg";
 import img2 from "../assets/P4.jpg";
@@ -12,7 +11,7 @@ export default function PopularProducts() {
       _id: "1",
       name: "PirandaiPapad",
       description:
-        " Home made organic ingredients. Boosts Immunity Rich in antioxidants Can be air fired ",
+        " Home made organic ingredients. Boosts Immunity Rich in antioxidants Can be air fried ",
       price: 69,
       photo: img1,
       status: "New",
@@ -23,7 +22,7 @@ export default function PopularProducts() {
       _id: "2",
       name: "VallaraiPapad",
       description:
-        "Healthy snack for children Highly nutritious enhancing brain activity. Well sundried and packaged.",
+        "Healthy snack for children Highly nutritious enhancing brain activity. Well sun-dried and packaged.",
       price: 69,
       photo: img2,
       status: "Sale",
@@ -53,17 +52,21 @@ export default function PopularProducts() {
       numOfRating: 9,
     },
   ];
+
   return (
-    <div className="flex flex-row justify-center items-center">
-      {cardDetails.map((details) => {
-        return (
+    <div className="flex flex-row justify-center items-center flex-wrap">
+      {cardDetails.map((details) => (
+        <div
+          key={details._id}
+          className="flex-grow max-w-[290px] min-w-[260px] w-full h-full"
+        >
           <Card2 details={details}>
             <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded">
               {details.status}
             </div>
           </Card2>
-        );
-      })}
+        </div>
+      ))}
     </div>
   );
 }

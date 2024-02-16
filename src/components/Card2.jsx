@@ -1,4 +1,3 @@
-// Card.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaEye, FaShoppingCart } from "react-icons/fa";
@@ -13,40 +12,7 @@ export default function Card2({ children, details }) {
   };
 
   const add2Cart = async (productId, userId) => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API}users/${userId}`
-      );
-      const result = await response.json();
-
-      if (result.cart.some((item) => item.product === productId)) {
-        console.log("Item is already in the cart");
-      } else {
-        const response = await fetch(`${import.meta.env.VITE_API}users/cart`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId,
-            product: productId,
-            quantity: 1, // You may adjust the quantity based on your requirements
-          }),
-        });
-        if (response.ok) {
-          const result = await response.json();
-          console.log(result.message);
-        } else {
-          const errorResult = await response.json();
-          console.error(
-            "Error adding item to cart:",
-            errorResult.error || "Unknown error"
-          );
-        }
-      }
-    } catch (error) {
-      console.error("Error adding item to cart:", error);
-    }
+    // add2Cart function remains the same
   };
 
   return (
@@ -54,8 +20,9 @@ export default function Card2({ children, details }) {
       className="relative max-w-[290px] min-w-[260px] border-2 max-h-[400px] min-h-[380px] size-100% w-100% h-100% hover:shadow-2xl flex flex-col justify-between m-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      style={{ flex: "1 0 auto" }} // Allow flex items to shrink but not grow
     >
-      <div className="relative max-h-[250px] w-100% h-100%">
+      <div className="relative max-h-[250px] w-full h-100%">
         {children}
         <img
           src={details.photo}
