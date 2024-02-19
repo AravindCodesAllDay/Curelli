@@ -43,7 +43,7 @@ export default function Navbar({ children }) {
         <div className="flex flex-col items-center justify-center gap-[10px] relative w-full max-w-[1440px] p-2">
           <Link to={`/`}>
             <img
-              className="relative h-[70px] object-cover"
+              className="relative lg:h-[70px] sm:h-[50px] md:h-[60px] xl:h-[70px] 2xl:h-[80px] object-cover"
               alt="Image"
               src={img1}
             />
