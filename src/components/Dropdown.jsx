@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { FaUser } from "react-icons/fa";
 
@@ -35,7 +35,7 @@ export default function Dropdown() {
   ];
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left z-30">
       <div>
         <Menu.Button className="inline-flex w-full justify-center text-sm font-semibold text-gray-900 shadow-sm rounded-full mt-1">
           {sessionStorage.getItem("name") != null ? (

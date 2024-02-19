@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img1 from "../assets/Logo_02.png";
-import { FaShoppingBag, FaUser, FaBars } from "react-icons/fa";
+import { FaShoppingBag, FaUser, FaBars, FaSearch } from "react-icons/fa";
+
 import Dropdown from "./Dropdown";
 import Search from "./Search";
+import OffCanvasMenu from "./OffCanvasMenu";
 
 export default function Navbar({ children }) {
   const nav = useNavigate();
@@ -11,6 +13,8 @@ export default function Navbar({ children }) {
   const location = useLocation();
   const [isUserIdPresent, setIsUserIdPresent] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showSearchMenu, setShowSearchMenu] = useState(false);
+  const [showOffCanvasMenu, setShowOffCanvasMenu] = useState(false);
 
   useEffect(() => {
     const handleSubmission = async () => {
@@ -26,6 +30,12 @@ export default function Navbar({ children }) {
 
     handleSubmission();
   }, [userId]);
+
+  useEffect(() => {
+    // Close mobile menu and search menu when navigating
+    setShowMobileMenu(false);
+    setShowSearchMenu(false);
+  }, [location.pathname]); // Run this effect whenever location.pathname changes
 
   const accessCart = () => {
     if (isUserIdPresent) {
@@ -52,7 +62,11 @@ export default function Navbar({ children }) {
             <div className="lg:hidden md:hidden">
               <FaBars
                 className="w-6 h-6 text-white cursor-pointer"
-                onClick={() => setShowMobileMenu(!showMobileMenu)}
+                onClick={() => setShowOffCanvasMenu(!showOffCanvasMenu)}
+              />
+              <OffCanvasMenu
+                isOpen={showOffCanvasMenu}
+                onClose={() => setShowOffCanvasMenu(false)}
               />
             </div>
             <div className="lg:flex hidden md:flex flex-grow gap-[16px] relative items-center">
@@ -94,7 +108,11 @@ export default function Navbar({ children }) {
               </div>
             </div>
             <div className="flex items-center gap-5">
-              <Search />
+              {/* Render FaSearch icon only in small screens */}
+              <FaSearch
+                className="w-[27px] h-[27px] text-white cursor-pointer"
+                onClick={() => setShowSearchMenu(!showSearchMenu)}
+              />
               <FaShoppingBag
                 className="w-[27px] h-[27px] text-white lg:hidden md:block"
                 onClick={() => {
@@ -111,25 +129,15 @@ export default function Navbar({ children }) {
             </div>
           </div>
         </div>
-        {showMobileMenu && (
-          <div className="lg:hidden bg-[#40773b] w-full py-2">
+
+        {showSearchMenu && (
+          <div className=" bg-[#40773b] w-full py-2">
             <div className="flex flex-col items-center gap-3">
-              <div className="text-white text-2xl font-bold">Menu</div>
-              <div className="text-white">
-                <Link to={`/`}>Home</Link>
-              </div>
-              <div className="text-white">
-                <Link to={`/aboutus`}>Our Story</Link>
-              </div>
-              <div className="text-white">
-                <Link to={`/shop`}>Our Products</Link>
-              </div>
-              <div className="text-white">
-                <Link to={`/contact`}>Contact</Link>
-              </div>
+              <Search />
             </div>
           </div>
         )}
+        {/* OffCanvasMenu component is rendered separately */}
       </div>
       {children}
     </>

@@ -5,7 +5,7 @@ export default function Banner() {
   return (
     <div className="flex flex-col md:flex-row w-screen items-center justify-center gap-8 py-14 p-4 my-12 relative bg-white">
       {/* Image Container */}
-      <div className="flex relative w-2/5">
+      <div className="flex relative w-2/6">
         <img
           className="w-full h-full object-cover rounded-md shadow border-b-8 border-r-8 border-[#277933] hover:scale-105 hover:border-none"
           alt="Rectangle"
@@ -14,7 +14,7 @@ export default function Banner() {
       </div>
 
       {/* Content Container */}
-      <div className="flex flex-col items-center gap-4 w-3/5 text-justify">
+      <div className="flex flex-col items-center gap-4 w-4/6 text-justify">
         <p className="text-[#40773b] text-4xl font-semibold text-center">
           Unmatched Quality at Affordable Price
         </p>
