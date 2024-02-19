@@ -31,7 +31,7 @@ export default function ForgotPswd() {
           <input
             type="email"
             placeholder="Email"
-            className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+            className="input-field border-[1px] p-2 rounded border-customGreen"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={showOtp}
@@ -46,26 +46,26 @@ export default function ForgotPswd() {
                 type="text"
                 id="otpInput"
                 placeholder="Enter OTP"
-                className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                className="input-field border-[1px] p-2 rounded border-customGreen"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
                 required
               />
               <hr className="" />
-              <p className="text-gray-700 flex justify-center">
+              <p className="text-customGreen flex justify-center">
                 OTP is sent to your above mail Id
               </p>
             </React.Fragment>
           )}
 
           <p className="text-start">
-            <Link to="/policy" className="text-[#277933] cursor-pointer">
+            <Link to="/policy" className="text-customGreen cursor-pointer">
               Curelli Privacy Policy
             </Link>
           </p>
           <button
             type="submit"
-            className="submit-button bg-[#277933] text-white h-10 p-2 rounded"
+            className="submit-button bg-customGreen text-white h-10 p-2 rounded"
           >
             {showOtp ? "Submit" : "Next"}
           </button>

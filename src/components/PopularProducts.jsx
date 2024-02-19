@@ -50,11 +50,11 @@ export default function PopularProducts() {
   ];
 
   return (
-    <div className="flex flex-row justify-center items-center flex-wrap">
+    <div className="flex overflow-x-auto justify-center">
       {cardDetails.map((details) => (
         <div
           key={details._id}
-          className="flex-grow max-w-[290px] min-w-[260px] w-full h-full"
+          className="flex-shrink-0 max-w-[290px] min-w-[260px] w-full h-full mx-4"
         >
           <Card details={details}>
             <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded">

@@ -120,7 +120,7 @@ function Register() {
               <button
                 type="submit"
                 disabled={loading}
-                className={`submit-button bg-[#277933] text-white h-10 p-2 rounded ${
+                className={`submit-button bg-green-700 text-white h-10 p-2 rounded ${
                   loading && "cursor-not-allowed opacity-50"
                 }`}
               >

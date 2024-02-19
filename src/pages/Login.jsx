@@ -92,7 +92,7 @@ const Login = () => {
 
               <button
                 type="submit"
-                className="submit-button bg-[#277933] text-white h-10 p-2 rounded"
+                className="submit-button bg-green-700 text-white h-10 p-2 rounded z-20"
               >
                 Submit
               </button>

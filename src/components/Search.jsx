@@ -59,21 +59,27 @@ export default function Search() {
   };
 
   return (
-    <div className="relative">
-      <input
-        type="text"
-        placeholder="Search products..."
-        className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 "
-        value={searchQuery}
-        onChange={handleSearchInputChange}
-        onClick={() => setIsSearchOpen(true)} // Open dropdown when input is clicked
-      />
-      <FaSearch
-        className="text-black cursor-pointer absolute right-0 top-1 mr-2 w-[25px] h-[25px]"
-        onClick={toggleSearch}
-      />
+    <>
+      <div className="relative flex items-center">
+        {isSearchOpen && (
+          <input
+            type="text"
+            placeholder="Search products..."
+            className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 "
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+            onClick={() => setIsSearchOpen(true)}
+          />
+        )}
+        <FaSearch
+          className={`${
+            isSearchOpen ? "text-black" : "text-white"
+          } cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2 w-[25px] h-[25px]`}
+          onClick={toggleSearch}
+        />
+      </div>
       {isSearchOpen && searchQuery && (
-        <div className="absolute z-50 mt-2 bg-white border border-gray-300 rounded-md shadow-md w-96">
+        <div className="absolute z-30 mt-24 bg-white border border-gray-300 rounded-md shadow-md w-60">
           {filteredProducts.length === 0 ? (
             <p className="py-2 px-4">No items found</p>
           ) : (
@@ -91,6 +97,6 @@ export default function Search() {
           )}
         </div>
       )}
-    </div>
+    </>
   );
 }

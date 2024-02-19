@@ -12,8 +12,6 @@ export default function Navbar({ children }) {
   const userId = sessionStorage.getItem("id");
   const location = useLocation();
   const [isUserIdPresent, setIsUserIdPresent] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [showSearchMenu, setShowSearchMenu] = useState(false);
   const [showOffCanvasMenu, setShowOffCanvasMenu] = useState(false);
 
   useEffect(() => {
@@ -30,12 +28,6 @@ export default function Navbar({ children }) {
 
     handleSubmission();
   }, [userId]);
-
-  useEffect(() => {
-    // Close mobile menu and search menu when navigating
-    setShowMobileMenu(false);
-    setShowSearchMenu(false);
-  }, [location.pathname]); // Run this effect whenever location.pathname changes
 
   const accessCart = () => {
     if (isUserIdPresent) {
@@ -109,10 +101,8 @@ export default function Navbar({ children }) {
             </div>
             <div className="flex items-center gap-5">
               {/* Render FaSearch icon only in small screens */}
-              <FaSearch
-                className="w-[27px] h-[27px] text-white cursor-pointer"
-                onClick={() => setShowSearchMenu(!showSearchMenu)}
-              />
+
+              <Search />
               <FaShoppingBag
                 className="w-[27px] h-[27px] text-white lg:hidden md:block"
                 onClick={() => {
@@ -130,13 +120,6 @@ export default function Navbar({ children }) {
           </div>
         </div>
 
-        {showSearchMenu && (
-          <div className=" bg-[#40773b] w-full py-2">
-            <div className="flex flex-col items-center gap-3">
-              <Search />
-            </div>
-          </div>
-        )}
         {/* OffCanvasMenu component is rendered separately */}
       </div>
       {children}

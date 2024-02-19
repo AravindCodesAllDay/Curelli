@@ -12,7 +12,7 @@ export default function Dropdown() {
 
   const exit = () => {
     sessionStorage.clear();
-    nav("/");
+    nav("/login");
   };
 
   const profile = [
@@ -65,7 +65,7 @@ export default function Dropdown() {
               <Menu.Item key={index}>
                 {({ active }) => (
                   <Link
-                    to={item.to}
+                    to={item.to && item.to}
                     onClick={() => item.onclick && item.onclick()}
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",

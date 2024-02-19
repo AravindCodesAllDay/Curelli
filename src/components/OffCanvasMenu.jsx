@@ -9,7 +9,7 @@ const OffCanvasMenu = ({ isOpen, onClose }) => {
       }`}
       onClick={onClose}
     >
-      <div className="absolute right-0 top-0 h-full bg-white w-64 p-4 shadow-md text-[#277933]">
+      <div className="absolute left-0 top-0 h-full bg-white w-64 p-4 shadow-md text-[#277933]">
         <div className="text-2xl font-bold mb-4">Menu</div>
         <hr className="border-[1px] mb-4 border-[#277933]" />
         <div className=" mb-4">
