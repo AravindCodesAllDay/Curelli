@@ -50,7 +50,7 @@ export default function PopularProducts() {
   ];
 
   return (
-    <div className="flex overflow-x-auto justify-center">
+    <div className="flex overflow-x-auto justify-between">
       {cardDetails.map((details) => (
         <div
           key={details._id}
