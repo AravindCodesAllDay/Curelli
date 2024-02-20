@@ -6,9 +6,9 @@ export default function Posters() {
   const nav = useNavigate();
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center w-screen bg-[#cddccb] mt-24">
+    <div className="flex flex-col md:flex-row items-center justify-center w-screen bg-[#cddccb]">
       {/* Content Container */}
-      <div className="flex flex-col w-full lg:w-1/2 flexl h-full max-h-[720px] justify-center items-center text-center md:order-2 p-3">
+      <div className="flex flex-col w-full lg:w-1/2 flexl h-full max-h-[720px] justify-center items-center text-center md:order-2">
         <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-[#40773b]">
           GET TO KNOW US
         </h2>

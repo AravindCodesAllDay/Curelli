@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import Whatsapp from "../components/Whatsapp";
 
 export default function AboutUs() {
+  window.scrollTo(0, 0);
   return (
     <>
       <div className="sm:p-6 md:p-8 lg:p-10 xl:p-12 2xl:p-14 lg:bg-[#CDDCCB] sm:bg-white md:bg-white xl:bg-[#CDDCCB] 2xl:bg-[#CDDCCB]">
