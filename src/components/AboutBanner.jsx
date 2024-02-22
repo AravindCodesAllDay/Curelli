@@ -31,7 +31,7 @@ export default function AboutBanner() {
             />
             <div className="flex flex-col items-center">
               <div className="text-[#40773b] text-base md:text-lg tracking-normal leading-normal text-justify p-4">
-                <h3 className="font-bold text-xl md:text-4xl tracking-wide leading-normal text-center mb-2">
+                <h3 className="font-bold text-xl md:text-4xl tracking-wide leading-normal mb-2">
                   Women empowerment
                 </h3>
                 <p>
@@ -44,7 +44,7 @@ export default function AboutBanner() {
                 </p>
               </div>
               <div className="font-normal text-[#40773b] text-base md:text-lg tracking-normal leading-normal text-justify p-4">
-                <h3 className="font-bold text-[#40773b] text-xl md:text-4xl tracking-wide leading-normal text-center mb-2">
+                <h3 className="font-bold text-[#40773b] text-xl md:text-4xl tracking-wide leading-normal mb-2">
                   Reviving forgotten traditions
                 </h3>
                 <p>
