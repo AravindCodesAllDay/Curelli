@@ -10,7 +10,7 @@ export default function AboutBanner() {
     <div className="px-4 md:px-8 py-6 md:py-12 relative bg-white">
       <div className="flex flex-col items-center justify-center md:space-x-8 max-w-screen-xl mx-auto">
         <div className="flex flex-col gap-6">
-          <h2 className="font-bold text-[#40773b] text-lg md:text-4xl tracking-wide leading-normal text-center">
+          <h2 className="font-bold text-[#40773b] text-xl md:text-4xl tracking-wide leading-normal text-center">
             A Mother's Legacy: From Family Favourite to Empowering Mission
           </h2>
           <p className="font-normal text-[#40773b] text-base md:text-lg tracking-normal leading-normal text-justify">
@@ -25,13 +25,13 @@ export default function AboutBanner() {
           </p>
           <div className="flex xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row items-center">
             <img
-              className=" flex justify-center w-full md:w-auto h-auto rounded-md hover:scale-105 mb-6 md:mb-0 md:mr-8 max-w-md"
+              className=" flex justify-center w-full max-h-96 md:w-auto h-auto rounded-md hover:scale-105 mb-6 md:mb-0 md:mr-8 max-w-md"
               alt="Pancakes"
               src={img}
             />
             <div className="flex flex-col items-center">
-              <div className="font-normal text-[#40773b] text-base md:text-lg tracking-normal leading-normal text-justify">
-                <h3 className="font-bold text-[#40773b] text-lg md:text-4xl tracking-wide leading-normal text-center">
+              <div className="text-[#40773b] text-base md:text-lg tracking-normal leading-normal text-justify p-4">
+                <h3 className="font-bold text-xl md:text-4xl tracking-wide leading-normal text-center mb-2">
                   Women empowerment
                 </h3>
                 <p>
@@ -43,8 +43,8 @@ export default function AboutBanner() {
                   thrive.
                 </p>
               </div>
-              <div className="font-normal text-[#40773b] text-base md:text-lg tracking-normal leading-normal text-justify">
-                <h3 className="font-bold text-[#40773b] text-lg md:text-4xl tracking-wide leading-normal text-center">
+              <div className="font-normal text-[#40773b] text-base md:text-lg tracking-normal leading-normal text-justify p-4">
+                <h3 className="font-bold text-[#40773b] text-xl md:text-4xl tracking-wide leading-normal text-center mb-2">
                   Reviving forgotten traditions
                 </h3>
                 <p>
