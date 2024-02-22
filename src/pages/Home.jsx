@@ -8,6 +8,8 @@ import Carousels from "../components/Carousel";
 import Tagline from "../components/Tagline";
 import Whatsapp from "../components/Whatsapp";
 import PopularProducts from "../components/PopularProducts";
+import Instagram from "../components/Instagram";
+import Recognition from "../components/recognition";
 
 export default function Home() {
   return (
@@ -19,6 +21,8 @@ export default function Home() {
         <Subscribe />
         <Posters />
         <Banner />
+        <Instagram />
+        <Recognition />
         <Footer />
         <Outlet />
         <Whatsapp />
