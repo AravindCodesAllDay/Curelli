@@ -10,10 +10,8 @@ export default function ForgotPswd() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (showOtp) {
-      // Handle OTP submission
       console.log("OTP submitted:", otp);
     } else {
-      // Handle email submission
       setShowOtp(true);
     }
   };

@@ -53,7 +53,7 @@ export default function Navbar({ children }) {
           <div className="flex items-center gap-5 justify-between w-full lg:w-auto">
             <div className="lg:hidden md:hidden">
               <FaBars
-                className="w-6 h-6 text-white cursor-pointer"
+                className="xs:size-[21px] sm:size-[23px] md:size-[25px] lg:size-[27px] xl:size-[27px]  2xl:size-[29px] text-white cursor-pointer"
                 onClick={() => setShowOffCanvasMenu(!showOffCanvasMenu)}
               />
               <OffCanvasMenu
@@ -104,7 +104,7 @@ export default function Navbar({ children }) {
 
               <Search />
               <FaShoppingBag
-                className="w-[27px] h-[27px] text-white lg:hidden md:block"
+                className="xs:size-[21px] sm:size-[23px] md:size-[25px] lg:size-[27px] xl:size-[27px]  2xl:size-[29px] text-white lg:hidden md:block"
                 onClick={() => {
                   accessCart();
                 }}
@@ -113,7 +113,7 @@ export default function Navbar({ children }) {
                 <Dropdown />
               ) : (
                 <Link to="/login">
-                  <FaUser className="w-[27px] h-[27px] text-white lg:hidden md:block" />
+                  <FaUser className="xs:size-[21px] sm:size-[23px] md:size-[25px] lg:size-[27px] xl:size-[27px]  2xl:size-[29px] text-white lg:hidden md:block" />
                 </Link>
               )}
             </div>

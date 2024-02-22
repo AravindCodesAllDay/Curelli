@@ -95,8 +95,8 @@ const Cart = () => {
           </thead>
           <tbody>
             {cartItems.map((item) => (
-              <tr key={item.id} className="border-2 m-1">
-                <td>
+              <tr key={item.id} className="border-2 m-1 text-center">
+                <td className="flex justify-center">
                   <img
                     src={`${import.meta.env.VITE_API}uploads/${item.photo}`}
                     alt=""

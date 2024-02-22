@@ -64,8 +64,8 @@ export default function Search() {
         {isSearchOpen && (
           <input
             type="text"
-            placeholder="Search products..."
-            className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 "
+            placeholder="Search products"
+            className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 xs:h-[30px] sm:h-[32px] md:h-[34px] lg:h-[36px] xl:h-[36px]  2xl:hs-[38px] xs:w-[170px] sm:w-[200px] md:w-[250px] lg:w-[300px] xl:w-[300px]  2xl:w-[350px]"
             value={searchQuery}
             onChange={handleSearchInputChange}
             onClick={() => setIsSearchOpen(true)}
@@ -74,7 +74,7 @@ export default function Search() {
         <FaSearch
           className={`${
             isSearchOpen ? "text-black" : "text-white"
-          } cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2 w-[25px] h-[25px]`}
+          } cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2 xs:size-[21px] sm:size-[23px] md:size-[25px] lg:size-[27px] xl:size-[27px]  2xl:size-[29px]`}
           onClick={toggleSearch}
         />
       </div>
