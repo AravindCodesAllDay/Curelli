@@ -4,7 +4,7 @@ import img from "../assets/parcel.jpg";
 export default function ContactDetails() {
   return (
     <>
-      <div className="container p-8 flex flex-col items-center justify-center">
+      <div className="container p-6 flex flex-col text-center mx-auto">
         <p className="text-[#277933] text-center text-3xl">CONTACT US</p>
         <p className="text-[#277933] text-center font-light text-xl mt-4">
           No.705/3B of Chenbagaramanputhoor Road, Sahayanagar, Thovalai Village,

@@ -74,8 +74,8 @@ function Register() {
     <>
       <div className="bg-gray-100 h-screen">
         <ToastContainer />
-        <div className="h-100% flex justify-center items-center bg-gray-100 p-12">
-          <div className="bg-white p-8 px-16 rounded-md shadow-lg w-[440px]">
+        <div className="h-100% flex justify-center items-center bg-gray-100 xs:p-3 sm:p-4 md:p-5 lg:p-12 xl:p-12 2xl:p-14">
+          <div className="bg-white px-16 rounded-md shadow-lg w-[440px] xs:p-4 sm:p-8 md:p-10 lg:p-12 xl:p-12 2xl:p-14">
             <h2 className="text-[#277933] text-2xl mb-6 text-center font-semibold">
               Register
             </h2>
@@ -120,7 +120,7 @@ function Register() {
               <button
                 type="submit"
                 disabled={loading}
-                className={`submit-button bg-green-700 text-white h-10 p-2 rounded ${
+                className={`submit-button bg-green-700 text-white h-10 p-2 rounded-full ${
                   loading && "cursor-not-allowed opacity-50"
                 }`}
               >
@@ -137,23 +137,28 @@ function Register() {
               </Link>
             </p>
             <hr className="my-3" />
-            <p className="text-gray-700 flex justify-center">
-              Sign up using Google
-            </p>
-            <div className="mt-3 flex items-center justify-center">
-              <img src={google} alt="google logo" className="h-8 mr-2" />
-              <img src={facebook} alt="facebook logo" className=" h-8 mr-2" />
-            </div>
+            <button
+              className="submit-button text-black p-2 border-2 my-2
+                 rounded-full flex items-center w-full"
+            >
+              <img src={google} alt="google logo" className="h-6 mr-2" />
+              <p className="flex justify-center">Continue with Google</p>
+            </button>
+            <button
+              className="submit-button text-black p-2 border-2 my-2
+               rounded-full flex items-center w-full"
+            >
+              <img src={facebook} alt="facebook logo" className=" h-6 mr-2" />
+              <p className="flex justify-center">Continue with Facebook</p>
+            </button>
             <hr className="my-3" />
-            <p className="mt-4 text-gray-600 text-center">
-              Already a Member?
-              <Link
-                to="/login"
-                className="hover:text-[#2a64ba] text-[#277933] font-semibold cursor-pointer"
-              >
-                Login
-              </Link>
-            </p>
+            <button
+              className="submit-button text-black p-2 border-2
+               rounded-full flex items-center justify-center font-semibold hover:bg-[#277933] hover:text-white w-full"
+              onClick={() => nav("/login")}
+            >
+              Existing Account
+            </button>
           </div>
         </div>
       </div>

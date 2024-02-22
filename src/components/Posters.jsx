@@ -7,12 +7,20 @@ export default function Posters() {
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center w-screen bg-[#cddccb]">
+      {/* Image Container */}
+      <div className="w-full lg:w-1/2 flex flex-col lg:h-[600px] h-auto justify-center items-center text-center md:order-1">
+        <img
+          className="object-cover shadow-lg lg:h-full w-full"
+          src={img1}
+          alt="flowers"
+        />
+      </div>
       {/* Content Container */}
-      <div className="flex flex-col w-full lg:w-1/2 flexl h-full max-h-[720px] justify-center items-center text-center md:order-2">
+      <div className="flex flex-col w-full lg:w-1/2 flexl h-full max-h-[720px] justify-center items-center text-center md:order-2 p-4">
         <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-[#40773b]">
           GET TO KNOW US
         </h2>
-        <p className="text-[#40773b] mb-4 text-lg">
+        <p className="text-[#40773b] mb-4 text-lg text-justify">
           We believe in preserving the rich heritage of forgotten herbs while
           embracing the modern needs of health-conscious individuals. We are
           passionate about reviving traditional wisdom and bringing it to your
@@ -27,15 +35,6 @@ export default function Posters() {
         >
           More
         </button>
-      </div>
-
-      {/* Image Container */}
-      <div className="w-full lg:w-1/2 flex flex-col lg:h-[600px] h-auto justify-center items-center text-center md:order-1">
-        <img
-          className="object-cover shadow-lg lg:h-full w-full"
-          src={img1}
-          alt="flowers"
-        />
       </div>
     </div>
   );

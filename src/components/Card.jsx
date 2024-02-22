@@ -17,6 +17,7 @@ export default function Card({ children, details }) {
   const add2Cart = async (productId, userId) => {
     if (!userId) {
       console.error("User ID is not available.");
+      nav("/login");
       return;
     }
 
@@ -64,6 +65,7 @@ export default function Card({ children, details }) {
   const add2Wishlist = async (productId, userId) => {
     if (!userId) {
       console.error("User ID is not available.");
+      nav("/login");
       return;
     }
 
@@ -119,7 +121,7 @@ export default function Card({ children, details }) {
     <div className="card-container overflow-x-auto flex flex-row flex-wrap justify-center">
       <ToastContainer />
       <div
-        className="relative w-full max-w-[290px] border-2 max-h-[400px] hover:shadow-2xl flex flex-col justify-between m-4"
+        className="relative w-full max-w-[290px] border-2 max-h-[400px] hover:shadow-2xl flex flex-col justify-between m-2 lg:my-5"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -139,24 +141,26 @@ export default function Card({ children, details }) {
               className="rounded-full bg-white p-3 shadow"
               onClick={() => add2Wishlist(details._id, userId)}
             >
-              <FaHeart className="text-[#303030] hover:scale-150" />
+              <FaHeart className="text-[#303030] hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
             </div>
             <div
               className="rounded-full bg-white p-3 shadow"
               onClick={() => openPopup(details)}
             >
-              <FaEye className="text-[#303030] hover:scale-150" />
+              <FaEye className="text-[#303030] hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
             </div>
             <div
               className="rounded-full bg-white p-3 shadow"
               onClick={() => add2Cart(details._id, userId)}
             >
-              <FaShoppingCart className="text-[#303030] hover:scale-150" />
+              <FaShoppingCart className="text-[#303030] hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
             </div>
           </div>
         </div>
         <div className="p-4">
-          <h2 className="text-xl font-bold mb-2">{details.name}</h2>
+          <h2 className="xs:text-xs sm:text-xs md:text-sm lg:text-md xl:text-md 2xl:text-lg font-bold mb-2">
+            {details.name}
+          </h2>
           <div className="flex flex-row -ml-0.5">
             <Rating
               name="size-small"
@@ -166,9 +170,11 @@ export default function Card({ children, details }) {
               size="small"
             />
             &nbsp;
-            <p className="text-gray-600 -mt-1">({details.numOfRating})</p>
+            <p className="text-gray-600 -mt-1 ">({details.numOfRating})</p>
           </div>
-          <p className="text-green-600 font-bold">Rs: {details.price}</p>
+          <p className="text-green-600 font-bold xs:text-xs sm:text-xs md:text-sm lg:text-md xl:text-md 2xl:text-lg">
+            Rs: {details.price}
+          </p>
         </div>
       </div>
     </div>
