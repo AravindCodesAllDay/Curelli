@@ -10,7 +10,7 @@ export default function AboutBanner() {
     <div className="px-4 md:px-8 py-6 md:py-12 relative bg-white">
       <div className="flex flex-col items-center justify-center md:space-x-8 max-w-screen-xl mx-auto">
         <div className="flex flex-col gap-6">
-          <h2 className="font-bold text-[#40773b] text-xl md:text-4xl tracking-wide leading-normal text-center">
+          <h2 className="font-bold text-[#40773b] text-xl md:text-4xl tracking-wide leading-normal">
             A Mother's Legacy: From Family Favourite to Empowering Mission
           </h2>
           <p className="font-normal text-[#40773b] text-base md:text-lg tracking-normal leading-normal text-justify">
