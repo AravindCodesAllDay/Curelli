@@ -9,7 +9,7 @@ import Tagline from "../components/Tagline";
 import Whatsapp from "../components/Whatsapp";
 import PopularProducts from "../components/PopularProducts";
 import Instagram from "../components/Instagram";
-import Recognition from "../components/recognition";
+import Recognition from "../components/Recognition";
 
 export default function Home() {
   return (
