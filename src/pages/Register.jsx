@@ -86,7 +86,7 @@ function Register() {
         toast.success("Registration Successful");
         setTimeout(() => {
           nav("/login");
-        }, 5000);
+        }, 3000);
       } else {
         setError(true);
         toast.error("OTP verification failed. Please try again.");
@@ -138,6 +138,15 @@ function Register() {
                 onSubmit={handleOtpSubmit}
               >
                 <input
+                  type="email"
+                  name="mail"
+                  value={mail}
+                  placeholder="Email"
+                  className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                  disabled
+                  required
+                />
+                <input
                   type="text"
                   id="otpInput"
                   name="otp"
@@ -153,7 +162,7 @@ function Register() {
                 </p>
                 <button
                   type="submit"
-                  className="submit-button bg-[#277933] text-white h-10 p-2 rounded"
+                  className="submit-button bg-green-700 text-white h-10 p-2 rounded"
                 >
                   Submit
                 </button>
@@ -169,7 +178,7 @@ function Register() {
                     OTP Verified!
                   </h2>
                   <p className="text-[#277933]">
-                    You will be redirected to Login in 5 seconds...!!
+                    You will be redirected to Login in 3 seconds...!!
                   </p>
                 </>
               )}
@@ -187,6 +196,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder="Username"
                   className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                  required
                 />
 
                 <input
@@ -196,6 +206,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder="Email"
                   className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                  required
                 />
 
                 <input
@@ -205,6 +216,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder="Phone Number"
                   className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                  required
                 />
 
                 <input
@@ -214,6 +226,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder="Password"
                   className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                  required
                 />
 
                 <input
@@ -223,6 +236,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder="Confirm Password"
                   className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                  required
                 />
                 {loading && <p className="text-gray-600">Submitting...</p>}
                 <button

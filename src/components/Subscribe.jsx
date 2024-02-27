@@ -10,7 +10,7 @@ export default function Subscribe() {
         href="https://www.instagram.com/curellifoods?igsh=cXlidmxhbm91cGto&utm_source=qr"
         target="_blank"
       >
-        <button className="hover:[#40773b] text-[#40773b] hover:bg-[#40773b] border-2 p-1 font-semibold mt-6 hover:text-white rounded xs:text-sm lg:text-lg md:text-lg sm:text-sm xl:text-lg 2xl:text-xl">
+        <button className="hover:[#40773b] text-[#40773b] hover:bg-[#40773b] border-2 border-[#40773b] p-1 font-semibold mt-6 hover:text-white rounded xs:text-sm lg:text-lg md:text-lg sm:text-sm xl:text-lg 2xl:text-xl">
           @curellifoods
         </button>
       </a>

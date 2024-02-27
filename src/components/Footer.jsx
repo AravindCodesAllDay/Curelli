@@ -9,12 +9,7 @@ export default function Footer() {
             Healthy Snacks for Healthy Life
           </p>
           <p className="text-[#277933] text-lg tracking-wide leading-normal mb-2">
-            <a
-              href="mailto:contact@curellifoods.com"
-              className="text-[#277933] underline"
-            >
-              contact@curellifoods.com
-            </a>
+            contact@curellifoods.com
           </p>
           <p className="text-[#277933] text-base tracking-wide leading-normal">
             © Curelli Foods 2023

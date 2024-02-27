@@ -73,6 +73,7 @@ const Login = () => {
                 onChange={(e) => setMail(e.target.value)}
                 placeholder="Email"
                 className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                required
               />
               <input
                 type="password"
@@ -80,6 +81,7 @@ const Login = () => {
                 onChange={(e) => setPswd(e.target.value)}
                 placeholder="Password"
                 className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                required
               />
               <p className="text-end">
                 <Link
