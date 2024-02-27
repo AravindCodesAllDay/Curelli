@@ -75,7 +75,9 @@ export default function AboutBanner() {
             </p>
           </div>
           <div className="flex justify-center gap-4">
-            <img className="w-6 h-6" alt="Facebook" src={img1} />
+            <a href="https://www.facebook.com/curellifoods" target="_blank">
+              <img className="w-6 h-6" alt="Facebook" src={img1} />
+            </a>
             <a
               href="https://www.instagram.com/curellifoods?igsh=cXlidmxhbm91cGto&utm_source=qr"
               target="_blank"

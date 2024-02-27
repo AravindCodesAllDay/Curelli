@@ -3,13 +3,12 @@ import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 import Posters from "../components/Posters";
-import Subscribe from "../components/Subscribe";
 import Carousels from "../components/Carousel";
 import Tagline from "../components/Tagline";
 import Whatsapp from "../components/Whatsapp";
 import PopularProducts from "../components/PopularProducts";
-import Instagram from "../components/Instagram";
 import Recognition from "../components/Recognition";
+import Subscribe from "../components/Subscribe";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
         <Subscribe />
         <Posters />
         <Banner />
-        <Instagram />
         <Recognition />
         <Footer />
         <Outlet />
