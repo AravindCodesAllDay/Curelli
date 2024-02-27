@@ -121,9 +121,10 @@ export default function Card({ children, details }) {
     <div className="card-container overflow-x-auto flex flex-row flex-wrap justify-center">
       <ToastContainer />
       <div
-        className="relative w-full max-w-[290px] border-2 max-h-[400px] hover:shadow-2xl flex flex-col justify-between m-2 lg:my-5"
+        className="relative w-full max-w-[290px] border-2 max-h-[400px] hover:shadow-2xl flex flex-col justify-between m-2 lg:my-5 hover:cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={() => openPopup(details)}
       >
         <div className="relative max-h-[250px] w-100% h-100%">
           {children}
@@ -142,12 +143,6 @@ export default function Card({ children, details }) {
               onClick={() => add2Wishlist(details._id, userId)}
             >
               <FaHeart className="text-[#303030] hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
-            </div>
-            <div
-              className="rounded-full bg-white p-3 shadow"
-              onClick={() => openPopup(details)}
-            >
-              <FaEye className="text-[#303030] hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
             </div>
             <div
               className="rounded-full bg-white p-3 shadow"

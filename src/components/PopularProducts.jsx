@@ -51,7 +51,6 @@ export default function PopularProducts() {
 
   return (
     <div className="flex overflow-x-auto justify-between">
-      z
       {cardDetails.map((details) => (
         <div
           key={details._id}

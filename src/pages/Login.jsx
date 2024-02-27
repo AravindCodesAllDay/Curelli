@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import google from "../assets/google.png";
-import facebook from "../assets/facebook.png";
+import apple from "../assets/apple-logo.png";
 
 const Login = () => {
   const nav = useNavigate();
@@ -107,14 +107,6 @@ const Login = () => {
               </Link>
             </p>
             <hr className="my-3" />
-            <p className="text-gray-700 flex justify-center">
-              Sign up using Google
-            </p>
-            <div className="mt-3 flex items-center justify-center">
-              <img src={google} alt="google logo" className="h-8 mr-2" />
-              <img src={facebook} alt="facebook logo" className="h-8 mr-2" />
-            </div>
-            <hr className="my-3" />
             <button
               className="submit-button text-black p-2 border-2 my-2
                  rounded-full flex items-center w-full"
@@ -126,8 +118,8 @@ const Login = () => {
               className="submit-button text-black p-2 border-2 my-2
                rounded-full flex items-center w-full"
             >
-              <img src={facebook} alt="facebook logo" className=" h-6 mr-2" />
-              <p className="flex justify-center">Continue with Facebook</p>
+              <img src={apple} alt="facebook logo" className=" h-6 mr-2" />
+              <p className="flex justify-center">Continue with Apple</p>
             </button>
             <hr className="my-3" />
             <button

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
@@ -8,6 +8,7 @@ export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const searchRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +32,14 @@ export default function Search() {
     };
 
     fetchData();
+
+    // Add event listener to close search on outside click
+    document.addEventListener("click", handleClickOutside);
+
+    // Clean up event listener on component unmount
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
   }, []);
 
   const toggleSearch = () => {
@@ -58,14 +67,20 @@ export default function Search() {
     nav(`/shop/${ID}`);
   };
 
+  const handleClickOutside = (event) => {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      setIsSearchOpen(false);
+    }
+  };
+
   return (
     <>
-      <div className="relative flex items-center">
+      <div className="relative flex items-center" ref={searchRef}>
         {isSearchOpen && (
           <input
             type="text"
             placeholder="Search products"
-            className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 xs:h-[30px] sm:h-[32px] md:h-[34px] lg:h-[36px] xl:h-[36px]  2xl:hs-[38px] xs:w-[170px] sm:w-[200px] md:w-[250px] lg:w-[300px] xl:w-[300px]  2xl:w-[350px]"
+            className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 xs:h-[24px] sm:h-[36px] md:h-[28px] lg:h-[30px] xl:h-[30px]  2xl:hs-[32px] xs:w-[170px] sm:w-[200px] md:w-[250px] lg:w-[300px] xl:w-[300px]  2xl:w-[350px]"
             value={searchQuery}
             onChange={handleSearchInputChange}
             onClick={() => setIsSearchOpen(true)}
@@ -73,8 +88,10 @@ export default function Search() {
         )}
         <FaSearch
           className={`${
-            isSearchOpen ? "text-black" : "text-white"
-          } cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2 xs:size-[21px] sm:size-[23px] md:size-[25px] lg:size-[27px] xl:size-[27px]  2xl:size-[29px]`}
+            isSearchOpen
+              ? "text-black xs:size-[16px] sm:size-[18px] md:size-[20px] lg:size-[22px] xl:size-[22px]  2xl:size-[24px]"
+              : "text-white xs:size-[21px] sm:size-[23px] md:size-[25px] lg:size-[27px] xl:size-[27px]  2xl:size-[29px]"
+          } cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2`}
           onClick={toggleSearch}
         />
       </div>

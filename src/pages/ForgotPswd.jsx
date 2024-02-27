@@ -3,16 +3,78 @@ import { Link } from "react-router-dom";
 import img1 from "../assets/Logo_02.png";
 
 export default function ForgotPswd() {
-  const [email, setEmail] = useState("");
+  const [mail, setMail] = useState("");
   const [showOtp, setShowOtp] = useState(false);
   const [otp, setOtp] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (showOtp) {
-      console.log("OTP submitted:", otp);
+    if (showOtp === true) {
+      try {
+        const res = await fetch(
+          `${import.meta.env.VITE_API}users/verifyOTP/${mail}`,
+          {
+            method: "POST",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify({ otp }),
+          }
+        );
+
+        if (res.ok) {
+          setVerified(true);
+
+          const registerResponse = await fetch(
+            `${import.meta.env.VITE_API}users`,
+            {
+              method: "POST",
+              headers: { "Content-type": "application/json" },
+              body: JSON.stringify({ name, mail, phone, pswd }),
+            }
+          );
+
+          if (!registerResponse.ok) {
+            toast.error(`Registration failed: ${registerResponse.statusText}`);
+            return;
+          }
+
+          toast.success("Registration Successful");
+          setTimeout(() => {
+            nav("/login");
+          }, 5000);
+        } else {
+          setError(true);
+          toast.error("OTP verification failed. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error during OTP verification:", error.message);
+        toast.error("Error during OTP verification. Please try again later.");
+      }
     } else {
-      setShowOtp(true);
+      try {
+        setLoading(true);
+
+        const existsResponse = await fetch(
+          `${import.meta.env.VITE_API}users/${mail}`
+        );
+
+        if (existsResponse.status === 200) {
+          toast.error("User already exists");
+          return;
+        }
+
+        const res = await fetch(`${import.meta.env.VITE_API}users/sendOTP`, {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify({ mail }),
+        });
+
+        if (res.ok) {
+          setShowOtp(true);
+        }
+      } catch (error) {
+        console.error("Error during registration:", error.message);
+        toast.error("Error during registration. Please try again later.");
+      }
     }
   };
 
@@ -30,8 +92,8 @@ export default function ForgotPswd() {
             type="email"
             placeholder="Email"
             className="input-field border-[1px] p-2 rounded border-customGreen"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={mail}
+            onChange={(e) => setMail(e.target.value)}
             disabled={showOtp}
             required
           />
@@ -63,7 +125,7 @@ export default function ForgotPswd() {
           </p>
           <button
             type="submit"
-            className="submit-button bg-customGreen text-white h-10 p-2 rounded"
+            className="submit-button bg-green-700 text-white h-10 p-2 rounded"
           >
             {showOtp ? "Submit" : "Next"}
           </button>
