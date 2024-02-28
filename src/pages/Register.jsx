@@ -39,36 +39,6 @@ function Register() {
           toast.error("User already exists");
           return;
         }
-
-        const res = await fetch(`${import.meta.env.VITE_API}users/sendOTP`, {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({ mail }),
-        });
-        const data = await res.json();
-        setOtpGenerated(data.otp);
-        console.log(data);
-        setShowOtp(true);
-      } catch (error) {
-        console.error("Error during registration:", error.message);
-        toast.error("Error during registration. Please try again later.");
-      } finally {
-        setLoading(false);
-      }
-    } else {
-      toast.error("Passwords don't match");
-    }
-  };
-
-  const handleOtpSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      if (otp === otpGenerated) {
-        setVerified(true);
-
         const registerResponse = await fetch(
           `${import.meta.env.VITE_API}users`,
           {
@@ -82,20 +52,68 @@ function Register() {
           toast.error(`Registration failed: ${registerResponse.statusText}`);
           return;
         }
-
+        setVerified(true);
         toast.success("Registration Successful");
         setTimeout(() => {
           nav("/login");
         }, 3000);
-      } else {
-        setError(true);
-        toast.error("OTP verification failed. Please try again.");
+
+        // const res = await fetch(`${import.meta.env.VITE_API}users/sendOTP`, {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-type": "application/json",
+        //   },
+        //   body: JSON.stringify({ mail }),
+        // });
+        // const data = await res.json();
+        // setOtpGenerated(data.otp);
+        // console.log(data);
+        // setShowOtp(true);
+      } catch (error) {
+        console.error("Error during registration:", error.message);
+        toast.error("Error during registration. Please try again later.");
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Error during OTP verification:", error.message);
-      toast.error("Error during OTP verification. Please try again later.");
+    } else {
+      toast.error("Passwords don't match");
     }
   };
+
+  // const handleOtpSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     if (otp === otpGenerated) {
+  //       setVerified(true);
+
+  //       const registerResponse = await fetch(
+  //         `${import.meta.env.VITE_API}users`,
+  //         {
+  //           method: "POST",
+  //           headers: { "Content-type": "application/json" },
+  //           body: JSON.stringify({ name, mail, phone, pswd }),
+  //         }
+  //       );
+
+  //       if (!registerResponse.ok) {
+  //         toast.error(`Registration failed: ${registerResponse.statusText}`);
+  //         return;
+  //       }
+
+  //       toast.success("Registration Successful");
+  //       setTimeout(() => {
+  //         nav("/login");
+  //       }, 3000);
+  //     } else {
+  //       setError(true);
+  //       toast.error("OTP verification failed. Please try again.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error during OTP verification:", error.message);
+  //     toast.error("Error during OTP verification. Please try again later.");
+  //   }
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -173,14 +191,14 @@ function Register() {
                 </h2>
               )}
               {verified && (
-                <>
-                  <h2 className="text-[#277933] text-sm mb-6 font-semibold">
-                    OTP Verified!
-                  </h2>
-                  <p className="text-[#277933]">
-                    You will be redirected to Login in 3 seconds...!!
-                  </p>
-                </>
+                // <>
+                //   <h2 className="text-[#277933] text-sm mb-6 font-semibold">
+                //     OTP Verified!
+                //   </h2>
+                <p className="text-[#277933]">
+                  You will be redirected to Login in 3 seconds...!!
+                </p>
+                // </>
               )}
             </>
           ) : (
