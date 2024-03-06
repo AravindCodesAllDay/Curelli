@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
+import { FaEye } from "react-icons/fa";
 import google from "../assets/google.png";
 import apple from "../assets/apple-logo.png";
 
@@ -20,6 +21,8 @@ function Register() {
   const [error, setError] = useState(false);
   const [otp, setOtp] = useState("");
   const [otpGenerated, setOtpGenerated] = useState("");
+  const [showPswd, setShowPswd] = useState(false);
+  const [showConfPswd, setShowConfPswd] = useState(false);
 
   const handleSubmission = async (e) => {
     e.preventDefault();
@@ -41,6 +44,7 @@ function Register() {
         }
 
         const res = await fetch(`${import.meta.env.VITE_API}users/sendOTP`, {
+          // const res = await fetch(`http://localhost:3001/users/sendOTP`, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -219,28 +223,39 @@ function Register() {
                   className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
                   required
                 />
+                <div className="relative flex items-center">
+                  <input
+                    type={showPswd ? "text" : "password"}
+                    name="pswd"
+                    value={pswd}
+                    onChange={handleChange}
+                    placeholder="Password"
+                    className="input-field border-[1px] p-2 rounded border-[#0d5b41] w-full"
+                    required
+                    autoComplete="off"
+                  />
+                  <FaEye
+                    onClick={() => setShowPswd(!showPswd)}
+                    className=" cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2"
+                  />
+                </div>
+                <div className="relative flex items-center">
+                  <input
+                    type={showConfPswd ? "text" : "password"}
+                    name="confirmPswd"
+                    value={confirmPswd}
+                    onChange={handleChange}
+                    placeholder="Confirm Password"
+                    className="input-field border-[1px] p-2 rounded border-[#0d5b41] w-full"
+                    required
+                    autoComplete="off"
+                  />
+                  <FaEye
+                    onClick={() => setShowConfPswd(!showConfPswd)}
+                    className=" cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2"
+                  />
+                </div>
 
-                <input
-                  type="password"
-                  name="pswd"
-                  value={pswd}
-                  onChange={handleChange}
-                  placeholder="Password"
-                  className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
-                  required
-                  autoComplete="off"
-                />
-
-                <input
-                  type="password"
-                  name="confirmPswd"
-                  value={confirmPswd}
-                  onChange={handleChange}
-                  placeholder="Confirm Password"
-                  className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
-                  required
-                  autoComplete="off"
-                />
                 {loading && <p className="text-gray-600">Submitting...</p>}
                 <button
                   type="submit"
@@ -264,11 +279,7 @@ function Register() {
               <hr className="my-3" />
               <button className="submit-button text-black p-2 border-2 my-2 rounded-full flex items-center w-full">
                 <img src={google} alt="google logo" className="h-6 mr-2" />
-                <p className="flex justify-center">Continue with Google</p>
-              </button>
-              <button className="submit-button text-black p-2 border-2 my-2 rounded-full flex items-center w-full">
-                <img src={apple} alt="facebook logo" className=" h-6 mr-2" />
-                <p className="flex justify-center">Continue with Apple</p>
+                <p className="flex justify-center">Signup with Google</p>
               </button>
               <hr className="my-3" />
               <button

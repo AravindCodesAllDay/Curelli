@@ -3,11 +3,13 @@ import { useNavigate, Link } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaEye } from "react-icons/fa";
 import google from "../assets/google.png";
 import apple from "../assets/apple-logo.png";
 
 const Login = () => {
   const nav = useNavigate();
+  const [showPswd, setShowPswd] = useState(false);
   const [mail, setMail] = useState("");
   const [pswd, setPswd] = useState("");
 
@@ -75,14 +77,20 @@ const Login = () => {
                 className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
                 required
               />
-              <input
-                type="password"
-                value={pswd}
-                onChange={(e) => setPswd(e.target.value)}
-                placeholder="Password"
-                className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
-                required
-              />
+              <div className="relative flex items-center">
+                <input
+                  type={showPswd ? "text" : "password"}
+                  value={pswd}
+                  onChange={(e) => setPswd(e.target.value)}
+                  placeholder="Password"
+                  className="input-field border-[1px] p-2 rounded border-[#0d5b41] w-full"
+                  required
+                />
+                <FaEye
+                  onClick={() => setShowPswd(!showPswd)}
+                  className=" cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2"
+                />
+              </div>
               <p className="text-end">
                 <Link
                   to="/forgotpswd"
@@ -114,14 +122,7 @@ const Login = () => {
                  rounded-full flex items-center w-full"
             >
               <img src={google} alt="google logo" className="h-6 mr-2" />
-              <p className="flex justify-center">Continue with Google</p>
-            </button>
-            <button
-              className="submit-button text-black p-2 border-2 my-2
-               rounded-full flex items-center w-full"
-            >
-              <img src={apple} alt="facebook logo" className=" h-6 mr-2" />
-              <p className="flex justify-center">Continue with Apple</p>
+              <p className="flex justify-center">Signup with Google</p>
             </button>
             <hr className="my-3" />
             <button

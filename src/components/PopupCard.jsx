@@ -81,15 +81,15 @@ const PopupCard = () => {
       className="fixed inset-0 flex items-center justify-center bg-opacity-20 bg-black "
       onClick={() => nav("/shop")}
     >
-      <div className="bg-white p-8 rounded-lg w-full max-w-4xl flex flex-row">
-        <div className="w-1/2 flex items-center justify-center">
+      <div className="bg-white  rounded-lg w-full max-w-4xl flex xs:flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row justify-center items-center xs:p-4 sm:p-6 md:p-3 lg:p-4 xl:p-6 2xl:p-8 xs:m-2 sm:m-4 md:m4- lg:m-4 xl:m-6 2xl:m-8">
+        <div className="xs:w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2 flex items-center justify-center">
           <img
             src={`${import.meta.env.VITE_API}uploads/${details.photo}`}
             alt="orange"
             className="max-w-full h-auto"
           />
         </div>
-        <div className="w-1/2 flex flex-col justify-center pl-8">
+        <div className=" xs:w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2 flex flex-col justify-center ">
           <h2 className="text-2xl font-semibold mb-2">{details.name}</h2>
           <p className="text-gray-600 mb-4">{details.description}</p>
           {!loading &&

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaHeart, FaEye, FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Rating from "@mui/material/Rating";
@@ -121,17 +121,17 @@ export default function Card({ children, details }) {
     <div className="card-container overflow-x-auto flex flex-row flex-wrap justify-center">
       <ToastContainer />
       <div
-        className="relative w-full max-w-[290px] border-2 max-h-[400px] hover:shadow-2xl flex flex-col justify-between m-2 lg:my-5 hover:cursor-pointer"
+        className="relative w-full max-w-[290px] border-2 max-h-[400px] hover:shadow-2xl flex flex-col justify-between m-2 lg:my-5"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={() => openPopup(details)}
       >
         <div className="relative max-h-[250px] w-100% h-100%">
           {children}
           <img
             src={`${import.meta.env.VITE_API}uploads/${details.photo}`}
             alt="plant"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover hover:cursor-pointer"
+            onClick={() => openPopup(details)}
           />
           <div
             className={`absolute top-4 right-4 flex flex-col gap-2 transition-all ${
