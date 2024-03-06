@@ -40,7 +40,7 @@ function Register() {
           return;
         }
 
-        const res = await fetch(`http://localhost:3001/users/sendOTP`, {
+        const res = await fetch(`${import.meta.env.VITE_API}users/sendOTP`, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
