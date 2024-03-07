@@ -340,11 +340,12 @@ function Register() {
                 </Link>
               </p>
               <hr className="my-3" />
-              <button className="submit-button text-black p-2 border-2 my-2 rounded-full flex items-center w-full">
+              <button
+                className="submit-button text-black p-2 border-2 my-2 rounded-full flex items-center w-full"
+                onClick={login}
+              >
                 <img src={google} alt="google logo" className="h-6 mr-2" />
-                <p onClick={login} className="flex justify-center">
-                  Signup with Google
-                </p>
+                <p className="flex justify-center">Signup with Google</p>
               </button>
               <hr className="my-3" />
               <button

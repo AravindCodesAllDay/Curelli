@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FaEye } from "react-icons/fa";
 import google from "../assets/google.png";
+import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 const Login = () => {
   const nav = useNavigate();
-  const [showPswd, setShowPswd] = useState(false);
   const [mail, setMail] = useState("");
   const [pswd, setPswd] = useState("");
+  const [user, setUser] = useState(null);
 
   const handleSubmission = async (e) => {
     e.preventDefault();
@@ -58,6 +59,48 @@ const Login = () => {
     }
   };
 
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log("Login Failed:", error),
+  });
+
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then(async (res) => {
+          //   setProfile(res.data);
+          const response = await fetch(
+            `${import.meta.env.VITE_API}users/${res.data.email}`
+          );
+          if (response.ok) {
+            const data = await response.json();
+            sessionStorage.setItem("id", data._id);
+            sessionStorage.setItem("name", data.name);
+            nav("/");
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+    return () => {
+      if (user) {
+        googleLogout();
+      }
+    };
+  }, [user]);
+
+  const logOut = () => {
+    googleLogout();
+  };
+
   return (
     <>
       <div className="bg-gray-100 h-screen">
@@ -76,20 +119,14 @@ const Login = () => {
                 className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
                 required
               />
-              <div className="relative flex items-center">
-                <input
-                  type={showPswd ? "text" : "password"}
-                  value={pswd}
-                  onChange={(e) => setPswd(e.target.value)}
-                  placeholder="Password"
-                  className="input-field border-[1px] p-2 rounded border-[#0d5b41] w-full"
-                  required
-                />
-                <FaEye
-                  onClick={() => setShowPswd(!showPswd)}
-                  className=" cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2"
-                />
-              </div>
+              <input
+                type="password"
+                value={pswd}
+                onChange={(e) => setPswd(e.target.value)}
+                placeholder="Password"
+                className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                required
+              />
               <p className="text-end">
                 <Link
                   to="/forgotpswd"
@@ -119,9 +156,10 @@ const Login = () => {
             <button
               className="submit-button text-black p-2 border-2 my-2
                  rounded-full flex items-center w-full"
+              onClick={login}
             >
               <img src={google} alt="google logo" className="h-6 mr-2" />
-              <p className="flex justify-center">Signup with Google</p>
+              <p className="flex justify-center">Continue with Google</p>
             </button>
             <hr className="my-3" />
             <button
