@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { FaUser } from "react-icons/fa";
+import { googleLogout } from "@react-oauth/google";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -12,6 +13,7 @@ export default function Dropdown() {
 
   const exit = () => {
     sessionStorage.clear();
+    googleLogout();
     nav("/login");
   };
 

@@ -10,7 +10,7 @@ const Terms = () => {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto px-8 py-12">
+      <div className="flex flex-col xs:p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 2xl:p-12 max-w-[900px] justify-start text-justify">
         <h1 className="text-2xl font-bold mb-4">
           Curellifoods.com Privacy Policy
         </h1>
@@ -40,7 +40,7 @@ const Terms = () => {
         <p className="mt-4 leading-relaxed">
           For the purposes of this Privacy Policy:
         </p>
-        <div className="mt-4 rounded-md p-4">
+        <div className="mt-4 rounded-md">
           <p className="mb-4">
             <b>Account</b> means a unique account created for You to access our
             Service or parts of our Service.
@@ -149,7 +149,7 @@ const Terms = () => {
         <h3 className="text-xl font-bold mt-4 italic">
           Information from Third-Party Social Media Services
         </h3>
-        <div className="ml-4">
+        <div className="">
           <p>
             The Company allows You to create an account and log in to use the
             Service through the following Third-party Social Media Services:
@@ -177,11 +177,11 @@ const Terms = () => {
             Policy.
           </p>
         </div>
-        <div className="mt-8 px-4 py-6 rounded-md">
+        <div className="mt-8 rounded-md">
           <h3 className="text-xl font-bold mt-4 italic">
             Tracking Technologies and Cookies
           </h3>
-          <div className="ml-4">
+          <div className="">
             <p>
               We use Cookies and similar tracking technologies to track the
               activity on Our Service and store certain information. Tracking
@@ -221,7 +221,7 @@ const Terms = () => {
               We use both Session and Persistent Cookies for the purposes set
               out below:
             </p>
-            <div className="ml-8">
+            <div className="">
               <h4 className="text-lg font-bold mt-4">
                 Necessary / Essential Cookies
               </h4>
@@ -264,7 +264,7 @@ const Terms = () => {
           </div>
         </div>
         <h3 className="text-xl font-bold mt-4">Use of Your Personal Data</h3>
-        <div className="ml-4">
+        <div className="">
           <p>The Company may use Personal Data for the following purposes:</p>
           <div>
             <p>
@@ -430,7 +430,7 @@ const Terms = () => {
         <h3 className="text-xl font-bold mt-4">
           Disclosure of Your Personal Data
         </h3>
-        <div className="ml-4">
+        <div className="">
           <h4 className="italic font-bold">Business Transactions</h4>
           <p>
             If the Company is involved in a merger, acquisition, or asset sale,
@@ -531,9 +531,9 @@ const Terms = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-center items-center p-12">
+      <div className="flex justify-center items-center p-8">
         <button
-          className="border-2 hover:bg-blue-600 hover:text-white rounded  p-3 w-20 font-bold"
+          className="border-2 hover:bg-blue-600 hover:text-white rounded  p-1 w-20 font-bold"
           onClick={() => nav(-1)}
         >
           Back

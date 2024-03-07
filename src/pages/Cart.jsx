@@ -18,6 +18,35 @@ const Cart = () => {
       return null;
     }
   };
+  const handleQuantityChange = async (productId, newQuantity) => {
+    if (newQuantity <= 0) {
+      return 0;
+    }
+    try {
+      // Update the quantity on the server
+      await fetch(`${import.meta.env.VITE_API}users/cart`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+          product: productId,
+          quantity: newQuantity,
+        }),
+      });
+
+      // Update the local state to reflect the new quantity
+      setCartItems((prevCartItems) =>
+        prevCartItems.map((item) =>
+          item.id === productId ? { ...item, quantity: newQuantity } : item
+        )
+      );
+    } catch (error) {
+      console.error("Error updating quantity:", error);
+      setError("Error updating quantity. Please try again later.");
+    }
+  };
 
   const fetchCartDetails = async () => {
     try {
@@ -104,7 +133,28 @@ const Cart = () => {
                   />
                 </td>
                 <td>{item.name}</td>
-                <td>{item.quantity}</td>
+                <td>
+                  <div className="flex justify-center">
+                    <button
+                      className="w-5 h-5 rounded-full mr-2 font-bold text-xl -m-0.5"
+                      onClick={() =>
+                        handleQuantityChange(item.id, item.quantity - 1)
+                      }
+                    >
+                      -
+                    </button>
+                    <span className="font-bold text-xl">{item.quantity}</span>
+                    <button
+                      className="w-5 h-5 rounded-full ml-2 font-bold text-xl"
+                      onClick={() =>
+                        handleQuantityChange(item.id, item.quantity + 1)
+                      }
+                    >
+                      +
+                    </button>
+                  </div>
+                </td>
+
                 <td>Rs.{item.price}</td>
                 <td>
                   <div className="flex justify-center">

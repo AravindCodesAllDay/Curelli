@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import google from "../assets/google.png";
-import apple from "../assets/apple-logo.png";
+import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 function Register() {
   const nav = useNavigate();
@@ -23,6 +24,7 @@ function Register() {
   const [otpGenerated, setOtpGenerated] = useState("");
   const [showPswd, setShowPswd] = useState(false);
   const [showConfPswd, setShowConfPswd] = useState(false);
+  const [user, setUser] = useState(null);
 
   const handleSubmission = async (e) => {
     e.preventDefault();
@@ -44,7 +46,6 @@ function Register() {
         }
 
         const res = await fetch(`${import.meta.env.VITE_API}users/sendOTP`, {
-          // const res = await fetch(`http://localhost:3001/users/sendOTP`, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -100,6 +101,68 @@ function Register() {
       toast.error("Error during OTP verification. Please try again later.");
     }
   };
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log("Login Failed:", error),
+  });
+
+  useEffect(() => {
+    if (user) {
+      setLoading(true);
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then(async (res) => {
+          console.log(res.data);
+          const response = await fetch(
+            `${import.meta.env.VITE_API}users/${res.data.email}`
+          );
+          if (response.ok) {
+            console.log("User already exists");
+            const data = await response.json();
+            sessionStorage.setItem("id", data._id);
+            sessionStorage.setItem("name", data.name);
+            nav("/");
+          } else {
+            const result = await fetch(
+              `${import.meta.env.VITE_API}users/google`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                  mail: res.data.email,
+                  name: res.data.name,
+                }),
+              }
+            );
+            if (result.ok) {
+              const data = await result.json();
+              console.log(data);
+              sessionStorage.setItem("id", data._id);
+              sessionStorage.setItem("name", data.name);
+              nav("/");
+            }
+          }
+        })
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
+    }
+    return () => {
+      if (user) {
+        googleLogout();
+      }
+    };
+  }, [user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -279,7 +342,9 @@ function Register() {
               <hr className="my-3" />
               <button className="submit-button text-black p-2 border-2 my-2 rounded-full flex items-center w-full">
                 <img src={google} alt="google logo" className="h-6 mr-2" />
-                <p className="flex justify-center">Signup with Google</p>
+                <p onClick={login} className="flex justify-center">
+                  Signup with Google
+                </p>
               </button>
               <hr className="my-3" />
               <button
