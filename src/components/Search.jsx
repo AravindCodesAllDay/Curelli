@@ -80,7 +80,7 @@ export default function Search() {
           <input
             type="text"
             placeholder="Search products"
-            className="bg-white border border-gray-300 rounded-md shadow-md pl-8 pr-3 py-1 xs:h-[24px] sm:h-[36px] md:h-[28px] lg:h-[30px] xl:h-[30px]  2xl:hs-[32px] xs:w-[170px] sm:w-[200px] md:w-[250px] lg:w-[300px] xl:w-[300px]  2xl:w-[350px]"
+            className="bg-white border border-gray-300 rounded-md shadow-md  px-3 py-1 xs:h-[24px] sm:h-[36px] md:h-[28px] lg:h-[30px] xl:h-[30px]  2xl:hs-[32px] xs:w-[170px] sm:w-[200px] md:w-[250px] lg:w-[300px] xl:w-[300px]  2xl:w-[350px] "
             value={searchQuery}
             onChange={handleSearchInputChange}
             onClick={() => setIsSearchOpen(true)}

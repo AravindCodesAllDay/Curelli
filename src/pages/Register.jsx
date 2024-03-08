@@ -193,8 +193,8 @@ function Register() {
   return (
     <div className="bg-gray-100 h-screen">
       <ToastContainer />
-      <div className="h-100% flex justify-center items-center bg-gray-100 p-12">
-        <div className="bg-white p-8 px-16 rounded-md shadow-lg w-[440px]">
+      <div className="h-100% flex justify-center items-center bg-gray-100 xs:p-3 sm:p-4 md:p-5 lg:p-12 xl:p-12 2xl:p-14">
+        <div className="bg-white rounded-md shadow-lg w-[440px] xs:p-4 sm:p-8 md:p-10 lg:p-12 xl:p-12 2xl:p-14">
           {showOtp ? (
             <>
               <h2 className="text-[#277933] text-2xl mb-6 font-semibold">

@@ -12,7 +12,7 @@ import { TECarousel, TECarouselItem } from "tw-elements-react";
 export default function CarouselCrossfade() {
   return (
     <>
-      <div className="hidden lg:block xl:block 2xl:block">
+      <div className="hidden lg:block xl:block 2xl:block z-20">
         <TECarousel showControls showIndicators crossfade ride="carousel">
           <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
             <TECarouselItem
