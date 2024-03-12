@@ -80,7 +80,7 @@ export default function Search() {
           <input
             type="text"
             placeholder="Search products"
-            className="bg-white border border-gray-300 rounded-md shadow-md  px-3 py-1 xs:h-[24px] sm:h-[36px] md:h-[28px] lg:h-[30px] xl:h-[30px]  2xl:hs-[32px] xs:w-[170px] sm:w-[200px] md:w-[250px] lg:w-[300px] xl:w-[300px]  2xl:w-[350px] "
+            className="bg-white border border-gray-300 rounded-md shadow-md  px-3 py-1 xs:h-[26px] sm:h-[28px] md:h-[30px] lg:h-[32px] xl:h-[32px]  2xl:hs-[34px] xs:w-[170px] sm:w-[200px] md:w-[250px] lg:w-[300px] xl:w-[300px]  2xl:w-[350px] "
             value={searchQuery}
             onChange={handleSearchInputChange}
             onClick={() => setIsSearchOpen(true)}
@@ -89,7 +89,7 @@ export default function Search() {
         <FaSearch
           className={`${
             isSearchOpen
-              ? "text-black xs:size-[16px] sm:size-[18px] md:size-[20px] lg:size-[22px] xl:size-[22px]  2xl:size-[24px]"
+              ? "text-black xs:size-[19px] sm:size-[21px] md:size-[23px] lg:size-[25px] xl:size-[25px]  2xl:size-[27px]"
               : "text-white xs:size-[21px] sm:size-[23px] md:size-[25px] lg:size-[27px] xl:size-[27px]  2xl:size-[29px]"
           } cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2`}
           onClick={toggleSearch}

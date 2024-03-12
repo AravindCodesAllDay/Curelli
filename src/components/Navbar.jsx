@@ -49,8 +49,8 @@ export default function Navbar({ children }) {
             />
           </Link>
         </div>
-        <div className="flex items-center justify-between px-4 lg:px-10 py-4 lg:py-13 relative w-full bg-[#40773b]">
-          <div className="flex items-center gap-5 justify-between w-full lg:w-auto">
+        <div className="flex items-center justify-between px-4 lg:px-10 py-3 lg:py-13 relative w-full bg-[#40773b]">
+          <div className="flex items-center justify-between w-full lg:w-auto">
             <div className="lg:hidden md:hidden">
               <FaBars
                 className="xs:size-[21px] sm:size-[23px] md:size-[25px] lg:size-[27px] xl:size-[27px]  2xl:size-[29px] text-white cursor-pointer"
@@ -61,7 +61,7 @@ export default function Navbar({ children }) {
                 onClose={() => setShowOffCanvasMenu(false)}
               />
             </div>
-            <div className="lg:flex hidden md:flex flex-grow gap-[16px] relative items-center">
+            <div className="lg:flex hidden md:flex flex-grow  xs:gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-4 2xl:gap-5  relative items-center">
               <div
                 className={`text-[16px] ${
                   location.pathname === "/"
@@ -104,7 +104,7 @@ export default function Navbar({ children }) {
 
               <Search />
               <FaShoppingBag
-                className="xs:size-[21px] sm:size-[23px] md:size-[25px] lg:size-[27px] xl:size-[27px]  2xl:size-[29px] text-white lg:hidden md:block"
+                className="xs:size-[21px] sm:size-[23px] md:size-[25px] lg:size-[27px] xl:size-[27px]  2xl:size-[29px] text-white lg:hidden md:block cursor-pointer"
                 onClick={() => {
                   accessCart();
                 }}

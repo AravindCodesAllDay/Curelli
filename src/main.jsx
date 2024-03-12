@@ -98,8 +98,8 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/forgotpswd",
-    element: <ForgotPswd />,
+    path: "/profile",
+    element: <Navbar></Navbar>,
   },
   {
     path: "*",

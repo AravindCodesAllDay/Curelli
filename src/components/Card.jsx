@@ -152,7 +152,7 @@ export default function Card({ children, details }) {
             </div>
           </div>
         </div>
-        <div className="p-4">
+        <div className="p-4 cursor-default">
           <h2 className="xs:text-xs sm:text-xs md:text-sm lg:text-md xl:text-md 2xl:text-lg font-bold mb-2">
             {details.name}
           </h2>

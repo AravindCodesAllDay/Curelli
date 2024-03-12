@@ -50,19 +50,18 @@ export default function PopularProducts() {
   ];
 
   return (
-    <div className="flex overflow-x-auto justify-between">
-      {cardDetails.map((details) => (
-        <div
-          key={details._id}
-          className="flex-shrink-0 max-w-[290px] min-w-[200px] w-full h-full mx-4"
-        >
-          <Card details={details}>
-            <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded">
-              {details.status}
-            </div>
-          </Card>
-        </div>
-      ))}
+    <div className="overflow-x-auto">
+      <div className="flex justify-between">
+        {cardDetails.map((details) => (
+          <div key={details._id} className="flex-shrink-0">
+            <Card details={details}>
+              <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded">
+                {details.status}
+              </div>
+            </Card>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

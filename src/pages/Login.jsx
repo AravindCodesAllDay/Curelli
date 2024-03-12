@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import google from "../assets/google.png";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import { FaEye, FaInfo } from "react-icons/fa";
 import axios from "axios";
 
 const Login = () => {
@@ -12,6 +13,8 @@ const Login = () => {
   const [mail, setMail] = useState("");
   const [pswd, setPswd] = useState("");
   const [user, setUser] = useState(null);
+  const [showPswd, setShowPswd] = useState(false);
+  const [wrongPswd, setWrongPswd] = useState(false);
 
   const handleSubmission = async (e) => {
     e.preventDefault();
@@ -38,8 +41,7 @@ const Login = () => {
         sessionStorage.setItem("name", user.name);
         nav("/");
       } else {
-        console.log("Login failed: Incorrect password");
-        toast.error("Login failed: Incorrect password");
+        setWrongPswd(true);
       }
     } catch (error) {
       console.error("Error during login:", error.message);
@@ -119,14 +121,29 @@ const Login = () => {
                 className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
                 required
               />
-              <input
-                type="password"
-                value={pswd}
-                onChange={(e) => setPswd(e.target.value)}
-                placeholder="Password"
-                className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
-                required
-              />
+              <div className="relative flex items-center">
+                <input
+                  type={showPswd ? "text" : "password"}
+                  value={pswd}
+                  onChange={(e) => setPswd(e.target.value)}
+                  placeholder="Password"
+                  className={`input-field border-[1px] p-2 rounded border-[#0d5b41] w-full ${
+                    wrongPswd ? "border-red-800" : ""
+                  }`}
+                  required
+                />
+                <FaEye
+                  onClick={() => setShowPswd(!showPswd)}
+                  className=" cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2"
+                />
+              </div>
+              {wrongPswd && (
+                <p className="flex text-sm text-red-800 -mt-3 items-center">
+                  <FaInfo className="size-3 " />
+                  Wrong password
+                </p>
+              )}
+
               <p className="text-end">
                 <Link
                   to="/forgotpswd"

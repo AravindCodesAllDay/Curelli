@@ -16,7 +16,7 @@ export default function Dropdown() {
   return (
     <Menu as="div" className="relative inline-block text-left z-50">
       <div>
-        <Menu.Button className="inline-flex w-full justify-center text-sm font-semibold text-gray-900 shadow-sm rounded-full mt-1">
+        <Menu.Button className="inline-flex w-full justify-center text-sm font-semibold text-gray-900 shadow-sm rounded-full  ">
           {sessionStorage.getItem("name") != null ? (
             <p className=" text-white rounded-full p-1 w-8 bg-[#964B00] border-2">
               {sessionStorage.getItem("name").charAt(0)}
@@ -58,7 +58,7 @@ export default function Dropdown() {
             </Menu.Item>
             <Menu.Item>
               <Link
-                to="#"
+                to="/profile"
                 className="hover:bg-gray-100 bg-white text-gray-900 block px-4 py-2 text-sm"
               >
                 Profile

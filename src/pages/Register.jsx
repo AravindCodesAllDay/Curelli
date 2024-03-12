@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaInfo } from "react-icons/fa";
 import google from "../assets/google.png";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
@@ -25,6 +25,7 @@ function Register() {
   const [showPswd, setShowPswd] = useState(false);
   const [showConfPswd, setShowConfPswd] = useState(false);
   const [user, setUser] = useState(null);
+  const [wrongPswd, setWrongPswd] = useState(false);
 
   const handleSubmission = async (e) => {
     e.preventDefault();
@@ -63,7 +64,7 @@ function Register() {
         setLoading(false);
       }
     } else {
-      toast.error("Passwords don't match");
+      setWrongPswd(true);
     }
   };
 
@@ -309,7 +310,9 @@ function Register() {
                     value={confirmPswd}
                     onChange={handleChange}
                     placeholder="Confirm Password"
-                    className="input-field border-[1px] p-2 rounded border-[#0d5b41] w-full"
+                    className={`input-field border-[1px] p-2 rounded border-[#0d5b41] w-full${
+                      wrongPswd ? "border-red-800" : ""
+                    }`}
                     required
                     autoComplete="off"
                   />
@@ -318,6 +321,12 @@ function Register() {
                     className=" cursor-pointer absolute right-0 top-1/2 transform -translate-y-1/2 mr-2"
                   />
                 </div>
+                {wrongPswd && (
+                  <p className="flex text-sm text-red-800 underline -mt-3 items-center">
+                    <FaInfo className="size-3 " />
+                    Password doesn't match
+                  </p>
+                )}
 
                 {loading && <p className="text-gray-600">Submitting...</p>}
                 <button
