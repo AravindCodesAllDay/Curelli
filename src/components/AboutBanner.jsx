@@ -2,7 +2,7 @@ import React from "react";
 import img from "../assets/AboutUs.jpg";
 import img1 from "../assets/facebook.svg";
 import img2 from "../assets/instagram.png";
-import img3 from "../assets/x.svg";
+
 import img4 from "../assets/linkedin.png";
 
 export default function AboutBanner() {
@@ -19,7 +19,7 @@ export default function AboutBanner() {
             empowerment, and wellbeing. In 1996, she crafted a unique vathal,
             bursting with flavor and health benefits, originally intended for
             her family's table. The taste, however, transcended its intended
-            audience, captivating neighbors and relatives alike. This was the
+            audience, captivating neighbours and relatives alike. This was the
             seed of Curelli Foods, a company founded by her son, carrying his
             mother's legacy forward.
           </p>
@@ -64,14 +64,10 @@ export default function AboutBanner() {
           </div>
           <div className="font-normal text-[#40773b] text-base md:text-lg tracking-normal leading-normal text-justify">
             <p>
-              The company's commitment extends to promoting healthy living. In
-              today's world of processed foods, Curelli Foods offers a beacon of
-              hope. Our organic vathals and other products are free from harmful
-              chemicals and preservatives, providing a delicious and accessible
-              option for health-conscious individuals on any budget. Curelli
-              Foods, though young, is already making waves. Reviving forgotten
-              traditions, empowering women, and offering healthy alternatives to
-              a world often saturated with unhealthy choices.
+              We specialize in organic vathals and other handcrafted products,
+              all free from artificial ingredients and preservatives. We believe
+              in making healthy eating accessible, offering a variety of options
+              that fit any budget and lifestyle
             </p>
           </div>
           <div className="flex justify-center gap-4">
@@ -85,7 +81,6 @@ export default function AboutBanner() {
               <img className="w-6 h-6" alt="Instagram" src={img2} />
             </a>
 
-            <img className="w-6 h-6" alt="Twitter" src={img3} />
             <a
               href="https://www.linkedin.com/company/curellifoods/"
               target="_blank"

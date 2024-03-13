@@ -36,35 +36,44 @@ const PopupCard = () => {
       document.body.style.overflow = "auto";
     };
   }, [_pid]);
-
   const add2Cart = async (productId, userId) => {
+    if (!userId) {
+      console.error("User ID is not available.");
+      nav("/login");
+      return;
+    }
+
     try {
-      const response = await fetch(
+      const userResponse = await fetch(
         `${import.meta.env.VITE_API}users/${userId}`
       );
-      const result = await response.json();
+      const userResult = await userResponse.json();
 
-      if (result.cart.some((item) => item.product === productId)) {
+      if (userResult.cart.some((item) => item.product === productId)) {
         console.log("Item is already in the cart");
-        toast.success("Added item to Cart");
+        toast.success("Item already in Cart");
       } else {
-        const response = await fetch(`${import.meta.env.VITE_API}users/cart`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId,
-            product: productId,
-            quantity: 1, // You may adjust the quantity based on your requirements
-          }),
-        });
-        if (response.ok) {
-          const result = await response.json();
-          console.log(result.message);
-          nav(`/cart/${userId}`);
+        const cartResponse = await fetch(
+          `${import.meta.env.VITE_API}users/cart`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userId,
+              product: productId,
+              quantity: 1, // You may adjust the quantity based on your requirements
+            }),
+          }
+        );
+
+        if (cartResponse.ok) {
+          const cartResult = await cartResponse.json();
+          console.log(cartResult.message);
+          nav(`/cart`);
         } else {
-          const errorResult = await response.json();
+          const errorResult = await cartResponse.json();
           console.error(
             "Error adding item to cart:",
             errorResult.error || "Unknown error"
@@ -89,7 +98,7 @@ const PopupCard = () => {
             className="max-w-full h-auto"
           />
         </div>
-        <div className=" xs:w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2 flex flex-col justify-center ">
+        <div className=" xs:w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2 flex flex-col justify-center m-2">
           <h2 className="text-2xl font-semibold mb-2">{details.name}</h2>
           <p className="text-gray-600 mb-4">{details.description}</p>
           {!loading &&

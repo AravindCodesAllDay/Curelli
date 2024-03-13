@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="flex items-center justify-center relative min-w-[320px] min-h-[200px]">
         <div className="text-center">
           <p className="text-[#277933] text-2xl md:text-3xl tracking-wide leading-normal mb-2">
-            Healthy Snacks for Healthy Life
+            Curelli Foods Pvt Ltd
           </p>
           <p className="text-[#277933] text-lg tracking-wide leading-normal mb-2">
             contact@curellifoods.com
