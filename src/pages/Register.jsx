@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
-import { FaEye, FaInfo } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 import google from "../assets/google.png";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
@@ -323,7 +323,6 @@ function Register() {
                 </div>
                 {wrongPswd && (
                   <p className="flex text-sm text-red-800 underline -mt-3 items-center">
-                    <FaInfo className="size-3 " />
                     Password doesn't match
                   </p>
                 )}

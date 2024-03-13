@@ -17,6 +17,7 @@ import ForgotPswd from "./pages/ForgotPswd.jsx";
 import Terms from "./pages/Terms.jsx";
 import Wishlist from "./pages/Wishlist.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import Profile from "./pages/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -99,7 +100,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Navbar></Navbar>,
+    element: (
+      <Navbar>
+        <Profile />
+      </Navbar>
+    ),
   },
   {
     path: "*",

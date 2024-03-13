@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function New() {
+export default function Profile() {
   return (
     <div className="relative w-[1332px] h-[670px] ml-24 mt-8 bg-[#f4f4f4] rounded-[10px] overflow-hidden">
       <div className="absolute w-[186px] h-[40px] top-[11px] left-[24px]">
@@ -73,21 +73,16 @@ export default function New() {
         </div>
       </div>
       <div className="absolute w-[204px] h-[56px] top-[224px] left-[24px]">
-
-
-
-                                    {/* Email  */}
+        {/* Email  */}
         <div className="absolute w-[200px] h-[30px] top-[26px] -left-5">
           <div className="absolute top-[8px] left-[10px] [font-family:'Inter-Medium',Helvetica] font-medium text-[#c0c0c0] text-[9px] tracking-[0] leading-[normal]">
-          <input
+            <input
               className=" outline-none absolute top-[0px] px-2 w-[200px] h-[28px] left-[10px] [font-family:'Inter-Medium',Helvetica] font-medium text-[#c0c0c0] text-[12px] tracking-[0] leading-[normal]"
               type="text"
               placeholder="ds04aranganthan@gmail.com"
             />
           </div>
         </div>
-
-
 
         <div className="absolute top-0 left-0 [font-family:'Inter-Medium',Helvetica] font-medium text-[#40773b] text-[12px] tracking-[0] leading-[normal]">
           Email Address
@@ -97,22 +92,16 @@ export default function New() {
         </div>
       </div>
       <div className="absolute w-[204px] h-[56px] top-[298px] left-[24px]">
-
-
-                                {/* Num  */}
+        {/* Num  */}
         <div className="absolute w-[200px] h-[30px] top-[26px] -left-5">
           <div className="absolute top-[8px] left-[10px] [font-family:'Inter-Medium',Helvetica] font-medium text-[#c0c0c0] text-[9px] tracking-[0] leading-[normal]">
-          <input
+            <input
               className=" outline-none absolute top-[0px] px-2 w-[200px] h-[28px] left-[10px] [font-family:'Inter-Medium',Helvetica] font-medium text-[#c0c0c0] text-[12px] tracking-[0] leading-[normal]"
               type="number"
               placeholder="63692 XXXX6"
             />
-            
           </div>
         </div>
-
-
-
 
         <div className="absolute top-0 left-0 [font-family:'Inter-Medium',Helvetica] font-medium text-[#40773b] text-[12px] tracking-[0] leading-[normal]">
           Mobile Number

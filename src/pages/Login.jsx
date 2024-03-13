@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import google from "../assets/google.png";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
-import { FaEye, FaInfo } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 import axios from "axios";
 
 const Login = () => {
@@ -139,8 +139,7 @@ const Login = () => {
               </div>
               {wrongPswd && (
                 <p className="flex text-sm text-red-800 -mt-3 items-center">
-                  <FaInfo className="size-3 " />
-                  Wrong password
+                  Incorrect password
                 </p>
               )}
 

@@ -11,7 +11,7 @@ const Terms = () => {
     <>
       <Navbar />
       <div className="flex flex-col xs:p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 2xl:p-12 max-w-[900px] justify-start text-justify">
-        <h1 className="text-2xl font-bold mb-4">
+        <h1 className="text-xl font-bold mb-4">
           Curellifoods.com Privacy Policy
         </h1>
         <span className="text-gray-600">Last updated: February 10, 2024</span>
@@ -107,7 +107,7 @@ const Terms = () => {
           </p>
         </div>
 
-        <h2 className="text-2xl font-bold mt-8">
+        <h2 className="text-xl font-bold my-6">
           Collecting and Using Your Personal Data
         </h2>
         <span>Types of Data Collected </span>
@@ -146,7 +146,7 @@ const Terms = () => {
           visit our Service or when You access the Service by or through a
           mobile device.
         </p>
-        <h3 className="text-xl font-bold mt-4 italic">
+        <h3 className="text-xl font-semibold mt-4 ">
           Information from Third-Party Social Media Services
         </h3>
         <div className="">
@@ -178,7 +178,7 @@ const Terms = () => {
           </p>
         </div>
         <div className="mt-8 rounded-md">
-          <h3 className="text-xl font-bold mt-4 italic">
+          <h3 className="text-xl font-bold mt-2 italic">
             Tracking Technologies and Cookies
           </h3>
           <div className="">

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Tagline() {
   return (
-    <div className="flex flex-col items-center justify-center gap-8 relative rounded-md m-16">
+    <div className="flex flex-col items-center justify-center gap-6 relative rounded-md my-16 m-8">
       <div className="text-[#40773b] xs:text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold">
         Healthy Snacks For Healthy Life
       </div>
