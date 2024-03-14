@@ -285,6 +285,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder="Phone Number"
                   className="input-field border-[1px] p-2 rounded border-[#0d5b41]"
+                  inputMode="numeric"
                   required
                 />
                 <div className="relative flex items-center">

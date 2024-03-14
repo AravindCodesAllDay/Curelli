@@ -10,7 +10,7 @@ const Terms = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col xs:p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 2xl:p-12 max-w-[900px] justify-start text-justify">
+      <div className="flex flex-col xs:p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 2xl:p-12 max-w-[900px] justify-start ">
         <h1 className="text-xl font-bold mb-4">
           Curellifoods.com Privacy Policy
         </h1>
