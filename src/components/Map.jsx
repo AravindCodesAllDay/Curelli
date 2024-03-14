@@ -1,38 +1,15 @@
 import React from "react";
-import GoogleMapReact from "google-map-react";
-import { Icon } from "@iconify/react";
-import locationIcon from "@iconify/icons-mdi/map-marker";
 
-const LocationPin = ({ text }) => (
-  <div className="pin">
-    <Icon icon={locationIcon} className="pin-icon" />
-    <p className="pin-text">{text}</p>
-  </div>
-);
-
-const Map = ({ zoomLevel }) => {
-  const location = {
-    address: "1600 Amphitheatre Parkway, Mountain View, california.",
-    lat: 37.42216,
-    lng: -122.08427,
-  };
+const Map = () => {
   return (
-    <div className="map">
-      <h2 className="map-h2">Come Visit Us At Our Campus</h2>
-
-      <div className="google-map">
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: "YOUR_API_KEY_HERE" }}
-          defaultCenter={location}
-          defaultZoom={zoomLevel}
-        >
-          <LocationPin
-            lat={location.lat}
-            lng={location.lng}
-            text={location.address}
-          />
-        </GoogleMapReact>
-      </div>
+    <div className="">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d563.9312520876067!2d77.46827766450136!3d8.214861761797103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04f7680be7475f%3A0x3127d3ad1c005aff!2sSahayanagar!5e0!3m2!1sen!2sin!4v1710421918872!5m2!1sen!2sin"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        className="border-0 w-screen h-96"
+      ></iframe>
     </div>
   );
 };
