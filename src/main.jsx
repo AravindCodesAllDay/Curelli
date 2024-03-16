@@ -2,7 +2,7 @@ import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
@@ -19,7 +19,7 @@ import Wishlist from "./pages/Wishlist.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Profile from "./pages/Profile.jsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: (

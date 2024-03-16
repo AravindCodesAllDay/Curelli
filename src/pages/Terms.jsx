@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Whatsapp from "../components/Whatsapp";
 
 const Terms = () => {
+  window.scrollTo(0, 0);
   const nav = useNavigate();
   return (
     <>

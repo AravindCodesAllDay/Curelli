@@ -11,6 +11,7 @@ import Recognition from "../components/Recognition";
 import Subscribe from "../components/Subscribe";
 
 export default function Home() {
+  window.scrollTo(0, 0);
   return (
     <>
       <div className="w-screen">
