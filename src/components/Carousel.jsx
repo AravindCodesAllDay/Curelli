@@ -38,13 +38,13 @@ export default function CarouselCrossfade() {
 
   return (
     <>
-      <div className="hidden lg:block xl:block 2xl:block z-20">
+      <div className="hidden lg:block xl:block 2xl:block">
         <TECarousel showControls showIndicators crossfade ride="carousel">
           <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
             {carouselLap.map((item, index) => (
               <TECarouselItem
-                key={index}
-                itemID={index}
+                key={item._id}
+                itemID={index + 1}
                 className="relative float-left -mr-[100%] hidden w-full !transform-none transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
               >
                 <img
@@ -58,19 +58,23 @@ export default function CarouselCrossfade() {
         </TECarousel>
       </div>
       <div className="lg:hidden xl:hidden 2xl:hidden">
-        {carouselMobile.map((item, index) => (
-          <TECarouselItem
-            key={index}
-            itemID={index}
-            className="relative float-left -mr-[100%] hidden w-full !transform-none transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
-          >
-            <img
-              src={`${import.meta.env.VITE_API}carouselImg/${item.photo}`}
-              className="block w-full"
-              alt="..."
-            />
-          </TECarouselItem>
-        ))}
+        <TECarousel showControls showIndicators crossfade ride="carousel">
+          <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+            {carouselMobile.map((item, index) => (
+              <TECarouselItem
+                key={item._id}
+                itemID={index + 1}
+                className="relative float-left -mr-[100%] hidden w-full !transform-none transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+              >
+                <img
+                  src={`${import.meta.env.VITE_API}carouselImg/${item.photo}`}
+                  className="block w-full"
+                  alt="..."
+                />
+              </TECarouselItem>
+            ))}
+          </div>
+        </TECarousel>
       </div>
     </>
   );
