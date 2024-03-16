@@ -1,5 +1,5 @@
 import React from "react";
-import img1 from "../assets/facebook.svg";
+import img1 from "../assets/facebook.png";
 import img2 from "../assets/instagram.png";
 import img4 from "../assets/linkedin.png";
 

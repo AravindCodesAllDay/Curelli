@@ -1,9 +1,8 @@
 import React from "react";
 import img from "../assets/AboutUs.jpg";
-import img1 from "../assets/facebook.svg";
+import img1 from "../assets/facebook.png";
 import img2 from "../assets/instagram.png";
-
-import img4 from "../assets/linkedin.png";
+import img3 from "../assets/linkedin.png";
 
 export default function AboutBanner() {
   return (
@@ -71,21 +70,20 @@ export default function AboutBanner() {
             </p>
           </div>
           <div className="flex justify-center gap-4">
-            <a href="https://www.facebook.com/curellifoods" target="_blank">
-              <img className="w-6 h-6" alt="Facebook" src={img1} />
-            </a>
             <a
               href="https://www.instagram.com/curellifoods?igsh=cXlidmxhbm91cGto&utm_source=qr"
               target="_blank"
             >
               <img className="w-6 h-6" alt="Instagram" src={img2} />
             </a>
-
+            <a href="https://www.facebook.com/curellifoods" target="_blank">
+              <img className="w-6 h-6" alt="Facebook" src={img1} />
+            </a>
             <a
               href="https://www.linkedin.com/company/curellifoods/"
               target="_blank"
             >
-              <img className="w-6 h-6" alt="LinkedIn" src={img4} />
+              <img className="w-6 h-6" alt="LinkedIn" src={img3} />
             </a>
           </div>
         </div>
