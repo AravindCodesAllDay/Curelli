@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../assets/parcel.jpg";
+import Map from "./Map";
 
 export default function ContactDetails() {
   return (
@@ -20,9 +20,7 @@ export default function ContactDetails() {
         </p>
       </div>
 
-      <div className="w-full mx-auto">
-        <img className="w-full h-auto" alt="Image" src={img} />
-      </div>
+      <Map />
 
       <div className="flex flex-row items-center py-10 relative bg-[#c9ddca] justify-center">
         <div className="max-w-4xl text-center">
