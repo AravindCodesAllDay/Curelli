@@ -99,10 +99,6 @@ const Login = () => {
     };
   }, [user]);
 
-  const logOut = () => {
-    googleLogout();
-  };
-
   return (
     <>
       <div className="bg-gray-100 h-screen">

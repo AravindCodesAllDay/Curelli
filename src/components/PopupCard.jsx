@@ -66,7 +66,6 @@ const PopupCard = () => {
             body: JSON.stringify({
               userId,
               product: productId,
-              quantity: 1,
             }),
           }
         );

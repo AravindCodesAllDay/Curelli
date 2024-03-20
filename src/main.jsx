@@ -18,7 +18,6 @@ import Terms from "./pages/Terms.jsx";
 import Wishlist from "./pages/Wishlist.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Profile from "./pages/Profile.jsx";
-import New from "./pages/New.jsx";
 
 const router = createHashRouter([
   {
@@ -26,14 +25,6 @@ const router = createHashRouter([
     element: (
       <Navbar>
         <Home />
-      </Navbar>
-    ),
-  },
-  {
-    path: "/new",
-    element: (
-      <Navbar>
-        <New />
       </Navbar>
     ),
   },

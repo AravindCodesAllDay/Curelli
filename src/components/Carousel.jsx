@@ -40,7 +40,7 @@ export default function CarouselCrossfade() {
     <>
       <div className="hidden lg:block xl:block 2xl:block">
         <TECarousel showControls showIndicators crossfade ride="carousel">
-          <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+          <div className="relative w-full overflow-hidden after:clear-both after:block">
             {carouselLap.map((item, index) => (
               <TECarouselItem
                 key={item._id}
@@ -59,7 +59,7 @@ export default function CarouselCrossfade() {
       </div>
       <div className="lg:hidden xl:hidden 2xl:hidden">
         <TECarousel showControls showIndicators crossfade ride="carousel">
-          <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+          <div className="relative w-full overflow-hidden after:clear-both after:block">
             {carouselMobile.map((item, index) => (
               <TECarouselItem
                 key={item._id}

@@ -41,7 +41,6 @@ export default function Card({ children, details }) {
             body: JSON.stringify({
               userId,
               product: productId,
-              quantity: 1, // You may adjust the quantity based on your requirements
             }),
           }
         );
