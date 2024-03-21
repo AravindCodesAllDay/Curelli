@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { FaShareAlt, FaTrash } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
+  const nav = useNavigate();
   const userId = sessionStorage.getItem("id");
   const [cartItems, setCartItems] = useState([]);
 
@@ -175,7 +177,10 @@ const Cart = () => {
           </h2>
           <hr className="my-2" />
           <div className="text-center mt-4">
-            <button className="bg-[#40773b] text-white px-4 py-2 rounded-md">
+            <button
+              className="bg-[#40773b] text-white px-4 py-2 rounded-md"
+              onClick={() => nav("/checkout")}
+            >
               Proceed to Checkout
             </button>
           </div>

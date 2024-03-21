@@ -18,6 +18,7 @@ import Terms from "./pages/Terms.jsx";
 import Wishlist from "./pages/Wishlist.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Profile from "./pages/Profile.jsx";
+import Checkout from "./pages/Checkout.jsx";
 
 const router = createHashRouter([
   {
@@ -103,6 +104,14 @@ const router = createHashRouter([
     element: (
       <Navbar>
         <Profile />
+      </Navbar>
+    ),
+  },
+  {
+    path: "/checkout",
+    element: (
+      <Navbar>
+        <Checkout />
       </Navbar>
     ),
   },

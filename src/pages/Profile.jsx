@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import success from "../assets/checked.png";
@@ -29,13 +29,16 @@ export default function Profile() {
 
   const deleteAddress = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/users/address/${userId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ addressId: id }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API}users/address/${userId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ addressId: id }),
+        }
+      );
       if (res.ok) {
         const data = await res.json();
         toast.success(data.message, {
@@ -67,7 +70,8 @@ export default function Profile() {
           mail: data.mail,
           phone: data.phone,
         });
-        setAddressDetails(...addressDetails, data.address);
+        console.log("Address details fetched:", data.address); // Add this line
+        setAddressDetails(data.address); // Assuming data.address contains an array of addresses
       } catch (error) {
         console.error("Error fetching user details:", error);
       }
@@ -164,6 +168,17 @@ export default function Profile() {
                 Hello, {sessionStorage.getItem("name")}
               </div>
             </div>
+            <div className="px-4 py-2 border-b border-gray-300 flex items-center justify-between">
+              <input
+                type="text"
+                className="border border-gray-300 rounded px-3 py-2 placeholder-gray-400 text-gray-700 focus:outline-none focus:border-brown-500 flex-grow mr-2"
+                placeholder="E-Mail"
+                name="mail"
+                value={formData.mail}
+                onChange={handleChange}
+                disabled
+              />
+            </div>
             <div className="flex px-4 py-2 border-b border-gray-300 font-medium">
               Personal Information
               <button
@@ -174,18 +189,20 @@ export default function Profile() {
                 Edit
               </button>
             </div>
-            <div className="px-4 py-2 border-b border-gray-300">
-              <div className="grid grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  name="name"
-                  className="border border-gray-300 rounded px-3 py-2 placeholder-gray-400 text-gray-700 focus:outline-none focus:border-brown-500"
-                  placeholder="First name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  disabled={!canEdit}
-                />
-              </div>
+
+            <div className="px-4 py-2 border-b border-gray-300 font-medium">
+              UserName
+            </div>
+            <div className="flex px-4 py-2 border-b border-gray-300">
+              <input
+                type="text"
+                name="name"
+                className="border border-gray-300 rounded w-full px-3 py-2 placeholder-gray-400 text-gray-700 focus:outline-none focus:border-brown-500"
+                placeholder="First name"
+                value={formData.name}
+                onChange={handleChange}
+                disabled={!canEdit}
+              />
             </div>
             <div className="px-4 py-2 border-b border-gray-300 font-medium">
               Gender
@@ -226,20 +243,7 @@ export default function Profile() {
                 </label>
               </div>
             </div>
-            <div className="px-4 py-2 border-b border-gray-300 font-medium">
-              Email Address
-            </div>
-            <div className="px-4 py-2 border-b border-gray-300 flex items-center justify-between">
-              <input
-                type="text"
-                className="border border-gray-300 rounded px-3 py-2 placeholder-gray-400 text-gray-700 focus:outline-none focus:border-brown-500 flex-grow mr-2"
-                placeholder="E-Mail"
-                name="mail"
-                value={formData.mail}
-                onChange={handleChange}
-                disabled={!canEdit}
-              />
-            </div>
+
             <div className="px-4 py-2 border-b border-gray-300 font-medium">
               Mobile Number
             </div>
@@ -410,8 +414,7 @@ export default function Profile() {
                     {details.district}, {details.state} - {details.pincode}
                   </p>
                 </div>
-                <div className="flex flex-col gap-4 ml-auto">
-                  <FaEdit className="w-5 h-5 ml-auto cursor-pointer text-blue-400" />
+                <div className="flex flex-col gap-4 ml-auto justify-center">
                   <FaTrash
                     onClick={() => deleteAddress(details._id)}
                     className="w-5 h-5 ml-auto cursor-pointer text-red-800"
