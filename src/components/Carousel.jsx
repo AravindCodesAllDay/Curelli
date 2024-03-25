@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { TECarousel, TECarouselItem } from "tw-elements-react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function CarouselCrossfade() {
   const [carouselLap, setCarouselLap] = useState([]);
@@ -36,45 +38,50 @@ export default function CarouselCrossfade() {
     fetchData();
   }, []); // Empty dependency array ensures it only runs once on mount
 
+  // Slick settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    appendDots: (dots) => (
+      <div>
+        <ul className="flex justify-center items-center -mt-16 space-x-2">{dots}</ul>
+      </div>
+    ),
+    autoplay: true,
+    autoplaySpeed: 3000
+  };
+
   return (
     <>
       <div className="hidden lg:block xl:block 2xl:block">
-        <TECarousel showControls showIndicators crossfade ride="carousel">
-          <div className="relative w-full overflow-hidden after:clear-both after:block">
-            {carouselLap.map((item, index) => (
-              <TECarouselItem
-                key={item._id}
-                itemID={index + 1}
-                className="relative float-left -mr-[100%] hidden w-full !transform-none transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
-              >
-                <img
-                  src={`${import.meta.env.VITE_API}carouselImg/${item.photo}`}
-                  className="block w-full"
-                  alt="..."
-                />
-              </TECarouselItem>
-            ))}
-          </div>
-        </TECarousel>
+        <Slider {...settings}>
+          {carouselLap.map((item, index) => (
+            <div key={item._id}>
+              <img
+                src={`${import.meta.env.VITE_API}carouselImg/${item.photo}`}
+                className="block w-full"
+                alt="..."
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
       <div className="lg:hidden xl:hidden 2xl:hidden">
-        <TECarousel showControls showIndicators crossfade ride="carousel">
-          <div className="relative w-full overflow-hidden after:clear-both after:block">
-            {carouselMobile.map((item, index) => (
-              <TECarouselItem
-                key={item._id}
-                itemID={index + 1}
-                className="relative float-left -mr-[100%] hidden w-full !transform-none transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
-              >
-                <img
-                  src={`${import.meta.env.VITE_API}carouselImg/${item.photo}`}
-                  className="block w-full"
-                  alt="..."
-                />
-              </TECarouselItem>
-            ))}
-          </div>
-        </TECarousel>
+        <Slider {...settings}>
+          {carouselMobile.map((item, index) => (
+            <div key={item._id}>
+              <img
+                src={`${import.meta.env.VITE_API}carouselImg/${item.photo}`}
+                className="block w-full"
+                alt="..."
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
     </>
   );
