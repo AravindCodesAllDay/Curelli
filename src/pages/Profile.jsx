@@ -3,6 +3,7 @@ import { FaTrash } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import success from "../assets/checked.png";
+import AddAddressModal from "../components/AddAddressModal";
 
 export default function Profile() {
   const userId = sessionStorage.getItem("id");
@@ -10,22 +11,15 @@ export default function Profile() {
   const [addressDetails, setAddressDetails] = useState([]);
   const [addModal, setAddModal] = useState(false);
   const [canEdit, setCanEdit] = useState(false);
-
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [district, setDistrict] = useState("");
-  const [state, setState] = useState("");
-  const [pincode, setPinCode] = useState();
-  const [addressContact, setAddressContact] = useState();
+  const [showModalComplete, setShowModalComplete] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
     gender: "",
     mail: "",
     phone: "",
+    dob: "",
   });
-
-  const [showModal, setShowModal] = useState(false);
 
   const deleteAddress = async (id) => {
     try {
@@ -58,6 +52,16 @@ export default function Profile() {
     }
   };
 
+  const convertDate = async (dateString) => {
+    const date = new Date(dateString);
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  };
+
   useEffect(() => {
     const fetchDetails = async () => {
       try {
@@ -69,6 +73,7 @@ export default function Profile() {
           gender: data.gender,
           mail: data.mail,
           phone: data.phone,
+          dob: await convertDate(data.dob),
         });
         console.log("Address details fetched:", data.address); // Add this line
         setAddressDetails(data.address); // Assuming data.address contains an array of addresses
@@ -77,6 +82,7 @@ export default function Profile() {
       }
     };
     fetchDetails();
+    console.log(userDetails);
   }, [userId]);
 
   const handleChange = (e) => {
@@ -86,55 +92,9 @@ export default function Profile() {
     });
   };
 
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
-  const addAddress = async (e) => {
-    e.preventDefault();
-    try {
-      const addressRes = await fetch(
-        `http://localhost:3000/users/address/${userId}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            address,
-            district,
-            state,
-            pincode,
-            addressContact,
-          }),
-        }
-      );
-
-      if (addressRes.ok) {
-        const data = await addressRes.json();
-        toast.success(data.message, {
-          position: "bottom-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        setTimeout(() => {
-          window.location.reload();
-        }, [5000]);
-      }
-    } catch (error) {
-      console.error("Error during adding address", error.message);
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
     try {
       const res = await fetch(
         `${import.meta.env.VITE_API}users/edit/${userId}`,
@@ -147,7 +107,8 @@ export default function Profile() {
         }
       );
       if (res.ok) {
-        setShowModal(true);
+        setCanEdit(false);
+        setShowModalComplete(true);
       }
     } catch (error) {
       console.error("Error editing user:", error);
@@ -243,7 +204,20 @@ export default function Profile() {
                 </label>
               </div>
             </div>
-
+            <div className="px-4 py-2 border-b border-gray-300 font-medium">
+              Date of Birth
+            </div>
+            <div className="flex px-4 py-2 border-b border-gray-300">
+              <input
+                type="date"
+                name="dob"
+                className="border border-gray-300 rounded w-full px-3 py-2 placeholder-gray-400 text-gray-700 focus:outline-none focus:border-brown-500"
+                placeholder="First name"
+                value={formData.dob}
+                onChange={handleChange}
+                disabled={!canEdit}
+              />
+            </div>
             <div className="px-4 py-2 border-b border-gray-300 font-medium">
               Mobile Number
             </div>
@@ -276,10 +250,10 @@ export default function Profile() {
             )}
           </form>
         </div>
-        {showModal && (
+        {showModalComplete && (
           <div
             className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50"
-            onClick={closeModal}
+            onClick={() => setShowModalComplete(false)}
           >
             <div
               className="bg-white p-4 rounded shadow relative"
@@ -290,7 +264,7 @@ export default function Profile() {
               </p>
               <img src={success} alt="success" className="w-12 h-12 ml-20 " />
               <button
-                onClick={() => setShowModal(false)}
+                onClick={() => setShowModalComplete(false)}
                 className="absolute top-2 -right-0.5 bg-transparent border-none"
               >
                 {/* Replace the text "Close" with your close icon */}
@@ -321,82 +295,7 @@ export default function Profile() {
               Add
             </button>
           </div>
-          {addModal && (
-            <>
-              <div
-                className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50"
-                onClick={closeModal}
-              >
-                <div
-                  className="bg-white px-4 py-2 rounded shadow relative "
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <form
-                    onSubmit={addAddress}
-                    className="gap-2 flex flex-col items-center"
-                  >
-                    <h3 className="text-3xl">Add Address</h3>
-                    <input
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className="border-[2px] p-1 rounded"
-                      placeholder="Name"
-                    />
-                    <input
-                      type="text"
-                      value={address}
-                      onChange={(e) => setAddress(e.target.value)}
-                      className="border-[2px] p-1 rounded"
-                      placeholder="Address"
-                    />
-                    <input
-                      type="text"
-                      value={district}
-                      onChange={(e) => setDistrict(e.target.value)}
-                      className="border-[2px] p-1 rounded"
-                      placeholder="District"
-                    />
-                    <input
-                      type="text"
-                      value={state}
-                      onChange={(e) => setState(e.target.value)}
-                      className="border-[2px] p-1 rounded"
-                      placeholder="State"
-                    />
-                    <input
-                      type="number"
-                      value={pincode}
-                      onChange={(e) => setPinCode(e.target.value)}
-                      className="border-[2px] p-1 rounded"
-                      placeholder="Pincode"
-                    />
-                    <input
-                      type="number"
-                      value={addressContact}
-                      onChange={(e) => setAddressContact(e.target.value)}
-                      className="border-[2px] p-1 rounded"
-                      placeholder="Address Contact"
-                    />
-                    <div className="flex">
-                      <button
-                        onClick={() => setAddModal(false)}
-                        className="border-[2px] px-1 bg-blue-500 text-white rounded"
-                      >
-                        close
-                      </button>
-                      <button
-                        type="submit"
-                        className="border-[2px] px-1 bg-green-500 text-white rounded"
-                      >
-                        Add
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </>
-          )}
+          {addModal && <AddAddressModal setAddModal={setAddModal} />}
           <div className="px-4 py-2">
             {addressDetails.map((details) => (
               <div

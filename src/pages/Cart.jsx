@@ -27,21 +27,19 @@ const Cart = () => {
     try {
       // Update the quantity on the server
       await fetch(`${import.meta.env.VITE_API}users/cart`, {
-        method: "PATCH",
+        method: "Post",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           userId,
           product: productId,
-          quantity: newQuantity,
         }),
       });
 
-      // Update the local state to reflect the new quantity
       setCartItems((prevCartItems) =>
         prevCartItems.map((item) =>
-          item.id === productId ? { ...item, quantity: newQuantity } : item
+          item.id === productId ? { ...item } : item
         )
       );
     } catch (error) {
