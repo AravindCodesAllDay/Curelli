@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
+
 export default function CarouselCrossfade() {
   const [carouselLap, setCarouselLap] = useState([]);
   const [carouselMobile, setCarouselMobile] = useState([]);
@@ -38,26 +39,26 @@ export default function CarouselCrossfade() {
   return (
     <>
       <div className="hidden lg:block xl:block 2xl:block">
-        <CCarousel>
-          {carouselLap.map((item) => (
-            <CCarouselItem>
+        <CCarousel animate autoSlide={3000}>
+          {carouselLap.map((item, index) => (
+            <CCarouselItem key={index}>
               <CImage
                 className="d-block w-100"
                 src={`${import.meta.env.VITE_API}carouselImg/${item.photo}`}
-                alt="slide 1"
+                alt={`slide ${index + 1}`}
               />
             </CCarouselItem>
           ))}
         </CCarousel>
       </div>
       <div className="lg:hidden xl:hidden 2xl:hidden">
-        <CCarousel>
-          {carouselMobile.map((item) => (
-            <CCarouselItem>
+        <CCarousel animate autoSlide={3000}>
+          {carouselMobile.map((item, index) => (
+            <CCarouselItem key={index}>
               <CImage
                 className="d-block w-100"
                 src={`${import.meta.env.VITE_API}carouselImg/${item.photo}`}
-                alt="slide 1"
+                alt={`slide ${index + 1}`}
               />
             </CCarouselItem>
           ))}
