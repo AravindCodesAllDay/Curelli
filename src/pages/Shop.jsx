@@ -5,7 +5,6 @@ import Card from "../components/Card";
 import Whatsapp from "../components/Whatsapp";
 
 export default function Shop() {
-  window.scrollTo(0, 0);
   const [cardDetails, setCardDetails] = useState([]);
 
   useEffect(() => {

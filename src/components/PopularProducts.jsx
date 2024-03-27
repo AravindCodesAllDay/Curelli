@@ -51,7 +51,7 @@ export default function PopularProducts() {
 
   return (
     <div className="overflow-x-auto">
-      <div className="flex justify-between">
+      <div className="flex xs:justify-between sm:justify-between md:justify-around lg:justify-around xl:justify-around 2xl:justify-around">
         {cardDetails.map((details) => (
           <div key={details._id} className="flex-shrink-0">
             <Card details={details}>
