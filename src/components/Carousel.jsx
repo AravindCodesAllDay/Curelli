@@ -43,7 +43,6 @@ export default function CarouselCrossfade() {
           {carouselLap.map((item, index) => (
             <CCarouselItem key={index}>
               <CImage
-                className="d-block w-100"
                 src={`${import.meta.env.VITE_API}carouselImg/${item.photo}`}
                 alt={`slide ${index + 1}`}
               />
@@ -56,7 +55,6 @@ export default function CarouselCrossfade() {
           {carouselMobile.map((item, index) => (
             <CCarouselItem key={index}>
               <CImage
-                className="d-block w-100"
                 src={`${import.meta.env.VITE_API}carouselImg/${item.photo}`}
                 alt={`slide ${index + 1}`}
               />
