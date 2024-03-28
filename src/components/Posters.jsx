@@ -16,11 +16,11 @@ export default function Posters() {
         />
       </div>
       {/* Content Container */}
-      <div className="flex flex-col w-full lg:w-1/2 flexl h-full max-h-[720px] justify-center items-center text-center md:order-2 p-4">
-        <h2 className="xs:text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-4 text-[#40773b]">
+      <div className="flex flex-col w-full lg:w-1/2 flexl h-full max-h-[720px] justify-center items-center text-center md:order-2 p-4 gap-6">
+        <h2 className="xs:text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-[#40773b]">
           GET TO KNOW US
         </h2>
-        <p className="text-[#40773b] mb-4 xs:text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-justify">
+        <p className="text-[#40773b] xs:text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-justify">
           We believe in preserving the rich heritage of forgotten herbs while
           embracing the modern needs of health-conscious individuals. We are
           passionate about reviving traditional wisdom and bringing it to your

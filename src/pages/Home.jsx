@@ -8,7 +8,7 @@ import Tagline from "../components/Tagline";
 import Whatsapp from "../components/Whatsapp";
 import PopularProducts from "../components/PopularProducts";
 import Recognition from "../components/Recognition";
-import Subscribe from "../components/Subscribe";
+import FollowUs from "../components/FollowUs";
 
 export default function Home() {
   window.scrollTo(0, 0);
@@ -18,7 +18,7 @@ export default function Home() {
         <Carousels />
         <Tagline />
         <PopularProducts />
-        <Subscribe />
+        <FollowUs />
         <Posters />
         <Banner />
         <Recognition />
