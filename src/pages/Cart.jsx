@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
+  window.scrollTo(0, 0);
   const nav = useNavigate();
   const userId = sessionStorage.getItem("id");
   const [cartItems, setCartItems] = useState([]);

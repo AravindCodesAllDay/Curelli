@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img1 from "../assets/Logo_02.png";
-import { FaShoppingBag, FaUser, FaBars, FaSearch } from "react-icons/fa";
+import { FaShoppingBag, FaUser, FaBars } from "react-icons/fa";
 
 import Dropdown from "./Dropdown";
 import Search from "./Search";

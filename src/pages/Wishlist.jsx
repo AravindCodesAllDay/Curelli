@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Rating from "@mui/material/Rating";
 
 const Wishlist = () => {
+  window.scrollTo(0, 0);
   const nav = useNavigate();
   const userId = sessionStorage.getItem("id");
   const [wishlistItems, setWishlistItems] = useState([]);

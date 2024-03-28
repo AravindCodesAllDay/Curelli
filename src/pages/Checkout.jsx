@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AddAddressModal from "../components/AddAddressModal";
 
 export default function Checkout() {
+  window.scrollTo(0, 0);
   const nav = useNavigate();
   const userId = sessionStorage.getItem("id");
   const [cartItems, setCartItems] = useState([]);
@@ -92,7 +93,7 @@ export default function Checkout() {
       );
       const data = await orderRes.json();
       console.log(data);
-      nav("/shop");
+      nav("/cart");
     } catch (error) {
       console.error("Error during placing order", error.message);
     }

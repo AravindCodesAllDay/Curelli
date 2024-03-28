@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
-
+// import "@coreui/coreui/dist/css/coreui.min.css";
 export default function CarouselCrossfade() {
   const [carouselLap, setCarouselLap] = useState([]);
   const [carouselMobile, setCarouselMobile] = useState([]);
@@ -38,8 +38,8 @@ export default function CarouselCrossfade() {
 
   return (
     <>
-      <div className="hidden lg:block xl:block 2xl:block">
-        <CCarousel animate autoSlide={3000}>
+      <div className="hidden lg:block xl:block 2xl:block w-full">
+        <CCarousel controls indicators>
           {carouselLap.map((item, index) => (
             <CCarouselItem key={index}>
               <CImage
@@ -50,8 +50,8 @@ export default function CarouselCrossfade() {
           ))}
         </CCarousel>
       </div>
-      <div className="lg:hidden xl:hidden 2xl:hidden">
-        <CCarousel animate autoSlide={3000}>
+      <div className="lg:hidden xl:hidden 2xl:hidden w-full">
+        <CCarousel controls indicators>
           {carouselMobile.map((item, index) => (
             <CCarouselItem key={index}>
               <CImage

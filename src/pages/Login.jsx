@@ -9,6 +9,7 @@ import { FaEye } from "react-icons/fa";
 import axios from "axios";
 
 const Login = () => {
+  window.scrollTo(0, 0);
   const nav = useNavigate();
   const [mail, setMail] = useState("");
   const [pswd, setPswd] = useState("");
@@ -166,14 +167,12 @@ const Login = () => {
             </p>
             <hr className="my-3" />
             <button
-              className="submit-button text-black p-2 border-2 my-2
-                 rounded-full flex items-center w-full"
+              className="submit-button text-black p-2 border-2 my-2 rounded-full flex items-center w-full justify-center"
               onClick={login}
             >
               <img src={google} alt="google logo" className="h-6 mr-2" />
-              <p className="flex justify-center">Continue with Google</p>
+              <p className=" font-semibold">Continue with Google</p>
             </button>
-            <hr className="my-3" />
             <button
               className="submit-button text-black p-2 border-2
                rounded-full flex items-center justify-center font-semibold hover:bg-[#277933] hover:text-white w-full"

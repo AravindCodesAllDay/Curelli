@@ -8,6 +8,7 @@ import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 
 function Register() {
+  window.scrollTo(0, 0);
   const nav = useNavigate();
 
   // State variables
@@ -350,13 +351,12 @@ function Register() {
               </p>
               <hr className="my-3" />
               <button
-                className="submit-button text-black p-2 border-2 my-2 rounded-full flex items-center w-full"
+                className="submit-button text-black p-2 border-2 my-2 rounded-full flex items-center justify-center w-full"
                 onClick={login}
               >
                 <img src={google} alt="google logo" className="h-6 mr-2" />
-                <p className="flex justify-center">Signup with Google</p>
+                <p className="font-semibold">Signup with Google</p>
               </button>
-              <hr className="my-3" />
               <button
                 className="submit-button text-black p-2 border-2 rounded-full flex items-center justify-center font-semibold hover:bg-[#277933] hover:text-white w-full"
                 onClick={() => nav("/login")}
