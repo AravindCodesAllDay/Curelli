@@ -19,6 +19,7 @@ import Wishlist from "./pages/Wishlist.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Profile from "./pages/Profile.jsx";
 import Checkout from "./pages/Checkout.jsx";
+import Orders from "./pages/Orders.jsx";
 
 const router = createHashRouter([
   {
@@ -72,6 +73,14 @@ const router = createHashRouter([
     element: (
       <Navbar>
         <Cart />
+      </Navbar>
+    ),
+  },
+  {
+    path: "/orders",
+    element: (
+      <Navbar>
+        <Orders />
       </Navbar>
     ),
   },

@@ -119,8 +119,6 @@ export default function Navbar({ children }) {
             </div>
           </div>
         </div>
-
-        {/* OffCanvasMenu component is rendered separately */}
       </div>
       {children}
     </>

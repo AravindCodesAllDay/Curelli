@@ -42,7 +42,7 @@ export default function Dropdown() {
           <div className="py-1">
             <Menu.Item>
               <Link
-                to="#"
+                to="/orders"
                 className="hover:bg-gray-100 bg-white text-gray-900 block px-4 py-2 text-sm"
               >
                 My Orders

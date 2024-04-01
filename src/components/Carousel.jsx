@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { TECarousel, TECarouselItem } from "tw-elements-react";
 
 export default function Carousel() {
+  const [carouselLap, setCarouselLap] = useState([]);
+  const [carouselMobile, setCarouselMobile] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API}carousel`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const products = await response.json();
+
+        const lapItems = products.filter((item) => !item.mobile);
+        const mobileItems = products.filter((item) => item.mobile);
+        lapItems.sort((a, b) => a.index - b.index);
+        mobileItems.sort((a, b) => a.index - b.index);
+        setCarouselLap(lapItems);
+        setCarouselMobile(mobileItems);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+
+    fetchData();
+    console.log(carouselLap);
+    console.log(carouselMobile);
+  }, []);
   return (
     <>
       <div className="hidden lg:block xl:block 2xl:block w-full">
@@ -13,9 +46,12 @@ export default function Carousel() {
               className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             >
               <img
-                src={`${
-                  import.meta.env.VITE_API
-                }carouselImg/Curelli_Food_Banner_01.jpg`}
+                src={
+                  carouselLap.length > 0 &&
+                  `${import.meta.env.VITE_API}carouselImg/${
+                    carouselLap[0].photo
+                  }`
+                }
                 className="block w-full"
                 alt="..."
               />
@@ -25,9 +61,12 @@ export default function Carousel() {
               className="relative float-left hidden -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             >
               <img
-                src={`${
-                  import.meta.env.VITE_API
-                }carouselImg/Curelli_Food_Banner_02.jpg`}
+                src={
+                  carouselLap.length > 0 &&
+                  `${import.meta.env.VITE_API}carouselImg/${
+                    carouselLap[1].photo
+                  }`
+                }
                 className="block w-full"
                 alt="..."
               />
@@ -37,9 +76,12 @@ export default function Carousel() {
               className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             >
               <img
-                src={`${
-                  import.meta.env.VITE_API
-                }carouselImg/Curelli_Food_Banner_03.jpg`}
+                src={
+                  carouselLap.length > 0 &&
+                  `${import.meta.env.VITE_API}carouselImg/${
+                    carouselLap[2].photo
+                  }`
+                }
                 className="block w-full"
                 alt="..."
               />
@@ -49,9 +91,12 @@ export default function Carousel() {
               className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             >
               <img
-                src={`${
-                  import.meta.env.VITE_API
-                }carouselImg/Curelli_Food_Banner_04.jpg`}
+                src={
+                  carouselLap.length > 0 &&
+                  `${import.meta.env.VITE_API}carouselImg/${
+                    carouselLap[3].photo
+                  }`
+                }
                 className="block w-full"
                 alt="..."
               />
@@ -67,7 +112,12 @@ export default function Carousel() {
               className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             >
               <img
-                src={`${import.meta.env.VITE_API}carouselImg/New_01.jpg`}
+                src={
+                  carouselLap.length > 0 &&
+                  `${import.meta.env.VITE_API}carouselImg/${
+                    carouselMobile[0].photo
+                  }`
+                }
                 className="block w-full"
                 alt="..."
               />
@@ -77,7 +127,12 @@ export default function Carousel() {
               className="relative float-left hidden -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             >
               <img
-                src={`${import.meta.env.VITE_API}carouselImg/New_02.jpg`}
+                src={
+                  carouselLap.length > 0 &&
+                  `${import.meta.env.VITE_API}carouselImg/${
+                    carouselMobile[1].photo
+                  }`
+                }
                 className="block w-full"
                 alt="..."
               />
@@ -87,7 +142,12 @@ export default function Carousel() {
               className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             >
               <img
-                src={`${import.meta.env.VITE_API}carouselImg/New_03.jpg`}
+                src={
+                  carouselLap.length > 0 &&
+                  `${import.meta.env.VITE_API}carouselImg/${
+                    carouselMobile[2].photo
+                  }`
+                }
                 className="block w-full"
                 alt="..."
               />
@@ -97,7 +157,12 @@ export default function Carousel() {
               className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             >
               <img
-                src={`${import.meta.env.VITE_API}carouselImg/New_04.jpg`}
+                src={
+                  carouselLap.length > 0 &&
+                  `${import.meta.env.VITE_API}carouselImg/${
+                    carouselMobile[3].photo
+                  }`
+                }
                 className="block w-full"
                 alt="..."
               />

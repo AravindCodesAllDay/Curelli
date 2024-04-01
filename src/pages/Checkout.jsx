@@ -93,7 +93,7 @@ export default function Checkout() {
       );
       const data = await orderRes.json();
       console.log(data);
-      nav("/cart");
+      nav("/orders");
     } catch (error) {
       console.error("Error during placing order", error.message);
     }
@@ -161,16 +161,6 @@ export default function Checkout() {
               {getAddress && !showPaymentMethod && (
                 <>
                   <div className="bg-white rounded-lg p-4 flex flex-col gap-3">
-                    <h3>Account Balance</h3>
-                    <div className="flex gap-4">
-                      <input
-                        type="number"
-                        placeholder="Enter Code"
-                        className="border rounded"
-                      />
-                      <button className="border px-1 rounded">Submit</button>
-                    </div>
-                    <h3>Other payment method</h3>
                     <div>
                       <div>
                         <input
