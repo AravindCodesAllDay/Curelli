@@ -67,9 +67,8 @@ export default function Checkout() {
     try {
       let products = [];
       cartItems.map((item) => {
-        products.push(item._id);
+        products.push({ id: item._id, quantity: item.quantity });
       });
-
       const addressIndex = userAddress.findIndex(
         (address) => address._id === addressId
       );
