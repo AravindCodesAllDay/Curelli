@@ -5,47 +5,34 @@ import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
-  window.scrollTo(0, 0);
-  const nav = useNavigate();
+  const navigate = useNavigate();
   const userId = sessionStorage.getItem("id");
   const [cartItems, setCartItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const fetchProductDetails = async (productId) => {
+  const handleQuantityChange = async (userId, productId, sign) => {
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API}products/${productId}`
-      );
-      return await response.json();
-    } catch (error) {
-      console.error("Error fetching product details:", error);
-      return null;
-    }
-  };
-  const handleQuantityChange = async (productId, newQuantity) => {
-    if (newQuantity <= 0) {
-      return 0;
-    }
-    try {
-      // Update the quantity on the server
-      await fetch(`${import.meta.env.VITE_API}users/cart`, {
-        method: "Post",
+      const res = await fetch(`${import.meta.env.Vi}users/cartquantity`, {
+        method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-type": "application/json",
         },
         body: JSON.stringify({
-          userId,
+          userId: userId,
           product: productId,
+          sign: sign,
         }),
       });
 
-      setCartItems((prevCartItems) =>
-        prevCartItems.map((item) =>
-          item.id === productId ? { ...item } : item
-        )
-      );
+      if (!res.ok) {
+        throw new Error("Failed to update quantity");
+      }
+
+      await fetchCartDetails();
     } catch (error) {
       console.error("Error updating quantity:", error);
-      setError("Error updating quantity. Please try again later.");
+      toast("Error updating quantity. Please try again later.");
     }
   };
 
@@ -54,24 +41,17 @@ const Cart = () => {
       const response = await fetch(
         `${import.meta.env.VITE_API}users/${userId}`
       );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch cart details");
+      }
+
       const user = await response.json();
-
-      const updatedCartItems = await Promise.all(
-        user.cart.map(async (cartItem) => {
-          const productDetails = await fetchProductDetails(cartItem.product);
-          return {
-            ...productDetails,
-            quantity: cartItem.quantity,
-            id: cartItem.product,
-          };
-        })
-      );
-
-      setCartItems(updatedCartItems);
+      setCartItems(user.cart);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching user cart:", error);
       setError("Error fetching cart. Please try again later.");
-    } finally {
       setLoading(false);
     }
   };
@@ -80,9 +60,8 @@ const Cart = () => {
     fetchCartDetails();
   }, []);
 
-  const handleDelete = async (productId, userId) => {
+  const handleDelete = async (productId) => {
     try {
-      // Delete the item from the cart on the server
       await fetch(`${import.meta.env.VITE_API}users/cart`, {
         method: "DELETE",
         headers: {
@@ -91,7 +70,6 @@ const Cart = () => {
         body: JSON.stringify({ userId, product: productId }),
       });
 
-      // Update the local state to reflect the deletion
       setCartItems((prevCartItems) =>
         prevCartItems.filter((item) => item.id !== productId)
       );
@@ -101,6 +79,9 @@ const Cart = () => {
       setError("Error deleting item from cart. Please try again later.");
     }
   };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const totalPrice = cartItems.reduce(
@@ -138,18 +119,14 @@ const Cart = () => {
                   <div className="flex justify-center">
                     <button
                       className="w-5 h-5 rounded-full mr-2 font-bold text-xl -m-0.5"
-                      onClick={() =>
-                        handleQuantityChange(item.id, item.quantity - 1)
-                      }
+                      onClick={() => handleQuantityChange(userId, item.id, "-")}
                     >
                       -
                     </button>
                     <span className="font-bold text-xl">{item.quantity}</span>
                     <button
                       className="w-5 h-5 rounded-full ml-2 font-bold text-xl"
-                      onClick={() =>
-                        handleQuantityChange(item.id, item.quantity + 1)
-                      }
+                      onClick={() => handleQuantityChange(userId, item.id, "+")}
                     >
                       +
                     </button>
@@ -161,7 +138,7 @@ const Cart = () => {
                   <div className="flex justify-center">
                     <FaTrash
                       className="w-5 h-5 text-red-800 mr-4 cursor-pointer"
-                      onClick={() => handleDelete(item._id, userId)}
+                      onClick={() => handleDelete(item._id)}
                     />
                     <FaShareAlt className="w-5 h-5 text-black cursor-pointer" />
                   </div>
@@ -178,7 +155,7 @@ const Cart = () => {
           <div className="text-center mt-4">
             <button
               className="bg-[#40773b] text-white px-4 py-2 rounded-md"
-              onClick={() => nav("/checkout")}
+              onClick={() => navigate("/checkout")}
             >
               Proceed to Checkout
             </button>

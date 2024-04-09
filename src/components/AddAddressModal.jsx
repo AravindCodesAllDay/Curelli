@@ -33,6 +33,7 @@ export default function AddAddressModal({ setAddModal }) {
 
       if (addressRes.ok) {
         const data = await addressRes.json();
+        setAddModal(false);
         toast.success(data.message, {
           position: "bottom-center",
           autoClose: 5000,

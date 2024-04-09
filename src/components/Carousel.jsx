@@ -33,8 +33,6 @@ export default function Carousel() {
     };
 
     fetchData();
-    console.log(carouselLap);
-    console.log(carouselMobile);
   }, []);
   return (
     <>

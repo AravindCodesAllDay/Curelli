@@ -102,18 +102,18 @@ export default function Orders() {
                 </thead>
                 <tbody>
                   {order.products.map((product, index) => (
-                    <tr key={index} className="border-b items-center">
-                      <td className="py-2">
+                    <tr key={index} className="border-b ">
+                      <td className="py-2 ">
                         <img
                           src={`${import.meta.env.VITE_API}uploads/${
                             product.photo
                           }`}
-                          className="h-14"
+                          className="h-14 mx-auto"
                           alt=""
                         />
                       </td>
-                      <td className="py-2">{product.name}</td>
-                      <td className="py-2">{product.quantity}</td>
+                      <td className="py-2 text-center">{product.name}</td>
+                      <td className="py-2 text-center">{product.quantity}</td>
                     </tr>
                   ))}
                 </tbody>

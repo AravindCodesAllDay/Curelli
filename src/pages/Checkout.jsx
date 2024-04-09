@@ -15,18 +15,6 @@ export default function Checkout() {
   const [addressId, setAddressId] = useState("");
   const [paymentmethod, setPaymentmethod] = useState("");
 
-  const fetchProductDetails = async (productId) => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API}products/${productId}`
-      );
-      return await response.json();
-    } catch (error) {
-      console.error("Error fetching product details:", error);
-      return null;
-    }
-  };
-
   const fetchCartDetails = async () => {
     try {
       const response = await fetch(
@@ -34,18 +22,8 @@ export default function Checkout() {
       );
       const user = await response.json();
       setUserAddress(user.address);
-      const updatedCartItems = await Promise.all(
-        user.cart.map(async (cartItem) => {
-          const productDetails = await fetchProductDetails(cartItem.product);
-          return {
-            ...productDetails,
-            quantity: cartItem.quantity,
-            id: cartItem.product,
-          };
-        })
-      );
 
-      setCartItems(updatedCartItems);
+      setCartItems(user.cart);
     } catch (error) {
       console.error("Error fetching user cart:", error);
       setError("Error fetching cart. Please try again later.");
@@ -61,14 +39,8 @@ export default function Checkout() {
     0
   );
 
-  // console.log(userAddress);
-
   const handlePlaceOrder = async () => {
     try {
-      let products = [];
-      cartItems.map((item) => {
-        products.push({ id: item._id, quantity: item.quantity });
-      });
       const addressIndex = userAddress.findIndex(
         (address) => address._id === addressId
       );
@@ -84,7 +56,7 @@ export default function Checkout() {
           },
           body: JSON.stringify({
             addressId: userAddress[addressIndex],
-            products,
+            products: cartItems,
             paymentmethod,
             totalPrice,
           }),

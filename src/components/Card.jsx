@@ -28,7 +28,6 @@ export default function Card({ children, details }) {
       const userResult = await userResponse.json();
 
       if (userResult.cart.some((item) => item.product === productId)) {
-        console.log("Item is already in the cart");
         toast.success("Item already in Cart");
       } else {
         const cartResponse = await fetch(
