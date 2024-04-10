@@ -13,15 +13,15 @@ const Cart = () => {
 
   const handleQuantityChange = async (userId, productId, sign) => {
     try {
-      const res = await fetch(`${import.meta.env.Vi}users/cartquantity`, {
-        method: "POST",
+      await fetch(`${import.meta.env.VITE_API}users/cartquantity`, {
+        method: "PUT",
         headers: {
           "Content-type": "application/json",
         },
         body: JSON.stringify({
-          userId: userId,
-          product: productId,
-          sign: sign,
+          userId,
+          productId,
+          sign,
         }),
       });
 
@@ -56,29 +56,29 @@ const Cart = () => {
     }
   };
 
-  useEffect(() => {
-    fetchCartDetails();
-  }, []);
-
   const handleDelete = async (productId) => {
     try {
+      const userId = sessionStorage.getItem("id");
       await fetch(`${import.meta.env.VITE_API}users/cart`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userId, product: productId }),
+        body: JSON.stringify({ userId, productId }),
       });
 
-      setCartItems((prevCartItems) =>
-        prevCartItems.filter((item) => item.id !== productId)
-      );
+      // Remove the deleted item from cartItems state
+      await fetchCartDetails();
       toast("An item removed");
     } catch (error) {
       console.error("Error deleting item from cart:", error);
       setError("Error deleting item from cart. Please try again later.");
     }
   };
+
+  useEffect(() => {
+    fetchCartDetails();
+  }, []);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;

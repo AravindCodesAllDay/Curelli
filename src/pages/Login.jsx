@@ -80,18 +80,41 @@ const Login = () => {
           }
         )
         .then(async (res) => {
-          //   setProfile(res.data);
+          console.log(res.data);
           const response = await fetch(
             `${import.meta.env.VITE_API}users/${res.data.email}`
           );
           if (response.ok) {
+            console.log("User already exists");
             const data = await response.json();
             sessionStorage.setItem("id", data._id);
             sessionStorage.setItem("name", data.name);
             nav("/");
+          } else {
+            const result = await fetch(
+              `${import.meta.env.VITE_API}users/google`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                  mail: res.data.email,
+                  name: res.data.name,
+                }),
+              }
+            );
+            if (result.ok) {
+              const data = await result.json();
+              console.log(data);
+              sessionStorage.setItem("id", data._id);
+              sessionStorage.setItem("name", data.name);
+              nav("/");
+            }
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
     }
     return () => {
       if (user) {
