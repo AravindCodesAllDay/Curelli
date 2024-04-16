@@ -51,8 +51,9 @@ const Wishlist = () => {
     fetchWishDetails();
   }, []);
 
-  const handleDelete = async (productId, userId) => {
+  const handleDelete = async (productId) => {
     try {
+      console.log(productId);
       await fetch(`${import.meta.env.VITE_API}users/wishlist`, {
         method: "DELETE",
         headers: {
@@ -61,9 +62,7 @@ const Wishlist = () => {
         body: JSON.stringify({ userId, product: productId }),
       });
 
-      setWishlistItems((prevItems) =>
-        prevItems.filter((item) => item.id !== productId)
-      );
+      await fetchWishDetails();
       toast.success("Item removed from wishlist.");
     } catch (error) {
       console.error("Error deleting item from wishlist:", error);
@@ -71,40 +70,57 @@ const Wishlist = () => {
     }
   };
 
-  const add2Cart = async (productId, userId) => {
+  const add2Cart = async (productId) => {
     if (!userId) {
       console.error("User ID is not available.");
+      nav("/login");
       return;
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API}users/cart`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId,
-          product: productId,
-          quantity: 1,
-        }),
-      });
+      const userResponse = await fetch(
+        `${import.meta.env.VITE_API}users/${userId}`
+      );
+      const userResult = await userResponse.json();
+      const isInCart = userResult.cart.find((item) => item._id === productId);
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data.message);
-        nav(`/cart`);
+      if (isInCart) {
+        toast.info("Item already in Cart", {
+          closeButton: false,
+          pauseOnHover: false,
+        });
       } else {
-        const errorData = await response.json();
-        console.error(
-          "Error adding item to cart:",
-          errorData.error || "Unknown error"
+        const cartResponse = await fetch(
+          `${import.meta.env.VITE_API}users/cart`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userId,
+              product: productId,
+            }),
+          }
         );
-        toast.error("Failed to add item to cart.");
+
+        if (cartResponse.ok) {
+          const cartResult = await cartResponse.json();
+          console.log(cartResult.message);
+          toast.info("Item added to Cart", {
+            closeButton: false,
+            pauseOnHover: false,
+          });
+        } else {
+          const errorResult = await cartResponse.json();
+          console.error(
+            "Error adding item to cart:",
+            errorResult.error || "Unknown error"
+          );
+        }
       }
     } catch (error) {
       console.error("Error adding item to cart:", error);
-      toast.error("Failed to add item to cart. Please try again later.");
     }
   };
 
@@ -151,7 +167,7 @@ const Wishlist = () => {
                 <div className="flex justify-center">
                   <FaTrash
                     className="w-5 h-5 text-red-800 mr-4 cursor-pointer"
-                    onClick={() => handleDelete(item._id, userId)}
+                    onClick={() => handleDelete(item._id)}
                   />
                   <FaShareAlt className="w-5 h-5 text-black cursor-pointer" />
                 </div>

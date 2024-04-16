@@ -11,10 +11,11 @@ const Cart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const handleQuantityChange = async (userId, productId, sign) => {
+  const handleQuantityChange = async (productId, sign) => {
     try {
-      await fetch(`${import.meta.env.VITE_API}users/cartquantity`, {
-        method: "PUT",
+      console.log(userId, productId, sign);
+      const res = await fetch(`${import.meta.env.VITE_API}users/cartquantity`, {
+        method: "POST",
         headers: {
           "Content-type": "application/json",
         },
@@ -24,11 +25,8 @@ const Cart = () => {
           sign,
         }),
       });
-
-      if (!res.ok) {
-        throw new Error("Failed to update quantity");
-      }
-
+      const data = await res.json();
+      console.log(data);
       await fetchCartDetails();
     } catch (error) {
       console.error("Error updating quantity:", error);
@@ -58,7 +56,6 @@ const Cart = () => {
 
   const handleDelete = async (productId) => {
     try {
-      const userId = sessionStorage.getItem("id");
       await fetch(`${import.meta.env.VITE_API}users/cart`, {
         method: "DELETE",
         headers: {
@@ -69,7 +66,10 @@ const Cart = () => {
 
       // Remove the deleted item from cartItems state
       await fetchCartDetails();
-      toast("An item removed");
+      toast.success("An item removed", {
+        closeButton: false,
+        pauseOnHover: false,
+      });
     } catch (error) {
       console.error("Error deleting item from cart:", error);
       setError("Error deleting item from cart. Please try again later.");
@@ -82,7 +82,7 @@ const Cart = () => {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
-
+  console.log(cartItems);
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const totalPrice = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -106,7 +106,7 @@ const Cart = () => {
           </thead>
           <tbody>
             {cartItems.map((item) => (
-              <tr key={item.id} className="border-2 m-1 text-center">
+              <tr key={item._id} className="border-2 m-1 text-center">
                 <td className="flex justify-center">
                   <img
                     src={`${import.meta.env.VITE_API}uploads/${item.photo}`}
@@ -119,14 +119,14 @@ const Cart = () => {
                   <div className="flex justify-center">
                     <button
                       className="w-5 h-5 rounded-full mr-2 font-bold text-xl -m-0.5"
-                      onClick={() => handleQuantityChange(userId, item.id, "-")}
+                      onClick={() => handleQuantityChange(item._id, "-")}
                     >
                       -
                     </button>
                     <span className="font-bold text-xl">{item.quantity}</span>
                     <button
                       className="w-5 h-5 rounded-full ml-2 font-bold text-xl"
-                      onClick={() => handleQuantityChange(userId, item.id, "+")}
+                      onClick={() => handleQuantityChange(item._id, "+")}
                     >
                       +
                     </button>

@@ -54,11 +54,7 @@ export default function PopularProducts() {
       <div className="flex xs:justify-between sm:justify-between md:justify-around lg:justify-around xl:justify-around 2xl:justify-around">
         {cardDetails.map((details) => (
           <div key={details._id} className="flex-shrink-0">
-            <Card details={details}>
-              <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded">
-                {details.status}
-              </div>
-            </Card>
+            <Card details={details} />
           </div>
         ))}
       </div>
