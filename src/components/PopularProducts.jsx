@@ -8,7 +8,7 @@ import Rating from "@mui/material/Rating";
 export default function PopularProducts() {
   const userId = sessionStorage.getItem("id");
   const nav = useNavigate();
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState(null); // State to track hovered card
 
   const openPopup = (details) => {
     nav(`/shop/${details._id}`);
@@ -67,6 +67,7 @@ export default function PopularProducts() {
       console.error("Error adding item to cart:", error);
     }
   };
+
   const add2Wishlist = async (productId) => {
     if (!userId) {
       console.error("User ID is not available.");
@@ -118,6 +119,7 @@ export default function PopularProducts() {
       console.error("Error adding item to wishlist:", error);
     }
   };
+
   const cardDetails = [
     {
       _id: "65c26a36167ec3c69e917c07",
@@ -175,8 +177,8 @@ export default function PopularProducts() {
               <div className="card-container overflow-x-auto flex flex-row flex-wrap justify-center">
                 <div
                   className="relative w-full max-w-[290px] border-2 max-h-[400px] hover:shadow-2xl flex flex-col justify-between m-2 lg:my-5 transition-shadow duration-150 ease-out"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
+                  onMouseEnter={() => setHoveredCard(details._id)}
+                  onMouseLeave={() => setHoveredCard(null)}
                 >
                   <div className="relative max-h-[250px] w-100% h-100%">
                     <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded">
@@ -192,18 +194,20 @@ export default function PopularProducts() {
                     />
                     <div
                       className={`absolute top-4 right-4 flex flex-col gap-2 transition-all cursor-pointer ${
-                        isHovered ? "opacity-100" : "opacity-0"
+                        hoveredCard === details._id
+                          ? "opacity-100"
+                          : "opacity-0"
                       }`}
                     >
                       <div
                         className="rounded-full bg-white p-3 shadow group"
-                        onClick={() => add2Wishlist(details._id, userId)}
+                        onClick={() => add2Wishlist(details._id)}
                       >
                         <FaHeart className="text-[#303030] duration-150 ease-out group-hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
                       </div>
                       <div
                         className="rounded-full bg-white p-3 shadow group"
-                        onClick={() => add2Cart(details._id, userId)}
+                        onClick={() => add2Cart(details._id)}
                       >
                         <FaShoppingCart className="text-[#303030] duration-150 ease-out group-hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
                       </div>
