@@ -24,7 +24,7 @@ export default function AboutBanner() {
           </p>
           <div className="flex xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row items-center">
             <img
-              className=" flex justify-center w-full max-h-96 md:w-auto h-auto rounded-md hover:scale-105 mb-6 md:mb-0 md:mr-8 max-w-md"
+              className=" flex justify-center w-full max-h-96 md:w-auto h-auto rounded-md hover:scale-105 mb-6 md:mb-0 md:mr-8 duration-150 ease-out max-w-md"
               alt="Pancakes"
               src={img}
             />

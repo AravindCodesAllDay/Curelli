@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
-import Card from "../components/Card";
 import Whatsapp from "../components/Whatsapp";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
@@ -162,7 +161,7 @@ export default function Shop() {
             onMouseEnter={() => setHoveredCard(index)}
             onMouseLeave={() => setHoveredCard(null)}
           >
-            <div className="relative w-full max-w-[290px] border-2 max-h-[400px] hover:shadow-2xl flex flex-col justify-between m-2 lg:my-5">
+            <div className="relative w-full max-w-[290px] border-2 max-h-[400px] hover:shadow-2xl flex flex-col justify-between m-2 lg:my-5 transition-shadow duration-150 ease-out">
               <div className="relative max-h-[250px] w-100% h-100%">
                 <img
                   src={`${import.meta.env.VITE_API}uploads/${details.photo}`}
@@ -171,18 +170,18 @@ export default function Shop() {
                   onClick={() => openPopup(details)}
                 />
                 {hoveredCard === index && (
-                  <div className="absolute top-4 right-4 flex flex-col gap-2 transition-all">
+                  <div className="absolute top-4 right-4 flex flex-col gap-2 transition-all cursor-pointer">
                     <div
-                      className="rounded-full bg-white p-3 shadow"
+                      className="rounded-full bg-white p-3 shadow group"
                       onClick={() => add2Wishlist(details._id)}
                     >
-                      <FaHeart className="text-[#303030] hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
+                      <FaHeart className="text-[#303030] duration-150 ease-out group-hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
                     </div>
                     <div
-                      className="rounded-full bg-white p-3 shadow"
+                      className="rounded-full bg-white p-3 shadow group"
                       onClick={() => add2Cart(details._id)}
                     >
-                      <FaShoppingCart className="text-[#303030] hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
+                      <FaShoppingCart className="text-[#303030] duration-150 ease-out group-hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
                     </div>
                   </div>
                 )}

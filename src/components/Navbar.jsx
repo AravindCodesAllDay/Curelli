@@ -63,7 +63,7 @@ export default function Navbar({ children }) {
             </div>
             <div className="lg:flex hidden md:flex flex-grow  xs:gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-4 2xl:gap-5  relative items-center">
               <div
-                className={`text-[16px] ${
+                className={`text-[16px] duration-150 ease-out ${
                   location.pathname === "/"
                     ? "text-[#6b986a]"
                     : "hover:text-[#6b986a] text-white"
@@ -72,7 +72,7 @@ export default function Navbar({ children }) {
                 <Link to={`/`}>Home</Link>
               </div>
               <div
-                className={` text-[16px] ${
+                className={` text-[16px] duration-150 ease-out ${
                   location.pathname === "/aboutus"
                     ? "text-[#6b986a]"
                     : "hover:text-[#6b986a] text-white"
@@ -81,7 +81,7 @@ export default function Navbar({ children }) {
                 <Link to={`/aboutus`}>Our Story</Link>
               </div>
               <div
-                className={` text-[16px] ${
+                className={` text-[16px] duration-150 ease-out ${
                   location.pathname === "/shop"
                     ? "text-[#6b986a]"
                     : "hover:text-[#6b986a] text-white"
@@ -90,7 +90,7 @@ export default function Navbar({ children }) {
                 <Link to={`/shop`}>Our Products</Link>
               </div>
               <div
-                className={`text-[16px] ${
+                className={`text-[16px] duration-150 ease-out ${
                   location.pathname === "/contact"
                     ? "text-[#6b986a]"
                     : "hover:text-[#6b986a] text-white"

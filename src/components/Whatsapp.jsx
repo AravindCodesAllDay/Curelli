@@ -43,19 +43,23 @@ function Whatsapp() {
       <div className={`App ${isVisible ? "visible" : "hidden"}`}>
         <div id="uparrow">
           <button
-            className="bg-green-500 p-[10px] rounded-full"
+            className="bg-green-500 p-[10px] rounded-full group"
             onClick={scrollToTop}
           >
-            <FaArrowUp className="h-6 w-6 text-white hover:scale-125" />
+            <FaArrowUp className="h-6 w-6 text-white group-hover:scale-125" />
           </button>
         </div>
       </div>
       <div id="whatsapp-chat" className="mt-2">
         <button
-          className="bg-green-500 text-white p-[10px] rounded-full"
+          className="bg-green-500 text-white p-[10px] rounded-full group"
           onClick={openWhatsApp}
         >
-          <img src={img2} alt="whatsapp logo" className="w-6 hover:scale-125" />
+          <img
+            src={img2}
+            alt="whatsapp logo"
+            className="w-6 group-hover:scale-125"
+          />
         </button>
       </div>
     </div>

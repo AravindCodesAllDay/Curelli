@@ -3,11 +3,11 @@ import img1 from "../assets/UnmatchedQuality@AffordablePrice.jpg";
 
 export default function Banner() {
   return (
-    <div className="flex flex-col md:flex-row w-screen items-center justify-center gap-4 py-14 p-2 my-12 relative bg-white">
+    <div className="flex flex-col md:flex-row w-screen items-center justify-center gap-4 py-14 p-5 my-12 relative bg-white">
       {/* Image Container */}
       <div className="flex relative lg:w-2/6">
         <img
-          className="w-full h-full object-cover rounded-md shadow border-b-8 border-r-8 border-[#277933] hover:scale-105 hover:border-none"
+          className="w-full h-full object-cover rounded-md shadow border-b-8 border-r-8 border-[#277933] hover:scale-105 duration-150 ease-out hover:border-none"
           alt="Rectangle"
           src={img1}
         />
