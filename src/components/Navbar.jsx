@@ -9,7 +9,7 @@ import OffCanvasMenu from "./OffCanvasMenu";
 
 export default function Navbar({ children }) {
   const nav = useNavigate();
-  const userId = sessionStorage.getItem("id");
+  const userId = localStorage.getItem("id");
   const location = useLocation();
   const [isUserIdPresent, setIsUserIdPresent] = useState(false);
   const [showOffCanvasMenu, setShowOffCanvasMenu] = useState(false);

@@ -7,7 +7,7 @@ import AddAddressModal from "../components/AddAddressModal";
 
 export default function Profile() {
   window.scrollTo(0, 0);
-  const userId = sessionStorage.getItem("id");
+  const userId = localStorage.getItem("id");
   const [userDetails, setUserDetails] = useState({});
   const [addressDetails, setAddressDetails] = useState([]);
   const [addModal, setAddModal] = useState(false);
@@ -124,10 +124,10 @@ export default function Profile() {
           <form>
             <div className="flex items-center p-4">
               <p className=" text-white rounded-full p-1 w-8 bg-[#964B00] border-2 justify-center flex">
-                {sessionStorage.getItem("name").charAt(0)}
+                {localStorage.getItem("name").charAt(0)}
               </p>
               <div className="ml-4 text-gray-600 font-medium">
-                Hello, {sessionStorage.getItem("name")}
+                Hello, {localStorage.getItem("name")}
               </div>
             </div>
             <div className="px-4 py-2 border-b border-gray-300 flex items-center justify-between">

@@ -130,8 +130,8 @@ function Register() {
           if (response.ok) {
             console.log("User already exists");
             const data = await response.json();
-            sessionStorage.setItem("id", data._id);
-            sessionStorage.setItem("name", data.name);
+            localStorage.setItem("id", data._id);
+            localStorage.setItem("name", data.name);
             nav("/");
           } else {
             const result = await fetch(
@@ -150,8 +150,8 @@ function Register() {
             if (result.ok) {
               const data = await result.json();
               console.log(data);
-              sessionStorage.setItem("id", data._id);
-              sessionStorage.setItem("name", data.name);
+              localStorage.setItem("id", data._id);
+              localStorage.setItem("name", data.name);
               nav("/");
             }
           }

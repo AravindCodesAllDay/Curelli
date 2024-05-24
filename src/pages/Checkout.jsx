@@ -5,7 +5,7 @@ import AddAddressModal from "../components/AddAddressModal";
 export default function Checkout() {
   window.scrollTo(0, 0);
   const nav = useNavigate();
-  const userId = sessionStorage.getItem("id");
+  const userId = localStorage.getItem("id");
   const [cartItems, setCartItems] = useState([]);
   const [userAddress, setUserAddress] = useState([]);
   const [addModal, setAddModal] = useState(false);

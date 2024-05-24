@@ -8,7 +8,7 @@ import Rating from "@mui/material/Rating";
 const Wishlist = () => {
   window.scrollTo(0, 0);
   const nav = useNavigate();
-  const userId = sessionStorage.getItem("id");
+  const userId = localStorage.getItem("id");
   const [wishlistItems, setWishlistItems] = useState([]);
 
   const fetchProductDetails = async (productId) => {

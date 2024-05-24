@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PopupCard = () => {
-  const userId = sessionStorage.getItem("id");
+  const userId = localStorage.getItem("id");
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(true); // Add loading state
   const { _pid } = useParams();

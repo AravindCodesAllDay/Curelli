@@ -10,7 +10,7 @@ import Whatsapp from "../components/Whatsapp";
 export default function Shop() {
   const [cardDetails, setCardDetails] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(null);
-  const userId = sessionStorage.getItem("id");
+  const userId = localStorage.getItem("id");
   const nav = useNavigate();
 
   useEffect(() => {

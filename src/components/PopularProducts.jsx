@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Rating from "@mui/material/Rating";
 
 export default function PopularProducts() {
-  const userId = sessionStorage.getItem("id");
+  const userId = localStorage.getItem("id");
   const nav = useNavigate();
   const [hoveredCard, setHoveredCard] = useState(null); // State to track hovered card
 

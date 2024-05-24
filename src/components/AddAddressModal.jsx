@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 
 export default function AddAddressModal({ setAddModal }) {
-  const userId = sessionStorage.getItem("id");
+  const userId = localStorage.getItem("id");
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [district, setDistrict] = useState("");

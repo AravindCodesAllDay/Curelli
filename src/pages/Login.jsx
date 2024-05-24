@@ -36,10 +36,9 @@ const Login = () => {
         toast.success("Login Successful", {
           position: "top-center",
         });
-        // Perform actions like storing tokens in sessionStorage, redirecting, etc.
 
-        sessionStorage.setItem("id", user._id);
-        sessionStorage.setItem("name", user.name);
+        localStorage.setItem("id", user._id);
+        localStorage.setItem("name", user.name);
         nav("/");
       } else {
         setWrongPswd(true);
@@ -87,8 +86,8 @@ const Login = () => {
           if (response.ok) {
             console.log("User already exists");
             const data = await response.json();
-            sessionStorage.setItem("id", data._id);
-            sessionStorage.setItem("name", data.name);
+            localStorage.setItem("id", data._id);
+            localStorage.setItem("name", data.name);
             nav("/");
           } else {
             const result = await fetch(
@@ -107,8 +106,8 @@ const Login = () => {
             if (result.ok) {
               const data = await result.json();
               console.log(data);
-              sessionStorage.setItem("id", data._id);
-              sessionStorage.setItem("name", data.name);
+              localStorage.setItem("id", data._id);
+              localStorage.setItem("name", data.name);
               nav("/");
             }
           }

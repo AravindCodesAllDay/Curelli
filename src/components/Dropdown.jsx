@@ -8,7 +8,7 @@ export default function Dropdown() {
   const nav = useNavigate();
 
   const exit = () => {
-    sessionStorage.clear();
+    localStorage.clear();
     googleLogout();
     nav("/login");
   };
@@ -17,9 +17,9 @@ export default function Dropdown() {
     <Menu as="div" className="relative inline-block text-left z-50">
       <div>
         <Menu.Button className="inline-flex w-full justify-center text-sm font-semibold text-gray-900 shadow-sm rounded-full  ">
-          {sessionStorage.getItem("name") != null ? (
+          {localStorage.getItem("name") != null ? (
             <p className=" text-white rounded-full p-1 w-8 bg-[#964B00] border-2">
-              {sessionStorage.getItem("name").charAt(0)}
+              {localStorage.getItem("name").charAt(0)}
             </p>
           ) : (
             <Link to="/login">

@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const userId = sessionStorage.getItem("id");
+  const userId = localStorage.getItem("id");
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

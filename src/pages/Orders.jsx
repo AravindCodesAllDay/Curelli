@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 export default function Orders() {
   window.scrollTo(0, 0);
-  const userId = sessionStorage.getItem("id");
+  const userId = localStorage.getItem("id");
   const [ongoingOrders, setOngoingOrders] = useState([]);
   const [completedOrders, setCompletedOrders] = useState([]);
   const [showCompletedOrders, setShowCompletedOrders] = useState(false);
