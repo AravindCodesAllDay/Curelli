@@ -74,16 +74,28 @@ export default function AboutBanner() {
               href="https://www.instagram.com/curellifoods?igsh=cXlidmxhbm91cGto&utm_source=qr"
               target="_blank"
             >
-              <img className="w-6 h-6" alt="Instagram" src={img2} />
+              <img
+                className="size-7 hover:scale-110"
+                alt="Instagram"
+                src={img2}
+              />
             </a>
             <a href="https://www.facebook.com/curellifoods" target="_blank">
-              <img className="w-6 h-6" alt="Facebook" src={img1} />
+              <img
+                className="size-7 hover:scale-110"
+                alt="Facebook"
+                src={img1}
+              />
             </a>
             <a
               href="https://www.linkedin.com/company/curellifoods/"
               target="_blank"
             >
-              <img className="w-6 h-6" alt="LinkedIn" src={img3} />
+              <img
+                className="size-7 hover:scale-110"
+                alt="LinkedIn"
+                src={img3}
+              />
             </a>
           </div>
         </div>

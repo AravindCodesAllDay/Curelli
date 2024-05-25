@@ -16,7 +16,7 @@ export default function FollowUs() {
           className="text-xs lg:text-base sm:text-xs xl:text-lg 2xl:text-lg hover:scale-110"
         >
           <img
-            className="xs:size-5 sm:size-6 md:size-6 lg:size-7 xl:size-8 2xl:size-9"
+            className="xs:size-5 sm:size-6 md:size-6 lg:size-7 xl:size-7 2xl:size-8"
             alt="Instagram"
             src={img2}
           />
@@ -27,7 +27,7 @@ export default function FollowUs() {
           className="text-xs lg:text-base sm:text-xs xl:text-lg 2xl:text-lg hover:scale-110"
         >
           <img
-            className="xs:size-5 sm:size-6 md:size-6 lg:size-7 xl:size-8 2xl:size-9"
+            className="xs:size-5 sm:size-6 md:size-6 lg:size-7 xl:size-7 2xl:size-8"
             alt="Facebook"
             src={img1}
           />
@@ -38,7 +38,7 @@ export default function FollowUs() {
           className="text-xs lg:text-base sm:text-xs xl:text-lg 2xl:text-lg hover:scale-110"
         >
           <img
-            className="xs:size-5 sm:size-6 md:size-6 lg:size-7 xl:size-8 2xl:size-9"
+            className="xs:size-5 sm:size-6 md:size-6 lg:size-7 xl:size-7 2xl:size-8"
             alt="LinkedIn"
             src={img4}
           />

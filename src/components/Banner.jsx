@@ -15,10 +15,10 @@ export default function Banner() {
 
       {/* Content Container */}
       <div className="flex flex-col items-center gap-4 lg:w-4/6 text-justify p-4">
-        <p className="xs:text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-[#40773b] text-center">
+        <p className="xs:text-xl sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-[#40773b] text-center">
           Unmatched Quality at Affordable Price
         </p>
-        <div className="text-[#40773b] xs:text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-center font-semibold mb-2">
+        <div className="text-[#40773b]  xs:text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-center font-semibold mb-2">
           Only the Best
         </div>
         <p className="text-[#40773b] xs:text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-justify">

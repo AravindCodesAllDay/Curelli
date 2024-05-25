@@ -9,7 +9,6 @@ import Whatsapp from "../components/Whatsapp";
 
 export default function Shop() {
   const [cardDetails, setCardDetails] = useState([]);
-  const [hoveredCard, setHoveredCard] = useState(null);
   const userId = localStorage.getItem("id");
   const nav = useNavigate();
 
@@ -108,12 +107,10 @@ export default function Shop() {
     <>
       <ToastContainer />
       <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5">
-        {cardDetails.map((details, index) => (
+        {cardDetails.map((details) => (
           <div
             key={details._id}
-            className="card-container overflow-x-auto flex flex-row flex-wrap justify-center"
-            onMouseEnter={() => setHoveredCard(index)}
-            onMouseLeave={() => setHoveredCard(null)}
+            className="card-container overflow-x-auto flex flex-row flex-wrap justify-center group/main"
           >
             <div className="relative w-full max-w-[290px] border-2 max-h-[400px] hover:shadow-2xl flex flex-col justify-between m-2 lg:my-5 transition-shadow duration-150 ease-out">
               <div className="relative max-h-[250px] w-full h-full">
@@ -123,36 +120,34 @@ export default function Shop() {
                   className="w-full h-full object-cover hover:cursor-pointer"
                   onClick={() => openPopup(details)}
                 />
-                {hoveredCard === index && (
-                  <div className="absolute top-4 right-4 flex flex-col gap-2 transition-all cursor-pointer">
-                    <div
-                      className="rounded-full bg-white p-3 shadow group"
-                      onClick={() =>
-                        handleAddToCartOrWishlist(
-                          "wishlist",
-                          details._id,
-                          "wishlist",
-                          "wishlist"
-                        )
-                      }
-                    >
-                      <FaHeart className="text-[#303030] duration-150 ease-out group-hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
-                    </div>
-                    <div
-                      className="rounded-full bg-white p-3 shadow group"
-                      onClick={() =>
-                        handleAddToCartOrWishlist(
-                          "cart",
-                          details._id,
-                          "Cart",
-                          "cart"
-                        )
-                      }
-                    >
-                      <FaShoppingCart className="text-[#303030] duration-150 ease-out group-hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
-                    </div>
+                <div className="absolute top-4 right-4 flex flex-col gap-2 transition-all cursor-pointer opacity-0 group-hover/main:opacity-100">
+                  <div
+                    className="rounded-full bg-white p-3 shadow group"
+                    onClick={() =>
+                      handleAddToCartOrWishlist(
+                        "wishlist",
+                        details._id,
+                        "wishlist",
+                        "wishlist"
+                      )
+                    }
+                  >
+                    <FaHeart className="text-[#303030] duration-150 ease-out group-hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
                   </div>
-                )}
+                  <div
+                    className="rounded-full bg-white p-3 shadow group"
+                    onClick={() =>
+                      handleAddToCartOrWishlist(
+                        "cart",
+                        details._id,
+                        "Cart",
+                        "cart"
+                      )
+                    }
+                  >
+                    <FaShoppingCart className="text-[#303030] duration-150 ease-out group-hover:scale-150 xs:size-3 sm:size-3 md:size-3 lg:size-4 xl:size-4 2xl:size-5" />
+                  </div>
+                </div>
               </div>
               <div className="p-4 cursor-default">
                 <h2 className="xs:text-xs sm:text-xs md:text-sm lg:text-md xl:text-md 2xl:text-lg font-bold mb-2">
