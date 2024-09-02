@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import img2 from "../assets/WhatsApp.png";
 
-function Whatsapp() {
+function ToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -66,4 +66,4 @@ function Whatsapp() {
   );
 }
 
-export default Whatsapp;
+export default ToTop;

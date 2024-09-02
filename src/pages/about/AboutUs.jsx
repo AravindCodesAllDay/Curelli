@@ -1,9 +1,9 @@
 import React from "react";
-import AboutBanner from "../components/AboutBanner";
-import AboutDetails from "../components/AboutDetails";
-import AboutContact from "../components/AboutContact";
-import Footer from "../components/Footer";
-import Whatsapp from "../components/Whatsapp";
+import AboutBanner from "./AboutBanner";
+import AboutDetails from "./AboutDetails";
+import AboutContact from "./AboutContact";
+import Footer from "../../components/Footer";
+import ToTop from "../../components/ToTop";
 
 export default function AboutUs() {
   window.scrollTo(0, 0);
@@ -15,7 +15,7 @@ export default function AboutUs() {
         <AboutContact />
       </div>
       <Footer />
-      <Whatsapp />
+      <ToTop />
     </>
   );
 }

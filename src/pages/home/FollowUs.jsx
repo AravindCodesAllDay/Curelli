@@ -1,7 +1,7 @@
 import React from "react";
-import img1 from "../assets/facebook.png";
-import img2 from "../assets/instagram.png";
-import img4 from "../assets/linkedin.png";
+import img1 from "../../assets/facebook.png";
+import img2 from "../../assets/instagram.png";
+import img4 from "../../assets/linkedin.png";
 
 export default function FollowUs() {
   return (

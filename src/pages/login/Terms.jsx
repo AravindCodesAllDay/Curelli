@@ -1,9 +1,9 @@
 // PrivacyPolicy.jsx
-import "../components/terms.css";
+import "./terms.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import Navbar from "../components/Navbar";
-import Whatsapp from "../components/Whatsapp";
+import Navbar from "../../components/navbar/Navbar";
+import ToTop from "../../components/ToTop";
 
 const Terms = () => {
   window.scrollTo(0, 0);
@@ -540,7 +540,7 @@ const Terms = () => {
           Back
         </button>
       </div>
-      <Whatsapp />
+      <ToTop />
     </>
   );
 };

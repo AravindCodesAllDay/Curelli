@@ -1,5 +1,5 @@
 import React from "react";
-import img1 from "../assets/Web_Image_03.jpg";
+import img1 from "../../assets/Web_Image_03.jpg";
 import { useNavigate } from "react-router-dom";
 
 export default function Posters() {

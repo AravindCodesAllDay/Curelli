@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { FaUser } from "react-icons/fa";
 import { googleLogout } from "@react-oauth/google";
+import { FaUser } from "react-icons/fa";
 
 export default function Dropdown() {
   const nav = useNavigate();

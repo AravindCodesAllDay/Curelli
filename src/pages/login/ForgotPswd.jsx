@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import img1 from "../assets/Logo_02.png";
+import img1 from "../../assets/Logo_02.png";
 
 export default function ForgotPswd() {
   const [mail, setMail] = useState("");

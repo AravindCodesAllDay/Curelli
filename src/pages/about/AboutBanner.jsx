@@ -1,8 +1,8 @@
 import React from "react";
-import img from "../assets/AboutUs.jpg";
-import img1 from "../assets/facebook.png";
-import img2 from "../assets/instagram.png";
-import img3 from "../assets/linkedin.png";
+import img from "../../assets/AboutUs.jpg";
+import img1 from "../../assets/facebook.png";
+import img2 from "../../assets/instagram.png";
+import img3 from "../../assets/linkedin.png";
 
 export default function AboutBanner() {
   return (

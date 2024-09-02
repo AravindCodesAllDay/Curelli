@@ -4,8 +4,8 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import Rating from "@mui/material/Rating";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from "../components/Footer";
-import Whatsapp from "../components/Whatsapp";
+import Footer from "../../components/Footer";
+import ToTop from "../../components/ToTop";
 
 export default function Shop() {
   const [cardDetails, setCardDetails] = useState([]);
@@ -175,7 +175,7 @@ export default function Shop() {
         ))}
       </div>
       <Footer />
-      <Whatsapp />
+      <ToTop />
       <Outlet />
     </>
   );

@@ -2,8 +2,8 @@ import React from "react";
 import { FaTrash } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
-import success from "../assets/checked.png";
-import AddAddressModal from "../components/AddAddressModal";
+import success from "../../assets/checked.png";
+import AddAddressModal from "../../components/AddAddressModal";
 
 export default function Profile() {
   window.scrollTo(0, 0);

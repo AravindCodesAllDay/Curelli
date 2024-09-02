@@ -1,6 +1,6 @@
 import React from "react";
-import img1 from "../assets/startupindia.png";
-import img2 from "../assets/Startuptn-logo.png";
+import img1 from "../../assets/startupindia.png";
+import img2 from "../../assets/Startuptn-logo.png";
 export default function Recognition() {
   return (
     <div className="flex flex-col justify-center items-center h-full m-8">

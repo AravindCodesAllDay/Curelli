@@ -36,7 +36,7 @@ export default function Carousel() {
   }, []);
   return (
     <>
-      <div className="hidden lg:block xl:block 2xl:block w-full">
+      <div className="hidden md:block xl:block 2xl:block w-full">
         <TECarousel showControls showIndicators ride="carousel">
           <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
             <TECarouselItem
@@ -101,8 +101,8 @@ export default function Carousel() {
             </TECarouselItem>
           </div>
         </TECarousel>
-      </div>{" "}
-      <div className="lg:hidden xl:hidden 2xl:hidden w-full">
+      </div>
+      <div className="md:hidden xl:hidden 2xl:hidden w-full">
         <TECarousel showControls showIndicators ride="carousel">
           <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
             <TECarouselItem

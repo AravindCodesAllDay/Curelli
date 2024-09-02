@@ -1,25 +1,26 @@
-import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import { RouterProvider, createHashRouter } from "react-router-dom";
-import Navbar from "./components/Navbar.jsx";
-import Home from "./pages/Home.jsx";
-import AboutUs from "./pages/AboutUs.jsx";
-import Contact from "./pages/Contact.jsx";
-import Shop from "./pages/Shop.jsx";
-import NoPage from "./pages/NoPage.jsx";
-import PopupCard from "./components/PopupCard.jsx";
-import Register from "./pages/Register.jsx";
-import Cart from "./pages/Cart.jsx";
-import Login from "./pages/Login.jsx";
-import ForgotPswd from "./pages/ForgotPswd.jsx";
-import Terms from "./pages/Terms.jsx";
-import Wishlist from "./pages/Wishlist.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import Profile from "./pages/Profile.jsx";
-import Checkout from "./pages/Checkout.jsx";
-import Orders from "./pages/Orders.jsx";
+import "tw-elements-react/dist/css/tw-elements-react.min.css";
+import "./index.css";
+
+import Navbar from "./components/navbar/Navbar.jsx";
+import Home from "./pages/home/Home.jsx";
+import AboutUs from "./pages/about/AboutUs.jsx";
+import Contact from "./pages/contact/Contact.jsx";
+import Shop from "./pages/products/Shop.jsx";
+import NoPage from "./pages/profile/NoPage.jsx";
+import PopupCard from "./pages/products/PopupCard.jsx";
+import Register from "./pages/login/Register.jsx";
+import Cart from "./pages/cart/Cart.jsx";
+import Login from "./pages/login/Login.jsx";
+import ForgotPswd from "./pages/login/ForgotPswd.jsx";
+import Terms from "./pages/login/Terms.jsx";
+import Wishlist from "./pages/cart/Wishlist.jsx";
+import Profile from "./pages/profile/Profile.jsx";
+import Checkout from "./pages/cart/Checkout.jsx";
+import Orders from "./pages/cart/Orders.jsx";
 
 const router = createHashRouter([
   {

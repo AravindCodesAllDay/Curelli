@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import AddAddressModal from "../components/AddAddressModal";
+import AddAddressModal from "../../components/AddAddressModal";
 
 export default function Checkout() {
   window.scrollTo(0, 0);

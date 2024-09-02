@@ -8,7 +8,7 @@ import Rating from "@mui/material/Rating";
 export default function PopularProducts() {
   const userId = localStorage.getItem("id");
   const nav = useNavigate();
-  const [hoveredCard, setHoveredCard] = useState(null); // State to track hovered card
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   const openPopup = (details) => {
     nav(`/shop/${details._id}`);
